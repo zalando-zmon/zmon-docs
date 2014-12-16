@@ -17,7 +17,6 @@ ZMON Docs
    entities
    downtimes
    comments
-   json-endpoints
    permissions
    python-tutorial
    event-logging
