@@ -2,6 +2,10 @@
 ZMON Documentation
 ==================
 
+.. image:: https://readthedocs.org/projects/zmon/badge/?version=latest
+   :target: https://readthedocs.org/projects/zmon/?badge=latest
+   :alt: Documentation Status
+
 First install the Sphinx_ documentation generator.
 
 .. code-block:: bash
