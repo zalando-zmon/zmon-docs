@@ -18,6 +18,7 @@ ZMON Docs
    downtimes
    comments
    permissions
+   tests
    python-tutorial
    event-logging
    developer
