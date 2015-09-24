@@ -21,7 +21,7 @@ The Redis service is one of the core dependencies, ZMON uses Redis for its task 
 PostgreSQL
 ----------
 
-PostgreSQL is ZMONs data store for Entities, Checks, Alerts, Dashboards and Grafana Dashboards.
+PostgreSQL is ZMONs data store for entities, checks, alerts, dashboards and Grafana dashboards.
 
 Cassandra
 ---------
