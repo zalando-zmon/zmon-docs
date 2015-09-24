@@ -14,6 +14,7 @@ ZMON Docs
    alert-definition-inheritance
    alert-recipes
    dashboards
+   grafana
    notification-groups
    downtimes
    comments

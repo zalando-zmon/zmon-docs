@@ -46,7 +46,7 @@ Retrieve an existing check defintion as YAML.
 
 .. code-block:: bash
 
-  zmon check-defintion get 1234
+  zmon check-definition get 1234
 
 Create and Update
 ^^^^^^^^^^^^^^^^^
