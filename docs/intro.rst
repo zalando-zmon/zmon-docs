@@ -10,4 +10,6 @@ on which alerts can be triggered. Both :term:`check definition` commands
 run for multiple so-called entities,  e.g. one check definition would be
 used to get data for multiple hosts (“host” is one entity type).
 
+.. image:: images/components.svg
+
 .. _Python: http://www.python.org
