@@ -815,6 +815,12 @@ The ``scalyr()`` wrapper enables querying Scalyr from your AWS worker if the cre
 
   Run a count query against Scalyr, depending on number of queries you may run into rate limit.
 
+
+  ::
+
+        scalyr().count(' ERROR ')
+
+
 .. py:method:: timeseries(query, minutes=30)
 
   Runs a timeseries query agains Scalyr with more generous rate limits. (New time series are created on the fly by Scalyr)

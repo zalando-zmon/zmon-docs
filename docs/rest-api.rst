@@ -50,6 +50,19 @@ Here are some examples:
 
     {"message":"Access is denied"}
 
+Entities
+--------
+
+see :ref:`CLI entities <cli-entities>`
+
+Check Definitions
+-----------------
+
+see :ref:`CLI check definitions <cli-cd>`
+
+Dashboards
+----------
+
 Downtimes
 ---------
 For more info about this feature, please check :ref:`this <downtimes>`
