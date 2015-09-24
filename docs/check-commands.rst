@@ -12,7 +12,7 @@ HTTP
 
 Access to HTTP (and HTTPS) endpoints is provided by the :py:func:`http` function.
 
-.. py:function:: http(url, [timeout=10], [max_retries=0], [verify=True])
+.. py:function:: http(url, [timeout=10], [max_retries=0], [verify=True], [oauth2=True])
 
     :param str url: The URL that is to be queried. See below for details.
     :param float timeout: The timeout for the HTTP request, in seconds. Defaults to :py:obj:`10`.
@@ -78,6 +78,12 @@ The object returned by the :py:func:`http` function provides methods: :py:meth:`
 
         http("/heartbeat.jsp", timeout=5).code()
 
+.. py:method:: actuator_metrics(prefix='zmon.response.')
+
+    Parses the json result of a metrics endpoint into a map ep->method->status->metric
+
+        http("/metrics", timeout=5).actuator_metrics()
+
 Zomcat
 ------
 
@@ -141,6 +147,8 @@ Most of the values are retrieved via JMX:
 
 JMX
 ---
+
+For usage of JMXQuery you need "jmxquery" running (this is not yet released)
 
 Queries beans’ attributes on hosts specified in entities filter.::
 
@@ -796,6 +804,20 @@ Checks are based on nsclient++ v.0.4.1. For more info look: http://docs.nsclient
         {
             "uptime": 412488000
         }
+
+
+Scalyr
+------
+
+The ``scalyr()`` wrapper enables querying Scalyr from your AWS worker if the credentials have been specified for the worker instance(s).
+
+.. py:method:: count(query, minutes=5)
+
+  Run a count query against Scalyr, depending on number of queries you may run into rate limit.
+
+.. py:method:: timeseries(query, minutes=30)
+
+  Runs a timeseries query agains Scalyr with more generous rate limits. (New time series are created on the fly by Scalyr)
 
 Redis
 -----

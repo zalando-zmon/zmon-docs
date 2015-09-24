@@ -5,16 +5,16 @@ ZMON Docs
    :maxdepth: 1
 
    intro
-   first-steps
-   dashboards
+   installation
+   entities
    check-definitions
    check-commands
    alert-definitions
    alert-definition-parameters
    alert-definition-inheritance
    alert-recipes
+   dashboards
    notification-groups
-   entities
    downtimes
    comments
    permissions
@@ -23,6 +23,7 @@ ZMON Docs
    event-logging
    developer
    rest-api
+   zmon-cli
    glossary
 
 Indices and Tables
