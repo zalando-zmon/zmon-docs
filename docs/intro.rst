@@ -94,5 +94,6 @@ Dashboards
 
 Dashboards consists of a widget area where you can render important data in a graphical way, with charts, gauges or just text. The second section consists of rendering all active alerts for the team filter defined on dashboard level. Using the team filter you select the alerts you want to have on your dashboards, multiple teams can be specified. Additionally TAGs are supported to subselect topics.
 
+.. image:: images/dashboard.png
 
 .. _Python: http://www.python.org
