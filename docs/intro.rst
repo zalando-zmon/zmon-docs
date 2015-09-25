@@ -2,14 +2,95 @@
 Introduction
 ************
 
-ZMON should allow development teams to define checks and alerts for
-their monitoring use cases. Check definitions are basically data sources
-on which alerts can be triggered. Both :term:`check definition` commands
-(“source code” which defines how to get data) and alert conditions
-(“thresholds” when to notify) are using Python_ expressions. Checks can
-run for multiple so-called entities,  e.g. one check definition would be
-used to get data for multiple hosts (“host” is one entity type).
+ZMON is Zalando's open source platform monitoring tool. A team of Zalando Technology started the development in a Hackweek late 2013 to replace ICINGA. Scalability was crucial but manageability and flexibility were equaliy important. By then a lot of small teams needed to monitor their services independent of eacher other. Early 2014 it went into production and teams migrated all checks from ICINGA to ZMON which serves Zalando Tech until today.
+
+The main concepts for behind ZMON are a split of responsibilities between checks and alerts and the use of entities to describe everything we want to monitor. Both are being managed by RESTful APIs giving teams the power to configure their requirements autonomously. At the same time data in general is shared between teams, alerts can be inherited and cloned to reuse code and knowledge. A buildin understanding of teams and privileges build around teams improves the usability in environment with many teams.
 
 .. image:: images/components.svg
+
+Entities
+========
+
+Entities are used in ZMON to describe your infrastructure or platform. They are used to basically bind check variables to fixed values.
+
+.. code-block:: json
+
+  {
+	"type":"host",
+	"id":"cassandra01",
+	"host":"cassandra01",
+	"role":"cassandra-host",
+	"ip":"192.168.1.17",
+	"dc":"data-center-1"
+  }
+
+Or more abstract objects:
+
+.. code-block:: json
+
+  {
+  	"type":"postgresql-cluster",
+  	"id":"article-cluster",
+  	"name":"article-cluster",
+  	"shards": {
+		"shard1":"articledb01:5432/shard1",
+		"shard2":"articledb02:5432/shard2"
+  	}
+  }
+
+Entity properties are not defined in any schema, you can add properties on your own need, enabling later a finger grained filtering or selection of entities.
+
+Checks
+======
+
+A check descibes how data is acquired, where the two key properties are: An entity filter and a check command. The entity filter selects a subset of entities by requirering an overlap on specified properties.
+
+Example:
+
+.. code-block:: json
+
+  {
+    "type":"host", "role":"cassandra-host"
+  }
+
+The check command itself is an executable Python_ expression. ZMON provides a lot of custom functions that are bound to the selected entity. The following example uses our PostgreSQL wrapper to execute a query on every shard defined above.
+
+.. code-block:: python
+
+  # sql() in this context is aware of the "shards" property
+
+  sql().execute("SELECT 1 as a").results()
+
+A check command always returns a value to the alert, this can be of any type.
+
+For people less familiar with Pythons ZMON also alows you to define a function on the top level and define your command in an easier less functional way:
+
+.. code-block:: python
+
+  def check():
+    # entity will be injected as entity
+    return sql().execute("SELECT 1 as a").result()
+
+Alerts
+======
+
+A basic alert consists of an alert condition, and entity filter, and a team. More properties are available like exclude entities, details are explained later. Any alert has only two states, up or down. We do not support levels of criticality, and something like unknown. And alert is up, if it yields anything but False. This also includes exceptions thrown from check or alert expression, e.g. in case of connection problems.
+
+Going back to the PostgreSQL check the below alert would pop up if either shard is not reachable, making use of exceptions bubbling up from the check command itself.
+
+.. code-block:: yaml
+
+  team: database
+  entities:
+    - type: postgresql-cluster
+  alert_condition: "False"
+
+Alerts support parameters to the alert condition via UI, thus teams can decide to easily implement different thresholds. Together with the priority field defining the dashboard color this enables users to render their dashboards according to their understanding of priorities.
+
+Dashboards
+==========
+
+Dashboards consists of a widget area where you can render important data in a graphical way, with charts, gauges or just text. The second section consists of rendering all active alerts for the team filter defined on dashboard level. Using the team filter you select the alerts you want to have on your dashboards, multiple teams can be specified. Additionally TAGs are supported to subselect topics.
+
 
 .. _Python: http://www.python.org
