@@ -10,7 +10,7 @@ First install the Sphinx_ documentation generator.
 
 .. code-block:: bash
 
-    $ pip install sphinx
+    $ sudo pip install sphinx sphinx_rtd_theme
 
 
 Generate the ZMON HTML documentation locally:
