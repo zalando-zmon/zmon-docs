@@ -805,6 +805,14 @@ Checks are based on nsclient++ v.0.4.1. For more info look: http://docs.nsclient
             "uptime": 412488000
         }
 
+CloudWatch
+----------
+
+If running on AWS you can use ``cloudwatch()`` to access AWS metrics easily.
+
+.. py:method:: query(dimensions, metric_name, statistics='Sum', namespace=None, unit=None, perioud=60)
+
+  Query AWS CloudWatch for metrics
 
 Scalyr
 ------
