@@ -814,6 +814,12 @@ If running on AWS you can use ``cloudwatch()`` to access AWS metrics easily.
 
   Query AWS CloudWatch for metrics
 
+  ::
+
+        val = cloudwatch().query({'AvailabilityZone': 'NOT_SET', 'LoadBalancerName': 'pierone-123'}, 'RequestCount', 'Sum')['RequestCount']
+        requests_per_second = val / 60
+
+
 Scalyr
 ------
 
