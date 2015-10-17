@@ -84,6 +84,12 @@ The object returned by the :py:func:`http` function provides methods: :py:meth:`
 
         http("/metrics", timeout=5).actuator_metrics()
 
+.. py:method:: prometheus()
+
+    Parse the resulting text result according to the Prometheus specs using their prometheus_client.
+
+        http("/metrics", timeout=5).prometheus()
+
 Zomcat
 ------
 
@@ -988,6 +994,47 @@ The object returned by the :py:func:`redis` function provides the following meth
 .. _Redis documentation: http://redis.io/
 .. _Redis INFO command: http://redis.io/commands/info
 
+
+
+Cassandra
+---------
+
+Provides access to a Cassandra cluster
+
+.. py:function:: cassandra(host, port=9042)
+
+Methods of Cassandra
+^^^^^^^^^^^^^^^^^^^^
+
+.. py:function:: execute(keyspace, stmt)
+
+
+MongoDB
+-------
+
+Provides access to a MongoDB cluster
+
+.. py:function:: mongodb(host, port=27017)
+
+Methods of MongoDB
+^^^^^^^^^^^^^^^^^^
+
+.. py:function:: find(database, collection, query)
+
+KairosDB
+--------
+
+Provides read access to the target KairosDB
+
+
+.. py:function:: kairosdb(url)
+
+
+Methods of KairosDB
+^^^^^^^^^^^^^^^^^^^
+
+.. py:function:: query(name, group_by = [], tags = None, start = -5, end = 0, time_unit='seconds', aggregators = None)
+    
 
 SNMP
 ----
