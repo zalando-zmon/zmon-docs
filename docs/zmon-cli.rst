@@ -1,8 +1,8 @@
 .. _zmon-cli:
 
-************************
+*******************
 Command Line Client
-************************
+*******************
 
 The command line client makes your life easier when interacting with the REST API. The ZMON scheduler will refresh modified data (checks, alerts, entities every 60 seconds).
 
@@ -97,3 +97,28 @@ Create or update from file, existing check with same "owning_team" and "name" wi
 
 Alert Definitions
 -----------------
+
+Similar to check defintions you can also manage your alert definitions via the ZMON cli.
+
+Keep in mind that for alerts the same constraints apply as in the UI. For creating/modifying an alert you need to be a member of the team selected for "team" (unlike the responsible team).
+
+Init
+^^^^
+
+.. code-block:: bash
+
+  zmon alert-definition init your-new-alert.yaml
+
+Get
+^^^
+
+.. code-block:: bash
+
+  zmon alert-definition get 1999
+
+Update
+^^^^^^
+
+.. code-block:: bash
+
+  zmon alert-definition update host-load-5.yaml

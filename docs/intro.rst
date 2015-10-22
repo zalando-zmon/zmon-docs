@@ -96,4 +96,11 @@ Dashboards consists of a widget area where you can render important data in a gr
 
 .. image:: images/dashboard.png
 
+REST API and CLI
+================
+
+ZMON features a REST API to manage all the essential moving parts during your daily work: creating and updating entities, which allows easy sync with your existing infrastructure. Creating and modifying checks and alerts is possible, the scheduler will pick changes up quickly, no need to restart or deploy anything.
+
+To make your life easier there is the command line client, a slim wrapper around the REST API, that makes it easier for humans to work with it, hiding away some issues and enabling e.g. working with YAML files or pushing collections of entities.
+
 .. _Python: http://www.python.org

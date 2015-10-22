@@ -13,18 +13,18 @@ ZMON Docs
    alert-definition-parameters
    alert-definition-inheritance
    alert-recipes
+   comments
+   downtimes
    dashboards
    grafana
    notification-groups
-   downtimes
-   comments
    permissions
-   tests
+   rest-api
+   zmon-cli
    python-tutorial
    event-logging
    developer
-   rest-api
-   zmon-cli
+   tests
    glossary
 
 Indices and Tables
