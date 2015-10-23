@@ -816,7 +816,7 @@ CloudWatch
 
 If running on AWS you can use ``cloudwatch()`` to access AWS metrics easily.
 
-.. py:method:: query(dimensions, metric_name, statistics='Sum', namespace=None, unit=None, perioud=60)
+.. py:method:: query(dimensions, metric_name, statistics='Sum', namespace=None, unit=None, period=60)
 
   Query AWS CloudWatch for metrics. Metrics will be aggregated over the last five minutes using the provided aggregation type (default "Sum").
 
