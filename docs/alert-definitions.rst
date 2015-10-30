@@ -393,6 +393,14 @@ The following functions are available in the alert condition expression:
     **Example:** The check has gathered the values 5, 12, 14, 13, and 6 over the last five minutes. Therefore, ``timeseries_sum('5m')`` is 5 + 12 + 14 + 13 + 6 = 50.
 
 
+.. py:function:: value_series([n=1])
+
+    Returns the last n values for the underlying checks and the current entity.
+
+.. py:function:: alert_series(f, [n=1])
+
+    Returns True if function f either raises exception or returns True for the last n check values for the given entity. Use this function to build an alert that only is raised if the last n intervals are up. This can solve alert where you face flapping due to technical issues.
+
 .. py:function:: entity_results()
 
      List for every entity containing a dict with the following keys: ``value`` (the most recent value for the alert's check on that entity), ``ts`` (the time when the check evaluation was started, in seconds since the epoch, as a floating-point number), and ``td`` (the check's duration, in seconds, as a floating-point number). Works regardless of the type of value. DOES NOT WORK in Trial Run right now!
