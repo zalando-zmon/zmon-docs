@@ -4,11 +4,11 @@ Introduction
 
 ZMON is Zalando's open source platform monitoring tool. A team of Zalando Technology started the development in a Hackweek late 2013 to replace ICINGA. Scalability was crucial but manageability and flexibility were equally important. By then a lot of small teams needed to monitor their services independent of each other. Early 2014 it went into production and teams migrated all checks from ICINGA to ZMON which serves Zalando Tech until today.
 
-The main concepts for behind ZMON are a split of responsibilities between checks and alerts and the use of entities to describe everything we want to monitor. Both are being managed by RESTful APIs giving teams the power to configure their requirements autonomously. ZMON's Frontend also allows you to manage alerts and dashboards. At the same time ZMON's UI comes with Grafana "build in" to power data heavy dashboards. Data in general is shared between teams, alerts can be inherited and cloned to reuse code and knowledge. A built-in understanding of teams and privileges build around teams improves the usability in an environment with many teams.
+The main concepts behind ZMON are a split of responsibilities between checks and alerts and the use of entities to describe everything to monitor. Both are being managed by RESTful APIs giving teams the power to configure their requirements autonomously. ZMON's Frontend also allows you to manage alerts and dashboards. At the same time ZMON's UI comes with Grafana "build in" to power data heavy dashboards. Observed data in general is shared between teams, alerts can be inherited and cloned to reuse code and knowledge. A built-in understanding of teams and privileges build around teams improves the usability in an environment with many teams.
 
 .. image:: images/components.svg
 
-Custom adapters or use of the entity service's REST API allows easy integration into existing tools like CMDBs, service discovery or deploy tools. With the ZMON AWS Agent there exists an example how we connect AWS instance discovery with our monitoring.
+Custom adapters or use of the buildin entity service's REST API allows easy integration into existing tools like CMDBs, service discovery or deploy tools. With the ZMON AWS Agent there exists an example how we connect AWS instance discovery with our monitoring.
 
 Entities
 ========
