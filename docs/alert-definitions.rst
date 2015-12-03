@@ -136,14 +136,14 @@ Note: The entity name can be included in the alert message by using a special pl
 Notifications
 -------------
 
-ZMON notifications lets you know when you have a new alert without check the web UI.
-In this section you can configure the users that should be notified when an alert is triggered.
-Currently email and SMS notifications are implemented.
+ZMON notifications lets you know when you have a new alert without check the web UI. This section will explain how to use the different options available to notify about changes in alert states. We support E-Mail, HipChat, Slack and one SMS provider that we have been using.
 
-You can customize the text you will receive in the email subject, or the SMS text.
-To customize the alert's email subject, you pass the ``subject`` keyword argument, as shown in the example below.
-To customize the alert's SMS text, you pass the ``message`` keyword argument, as shown in the example below.
-You can expand named captures in your customized text by using the ``{mycapture}`` format.
+The notifications field is a list of function calls (see below for examples), calling one of the following methods of notification:
+
+.. py:function:: send_email(email*, [subject, message, repeat])
+.. py:function:: send_sms(number*, [message, repeat])
+.. py:function:: send_slack([channel, message, repeat, token])
+.. py:function:: send_hipchat([room, message, color='red', repeat, token])
 
 If the alert has the top priority and should be handled immediately, you can specify the repeat interval for each
 notification. In this case, you will be notified periodically, according to the specified interval, while the alert
@@ -170,6 +170,26 @@ Example JSON email configuration:
       "send_mail('a@example.org', 'b@example.org')",
       "send_mail('a@example.com', 'b@example.com', subject='Critical Alert please do something!')",
       "send_mail('c@example.com', repeat=60)"
+   ]
+
+Example JSON Slack configuration:
+
+.. code-block:: yaml
+
+   [
+      "send_slack()",
+      "send_slack(channel='#incidents')",
+      "send_slack(channel='#incidents', token='your-token')"
+   ]
+
+Example JSON HipChat configuration:
+
+.. code-block:: yaml
+
+   [
+      "send_hipchat()",
+      "send_hipchat(room='#incidents', color='red')",
+      "send_hipchat(room='#incidents', token='your-token')"
    ]
 
 Example JSON SMS configuration:
