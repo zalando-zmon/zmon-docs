@@ -21,7 +21,7 @@ The Redis service is one of the core dependencies, ZMON uses Redis for its task 
 PostgreSQL
 ----------
 
-PostgreSQL is ZMONs data store for entities, checks, alerts, dashboards and Grafana dashboards.
+PostgreSQL is ZMONs data store for entities, checks, alerts, dashboards and Grafana dashboards. The entities service relies on PostgreSQL's jsonb data type thus you need a PostgreSQL 9.4+ running.
 
 Cassandra
 ---------
@@ -41,10 +41,14 @@ Controller
 
 The ZMON controller is the running the AngularJS frontend and serves as an endpoint for retrieving data and managing your ZMON deployment via REST API (with help of the command line client). It needs a connection configured to:
 
- * LDAP as its source for user data and credentials
  * PostgreSQL to store/retrieve all kind of data: entities, checks, dashboards, alerts
  * Redis keeping the state of ZMON's alerts
  * KairosDB if you want charts/Grafana
+
+To provide means of authentication and authorization you do can choose between the following options:
+
+ * Basic credential file
+ * Pick an Oauth2 identity provider, e.g., Github
 
 Scheduler
 ---------
@@ -52,6 +56,7 @@ Scheduler
 The scheduler is responsible for keeping track of all existing entities, checks and alerts and scheduling checks in time for applicable entities which are then executed by the worker.
 
 Needs connections to:
+
  * Redis as Redis serves ZMON as task queue
  * Controller to get check/alerts/entities
  * Custom adapters may need connections for entity discovery into your platform
@@ -74,3 +79,59 @@ The EventLog service is our slim implementation of an event store, keeping track
 Needs connection to:
  * PostgreSQL to store events using jsonb
 
+
+Configuration options
+=====================
+
+If you decide not to run the supplied Docker images, you will find the relevant configuration options in the project specific configuration files ("application.yaml","web.conf","application.properties"). We suggest to run Docker images for now and use the following environment variables to specify your configuration options.
+
+Controller
+----------
+
+
+
+Scheduler
+---------
+
+Specify the Redis server you want to use:
+
+.. code-block:: bash
+
+   SCHEDULER_REDIS_HOST
+   SCHEDULER_REDIS_PORT
+
+Specify where you run the controller hosting the entity service:
+
+.. code-block:: bash
+
+   SCHEDULER_ENTITY_SERVICE_URL
+
+Specify the base URL to the controller for getting checks and alerts:
+
+.. code-block:: bash
+
+  SCHEDULER_CONTROLLER_URL
+
+Worker
+------
+
+Specify the Redis server used:
+
+.. code-block:: bash
+
+   WORKER_REDIS_HOST
+   WORKER_REDIS_PORT
+
+If you plan to access your PostgreSQL cluster specify the credentials below. We suggest to use a distinct user for ZMON with limited read only privileges.
+
+.. code-block:: bash
+
+   WORKER_POSTGRESQL_USER
+   WORKER_POSTGRESQL_PASSWORD
+
+If you need to access MySQL specify the user credentials below, again we suggest to use a user with limited privileges only.
+
+.. code-block:: bash
+
+   WORKER_MYSQL_USER
+   WORKER_MYSQL_PASSWORD
