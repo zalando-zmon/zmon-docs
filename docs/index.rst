@@ -13,6 +13,7 @@ ZMON Docs
    alert-definition-parameters
    alert-definition-inheritance
    alert-recipes
+   monitoringonaws
    comments
    downtimes
    dashboards
@@ -33,4 +34,3 @@ Indices and Tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
