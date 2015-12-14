@@ -53,7 +53,10 @@ ZMON Docs
 
 .. toctree::
    :maxdepth: 1
+   :caption: Appendix 
+
    glossary
+
 
 Indices and Tables
 ==================
