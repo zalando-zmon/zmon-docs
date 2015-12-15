@@ -210,7 +210,7 @@ Sample networkmap widget:
 
 
 Iframe
----------
+------
 
 The Iframe widget is a simple widget that allows you to embed a thrid
 party page in a widget container.

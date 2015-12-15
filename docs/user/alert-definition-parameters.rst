@@ -1,8 +1,8 @@
 .. _alert-definition-parameters:
 
-****************************
+***************************
 Alert Definition Parameters
-****************************
+***************************
 
 Alert definition *parameters* allows one to decouple alert condition from constants that are used inside it.
 

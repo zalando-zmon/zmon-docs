@@ -175,7 +175,7 @@ This would return a dict like:
     }
 
 LDAP
-------
+----
 
 Retrieve OpenLDAP statistics (needs "cn=Monitor" database installed in LDAP server). ::
 
