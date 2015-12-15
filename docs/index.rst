@@ -13,20 +13,17 @@ ZMON Docs
    :maxdepth: 2
    :caption: User Documentation
    
-   entities
-   check-definitions
-   check-commands
-   alert-definitions
-   alert-definition-parameters
-   alert-definition-inheritance
-   alert-recipes
-   monitoringonaws
-   comments
-   downtimes
-   dashboards
-   grafana
-   notification-groups
-   permissions
+   user/entities
+   user/check-commands
+   user/alert-definitions
+   user/alert-definition-parameters
+   user/alert-definition-inheritance
+   user/monitoringonaws
+   user/comments
+   user/downtimes
+   user/dashboards
+   user/grafana
+   user/permissions
    
 .. _developer-docs:
 
@@ -34,12 +31,10 @@ ZMON Docs
    :maxdepth: 2
    :caption: Developer Documentation
 
-   rest-api
-   zmon-cli
-   python-tutorial
-   event-logging
-   developer
-   tests
+   developer/rest-api
+   developer/zmon-cli
+   developer/python-tutorial
+   developer/tests
 
 .. _installation:
 
@@ -55,7 +50,7 @@ ZMON Docs
    :maxdepth: 1
    :caption: Appendix 
 
-   glossary
+   apendix/glossary
 
 
 Indices and Tables
