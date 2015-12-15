@@ -5,28 +5,53 @@ ZMON Docs
    :maxdepth: 1
 
    intro
-   installation
-   entities
-   check-definitions
-   check-commands
-   alert-definitions
-   alert-definition-parameters
-   alert-definition-inheritance
-   alert-recipes
-   monitoringonaws
-   comments
-   downtimes
-   dashboards
-   grafana
-   notification-groups
-   permissions
-   rest-api
-   zmon-cli
-   python-tutorial
-   event-logging
-   developer
-   tests
-   glossary
+   getting-started
+
+.. _user-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: User Documentation
+   
+   user/entities
+   user/check-commands
+   user/alert-definitions
+   user/alert-definition-parameters
+   user/alert-definition-inheritance
+   user/monitoringonaws
+   user/comments
+   user/downtimes
+   user/dashboards
+   user/grafana
+   user/permissions
+   
+.. _developer-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Developer Documentation
+
+   developer/rest-api
+   developer/zmon-cli
+   developer/python-tutorial
+   developer/tests
+
+.. _installation:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Installation Documentation
+
+   installation/requirements
+   installation/components
+   installation/configuration
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Appendix 
+
+   apendix/glossary
+
 
 Indices and Tables
 ==================

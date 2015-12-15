@@ -1,9 +1,9 @@
-************
+*****
 Tests
-************
+*****
 
 Acceptance and Unit Tests
-----------------------
+-------------------------
 
 These tests must be run from inside the vagrant box.::
 

@@ -4,7 +4,7 @@ Getting Started
 
 In order to easily get started use our preconfigured Vagrant box.
 
-You need to have Vagrant *(at least 1.7.4)* and a Vagrant Provider (e.g. VirtualBox) installed on your machine.
+You need to have Vagrant and a Vagrant Provider (e.g. VirtualBox) installed on your machine.
 
 You can obtain the Vagrant box from https://github.com/zalando/zmon. Either clone the repository or download it as zip archive.
 
@@ -101,13 +101,13 @@ in the check command to http://httpstat.us/500. (The number in the url represent
 To see the actual error code in the alert you might want to create/modify it like this:
 
 ==================== ================================
-**Name**             Website gone with status {code}
+**Name**             Website gone with status {value}
 -------------------- --------------------------------
 **Description**      website was not reachable.
 -------------------- --------------------------------
 **Priority**         Priority 1 (red)
 -------------------- --------------------------------
-**Alert Condition**  capture(code=value)!=200
+**Alert Condition**  capture(value)!=200
 -------------------- --------------------------------
 **Team**             Team 1
 -------------------- --------------------------------
