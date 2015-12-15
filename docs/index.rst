@@ -7,7 +7,6 @@ ZMON Docs
    intro
    installation
    entities
-   check-definitions
    check-commands
    alert-definitions
    alert-definition-parameters
