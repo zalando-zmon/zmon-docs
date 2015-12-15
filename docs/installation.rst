@@ -4,14 +4,14 @@
 Installation
 ************************
 
-  For easy demo use our provided Vagrant Box from:
+  For an easy demo use our provided Vagrant Box from:
 
     https://github.com/zalando/zmon
 
 Requirements
 ============
 
-The requirements below are all open soure technologies that need to be available for ZMON to run with all its features.
+The requirements below are all open source technologies that need to be available for ZMON to run with all its features.
 
 Redis
 -----
@@ -26,7 +26,7 @@ PostgreSQL is ZMONs data store for entities, checks, alerts, dashboards and Graf
 Cassandra
 ---------
 
-Cassandra needs to be available for KairosDB if you want to have historic data and make use of Grafana, this is highly suggested.
+Cassandra needs to be available for KairosDB if you want to have historic data and make use of Grafana, which is highly suggested.
 
 KairosDB
 --------
@@ -39,13 +39,13 @@ Components
 Controller
 ----------
 
-The ZMON controller is the running the AngularJS frontend and serves as an endpoint for retrieving data and managing your ZMON deployment via REST API (with help of the command line client). It needs a connection configured to:
+The ZMON controller is running the AngularJS frontend and serves as an endpoint for retrieving data and managing your ZMON deployment via REST API (with help of the command line client). It needs configured connections to:
 
  * PostgreSQL to store/retrieve all kind of data: entities, checks, dashboards, alerts
  * Redis keeping the state of ZMON's alerts
  * KairosDB if you want charts/Grafana
 
-To provide means of authentication and authorization you do can choose between the following options:
+To provide means of authentication and authorization you can choose between the following options:
 
  * Basic credential file
  * Pick an Oauth2 identity provider, e.g., Github
@@ -57,14 +57,14 @@ The scheduler is responsible for keeping track of all existing entities, checks 
 
 Needs connections to:
 
- * Redis as Redis serves ZMON as task queue
+ * Redis which serves as a task queue for ZMON
  * Controller to get check/alerts/entities
  * Custom adapters may need connections for entity discovery into your platform
 
 Worker
 ------
 
-The worker is the one doing the heavy lifting of executing tasks against entities, and evaluating all alerts assigned to this check. Tasks are picked up from Redis and the resulting check value plus alert state changes are written back to Redis.
+The worker does the heavy lifting of executing tasks against entities, and evaluating all alerts assigned to this check. Tasks are queried from Redis and the resulting check value plus alert state changes are written back to Redis.
 
 Needs connection to:
  * Redis to retrieve tasks and update current state
