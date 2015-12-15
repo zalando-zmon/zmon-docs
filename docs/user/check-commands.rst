@@ -20,7 +20,7 @@ Access to HTTP (and HTTPS) endpoints is provided by the :py:func:`http` function
     :param bool verify: Can be set to :py:obj:`False` to disable SSL certificate verification.
     :return: An object encapsulating the response from the server. See below.
 
-        For checks on entities that define the parameter :py:attr:`url` or :py:attr:`host`, the given URL may be relative. In that case, the URL :samp:`http://<{value}><{url}>` is queried, where :samp:`<{value}>` is the value of that parameter, and :samp:`<{url}>` is the URL passed to this function. If an entity defines both :py:attr:`url` and :py:attr:`host`, the former is used.
+        For checks on entities that define the attributes :py:attr:`url` or :py:attr:`host`, the given URL may be relative. In that case, the URL :samp:`http://<{value}><{url}>` is queried, where :samp:`<{value}>` is the value of that attribute, and :samp:`<{url}>` is the URL passed to this function. If an entity defines both :py:attr:`url` and :py:attr:`host`, the former is used.
 
     This function cannot query URLs using a scheme other than HTTP or HTTPS; URLs that do not start with :samp:`http://` or :samp:`https://` are considered to be relative.
 
