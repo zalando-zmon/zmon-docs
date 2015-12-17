@@ -34,10 +34,10 @@ Specify the base URL to the controller for getting checks and alerts:
 Worker
 ======
 
-The ZMON worker has many configuration options, most of them are specific to function plugins.
+The ZMON worker has many configuration options (via environment variables), most of them are specific to function plugins.
 
-Global Worker Configuration Options
------------------------------------
+Global Options
+--------------
 
 ``WORKER_REDIS_HOST``
     Redis server host.
@@ -45,20 +45,34 @@ Global Worker Configuration Options
     Redis server port (default: 6379).
 ``WORKER_DATASERVICE_URL``
     Optional URL of data endpoint for workers deployed in cloud environments (AWS).
+``OAUTH2_ACCESS_TOKEN_URL``
+    URL of OAuth 2 provider to get access tokens.
+``WORKER_TEAM``
+    Optional team ID for team-specific workers.
+
+Notification Options
+--------------------
+
+``WORKER_NOTIFICATIONS_MAIL_HOST``
+    SMTP host for email notifications.
+``WORKER_NOTIFICATIONS_MAIL_PORT``
+    SMTP port for email notifications.
+``WORKER_NOTIFICATIONS_MAIL_SENDER``
+    Sender address for email notifications.
+``WORKER_NOTIFICATIONS_MAIL_USER``
+    SMTP user for email notifications.
+``WORKER_NOTIFICATIONS_MAIL_PASSWORD``
+    SMTP password for email notifications.
 ``WORKER_NOTIFICATIONS_HIPCHAT_TOKEN``
     Access token for HipChat notifications.
 ``WORKER_NOTIFICATIONS_HIPCHAT_URL``
     URL of HipChat server.
 ``WORKER_NOTIFICATIONS_SLACK_TOKEN``
     Slack access token for notifications to Slack channels.
-``OAUTH2_ACCESS_TOKEN_URL``
-    URL of OAuth 2 provider to get access tokens.
-``WORKER_TEAM``
-    Optional team ID for team-specific workers.
 
 
-Plug-In Configuration Options
------------------------------
+Plug-In Options
+---------------
 
 If you plan to access your PostgreSQL cluster specify the credentials below. We suggest to use a distinct user for ZMON with limited read only privileges.
 
