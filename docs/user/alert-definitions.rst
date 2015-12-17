@@ -142,12 +142,15 @@ The notifications field is a list of function calls (see below for examples), ca
 
 .. py:function:: send_email(email*, [subject, message, repeat])
 .. py:function:: send_sms(number*, [message, repeat])
+.. py:function:: send_push([message, repeat, url, key])
 .. py:function:: send_slack([channel, message, repeat, token])
 .. py:function:: send_hipchat([room, message, color='red', repeat, token])
 
 If the alert has the top priority and should be handled immediately, you can specify the repeat interval for each
 notification. In this case, you will be notified periodically, according to the specified interval, while the alert
 persists. The interval is specified in seconds.
+
+To receive push notifications you need one of the ZMON mobile apps (configured for your deployment) and subscribe to alert ids, before you can receive notifications.
 
 In addition, you may use :ref:`notification-groups` to configure groups of people with associated **emails** and/or **phone numbers** and use these groups in notifications like this:
 
@@ -191,6 +194,14 @@ Example JSON HipChat configuration:
       "send_hipchat(room='#incidents', color='red')",
       "send_hipchat(room='#incidents', token='your-token')"
    ]
+
+Example JSON Push configuration:
+
+   .. code-block:: yaml
+
+      [
+         "send_push()"
+      ]
 
 Example JSON SMS configuration:
 
@@ -538,4 +549,3 @@ Time Specifications
 Whenever one of these functions takes an argument named ``time_spec``, that argument is a string of the form :samp:`{<magnitude>}{<unit>}`, where :samp:`{<magnitude>}` is an positive integer, and :samp:`{<unit>}` is one of ``s`` (for seconds), ``m`` (for minutes), ``h`` (for hours), and ``d`` (for days).
 
 Therefore, a value of ``5m`` would indicate that all values gathered in the last five minutes should be taken into account.
-
