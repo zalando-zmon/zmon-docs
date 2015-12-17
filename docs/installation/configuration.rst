@@ -34,23 +34,42 @@ Specify the base URL to the controller for getting checks and alerts:
 Worker
 ======
 
-Specify the Redis server used:
+The ZMON worker has many configuration options, most of them are specific to function plugins.
 
-.. code-block:: bash
+Global Worker Configuration Options
+-----------------------------------
 
-   WORKER_REDIS_HOST
-   WORKER_REDIS_PORT
+``WORKER_REDIS_HOST``
+    Redis server host.
+``WORKER_REDIS_PORT``
+    Redis server port (default: 6379).
+``WORKER_DATASERVICE_URL``
+    Optional URL of data endpoint for workers deployed in cloud environments (AWS).
+``WORKER_NOTIFICATIONS_HIPCHAT_TOKEN``
+    Access token for HipChat notifications.
+``WORKER_NOTIFICATIONS_HIPCHAT_URL``
+    URL of HipChat server.
+``WORKER_NOTIFICATIONS_SLACK_TOKEN``
+    Slack access token for notifications to Slack channels.
+``OAUTH2_ACCESS_TOKEN_URL``
+    URL of OAuth 2 provider to get access tokens.
+``WORKER_TEAM``
+    Optional team ID for team-specific workers.
+
+
+Plug-In Configuration Options
+-----------------------------
 
 If you plan to access your PostgreSQL cluster specify the credentials below. We suggest to use a distinct user for ZMON with limited read only privileges.
 
 .. code-block:: bash
 
-   WORKER_POSTGRESQL_USER
-   WORKER_POSTGRESQL_PASSWORD
+   WORKER_PLUGIN_SQL_USER
+   WORKER_PLUGIN_SQL_PASS
 
 If you need to access MySQL specify the user credentials below, again we suggest to use a user with limited privileges only.
 
 .. code-block:: bash
 
-   WORKER_MYSQL_USER
-   WORKER_MYSQL_PASSWORD
+   WORKER_PLUGIN_MYSQL_USER
+   WORKER_PLUGIN_MYSQL_PASS
