@@ -43,6 +43,10 @@ Global Options
     Redis server host.
 ``WORKER_REDIS_PORT``
     Redis server port (default: 6379).
+``WORKER_KAIROSDB_HOST``
+    Host of KairosDB for time series storage.
+``WORKER_KAIROSDB_PORT``
+    Port of KairosDB for time series storage.
 ``WORKER_DATASERVICE_URL``
     Optional URL of data endpoint for workers deployed in cloud environments (AWS).
 ``OAUTH2_ACCESS_TOKEN_URL``
