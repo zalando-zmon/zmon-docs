@@ -29,7 +29,7 @@ Specify the base URL to the controller for getting checks and alerts:
 
 .. code-block:: bash
 
-  SCHEDULER_CONTROLLER_URL
+   SCHEDULER_CONTROLLER_URL
 
 Worker
 ======
