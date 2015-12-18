@@ -53,6 +53,10 @@ Global Options
     URL of OAuth 2 provider to get access tokens.
 ``WORKER_TEAM``
     Optional team ID for team-specific workers.
+``WORKER_NOTIFICATIONS_PUSH_URL``
+    Optional URL to the ZMON Notification Service endpoint.
+``WORKER_NOTIFICATIONS_PUSH_KEY``
+    Optional API Key for the ZMON Notification Service.
 
 Notification Options
 --------------------
