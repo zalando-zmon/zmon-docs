@@ -21,9 +21,9 @@ The config file needs to contain a link to ZMON and your user credentials for zm
 .. code-block:: yaml
 
   # ~.zmon-cli.yaml
-  url: http://localhost:38080/rest/api/v1
-  user: admin
-  password: admin
+  url: https://localhost:8443/api/v1
+  token: 123
+  verify: false
 
 
 Entities
