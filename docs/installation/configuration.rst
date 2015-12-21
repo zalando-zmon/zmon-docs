@@ -39,10 +39,8 @@ The ZMON worker has many configuration options (via environment variables), most
 Global Options
 --------------
 
-``WORKER_REDIS_HOST``
-    Redis server host.
-``WORKER_REDIS_PORT``
-    Redis server port (default: 6379).
+``WORKER_REDIS_SERVERS``
+    Comma separated list of Redis servers (default: localhost:6379).
 ``WORKER_KAIROSDB_HOST``
     Host of KairosDB for time series storage.
 ``WORKER_KAIROSDB_PORT``
