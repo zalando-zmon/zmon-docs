@@ -80,6 +80,12 @@ Notification Options
 Plug-In Options
 ---------------
 
+All plug-in options have the prefix ``WORKER_PLUGIN_<plugin-name>_``, i.e. if you want to set option "bar" of the plugin "foo" to "123" via environment variable:
+
+.. code-block:: bash
+
+    WORKER_PLUGIN_FOO_BAR=123
+
 If you plan to access your PostgreSQL cluster specify the credentials below. We suggest to use a distinct user for ZMON with limited read only privileges.
 
 .. code-block:: bash
