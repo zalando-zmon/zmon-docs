@@ -25,6 +25,14 @@ The config file needs to contain a link to ZMON and your user credentials for zm
   token: 123
   verify: false
 
+In order to access the live zmon via the CLI, your .zmon-cli.yaml should look like this:
+
+.. code-block:: yaml
+
+  # ~.zmon-cli.yaml
+  url: https://zmon2.zalando.net/rest/api/v1
+  user: yourLdapUsername
+
 
 Entities
 --------
