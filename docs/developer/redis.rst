@@ -20,5 +20,11 @@ Important Redis key patterns are:
     Hash of alert captures.
 ``zmon:alerts:<ALERT-ID>:<ENTITY-ID>``
     Alert detail JSON containing alert start time, captures, worker, etc.
+``zmon:metrics``
+    Set of worker IDs with metrics.
+``zmon:metrics:<WORKER-ID>:ts``
+    Timestamp of last worker metrics update.
+``zmon:metrics:<WORKER-ID>:check.count``
+    Increasing counter of executed checks.
 
 .. _Redis "rpush" command: http://redis.io/commands/rpush
