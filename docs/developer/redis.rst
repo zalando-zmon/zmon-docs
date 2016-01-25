@@ -21,10 +21,10 @@ Important Redis key patterns are:
 ``zmon:alerts:<ALERT-ID>:<ENTITY-ID>``
     Alert detail JSON containing alert start time, captures, worker, etc.
 ``zmon:metrics``
-    Set of worker IDs with metrics.
-``zmon:metrics:<WORKER-ID>:ts``
-    Timestamp of last worker metrics update.
-``zmon:metrics:<WORKER-ID>:check.count``
-    Increasing counter of executed checks.
+    Set of worker and scheduler IDs with metrics.
+``zmon:metrics:<WORKER-OR-SCHEDULER-ID>:ts``
+    Timestamp of last worker or scheduler metrics update.
+``zmon:metrics:<WORKER-OR-SCHEDULER-ID>:check.count``
+    Increasing counter of executed (or scheduled) checks.
 
 .. _Redis "rpush" command: http://redis.io/commands/rpush
