@@ -8,6 +8,8 @@ New queue items are added by the ZMON Scheduler via the `Redis "rpush" command`_
 
 Important Redis key patterns are:
 
+``zmon:checks``
+    Set of all executed check IDs.
 ``zmon:checks:<CHECK-ID>``
     Set of entity IDs.
 ``zmon:checks:<CHECK-ID>:<ENTITY-ID>``
@@ -17,7 +19,7 @@ Important Redis key patterns are:
 ``zmon:alerts:<ALERT-ID>``
     Set of entity IDs in alert state.
 ``zmon:alerts:<ALERT-ID>:entities``
-    Hash of alert captures.
+    Hash of entity IDs to alert captures.
 ``zmon:alerts:<ALERT-ID>:<ENTITY-ID>``
     Alert detail JSON containing alert start time, captures, worker, etc.
 ``zmon:metrics``
