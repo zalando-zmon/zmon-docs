@@ -12,7 +12,7 @@ ZMON Docs
 .. toctree::
    :maxdepth: 2
    :caption: User Documentation
-   
+
    user/entities
    user/check-commands
    user/alert-definitions
@@ -24,7 +24,7 @@ ZMON Docs
    user/dashboards
    user/grafana
    user/permissions
-   
+
 .. _developer-docs:
 
 .. toctree::
@@ -35,6 +35,7 @@ ZMON Docs
    developer/zmon-cli
    developer/python-tutorial
    developer/tests
+   developer/redis
 
 .. _installation:
 
@@ -48,7 +49,7 @@ ZMON Docs
 
 .. toctree::
    :maxdepth: 1
-   :caption: Appendix 
+   :caption: Appendix
 
    apendix/glossary
 
