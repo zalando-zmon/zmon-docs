@@ -144,7 +144,7 @@ The notifications field is a list of function calls (see below for examples), ca
 .. py:function:: send_sms(number*, [message, repeat])
 .. py:function:: send_push([message, repeat, url, key])
 .. py:function:: send_slack([channel, message, repeat, token])
-.. py:function:: send_hipchat([room, message, color='red', repeat, token])
+.. py:function:: send_hipchat([room, message, color='red', repeat, token, notify='False'])
 
 If the alert has the top priority and should be handled immediately, you can specify the repeat interval for each
 notification. In this case, you will be notified periodically, according to the specified interval, while the alert
@@ -192,7 +192,8 @@ Example JSON HipChat configuration:
    [
       "send_hipchat()",
       "send_hipchat(room='#incidents', color='red')",
-      "send_hipchat(room='#incidents', token='your-token')"
+      "send_hipchat(room='#incidents', token='your-token')",
+      "send_hipchat(room='#incidents', token='your-token', notify='True')"
    ]
 
 Example JSON Push configuration:
