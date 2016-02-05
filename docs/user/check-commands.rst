@@ -1034,7 +1034,7 @@ Methods of KairosDB
 ^^^^^^^^^^^^^^^^^^^
 
 .. py:function:: query(name, group_by = [], tags = None, start = -5, end = 0, time_unit='seconds', aggregators = None)
-    
+
 
 SNMP
 ----
@@ -1731,6 +1731,20 @@ The following general-purpose functions are available in check commands:
         {u'list': [1, 2, 3, 4]}
 
 
+.. py:function:: jsonpath_flat_filter(obj, path)
+
+    Executes json path expression using `jsonpath_rw`_ and returns a flat dict of (full_path, value). ::
+
+        >>> data = {"timers":{"/api/v1/":{"m1.rate": 12, "99th": "3ms"}}}
+        >>> jsonpath_flat_filter(data, "timers.*.*.'m1.rate'")
+        {"timers./api/v1/.m1.rate": 12}
+
+.. py:function:: jsonpath_parse(path)
+
+    Creates a json path parse object from the `jsonpath_rw`_ to be used in your check command.
+
+.. _jsonpath_rw: https://github.com/kennknowles/python-jsonpath-rw
+
 .. py:function:: len(s)
 
     Returns the length of the given collection. ::
@@ -2016,4 +2030,3 @@ The following general-purpose functions are available in check commands:
         [('A', 'a', 1), ('B', 'b', 2), ('C', 'c', 3)]
         >>> zip([], [1, 2, 3])
         []
-
