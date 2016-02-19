@@ -26,8 +26,9 @@ You want to avoid running into troubles with not having enough diskspace on your
 
 Besides diskspace you also want to make sure that you have enough free INodes available!
 
- Free INodes
- Free diskspace
+Example check:
+
+    https://github.com/zalando/zmon/tree/master/examples/check-definitions/ec2-diskspace.yaml
 
 CPU:
 
