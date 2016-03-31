@@ -47,6 +47,16 @@ The client however also supports loading data from .json and .yaml files, both m
 
   zmon entities push your-entities.yaml
 
+
+.. Tip::
+
+    All commands and subcommands can be abbreviated, i.e. the following lines are equivalent:
+
+        .. code-block:: bash
+
+           $ senza entities push my-data.yaml
+           $ senza ent pu my-data.yaml
+
 Search and filter
 ^^^^^^^^^^^^^^^^^
 
@@ -108,6 +118,13 @@ Init
 .. code-block:: bash
 
   zmon alert-definition init your-new-alert.yaml
+
+Create
+^^^^^^
+
+.. code-block:: bash
+
+  zmon alert-definition create your-new-alert.yaml
 
 Get
 ^^^

@@ -4,7 +4,7 @@
 Entities
 ********
 
-Entities are in general describing what you want to monitor in your infrastructure. This may be as basic as a host, with its attributes hostname and ip, or it may be a bit more complex like a PostgreSQL sharded cluster consisting of an identifier and a set of connection strings.
+Entities are in general describing what you want to monitor in your infrastructure. This may be as basic as a host, with its attributes hostname and IP, or it may be a bit more complex like a PostgreSQL sharded cluster consisting of an identifier and a set of connection strings.
 
 Internally the entities are stored in the entity service that is part of the controller or they are discovered by adapters in the scheduler. Thus ZMON gives you two options for automation/integration into your platform. At Zalando we use both, connecting ZMON to tools like our CMDB but also pushing entities via the REST API.
 

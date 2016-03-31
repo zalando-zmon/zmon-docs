@@ -5,7 +5,7 @@ Alert Definitions
 *****************
 
 Alert definitions specify when (condition, time period) and who (team) to notify for a desired monitoring event.
-Alert definitions can only be defined in the ZMON web frontend.
+Alert definitions can be defined in the ZMON web frontend and via the :ref:`ZMON CLI <zmon-cli>`.
 
 The following fields exist for alert definitions:
 
