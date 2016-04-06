@@ -23,6 +23,7 @@ ZMON Docs
    user/downtimes
    user/dashboards
    user/grafana
+   user/tv-login
    user/permissions
 
 .. _developer-docs:
