@@ -1,7 +1,7 @@
 .. _grafana:
 
 ********************
-Grafana and KairosDB
+Grafana2 and KairosDB
 ********************
 
 Grafana is a powerfull open source software to create dashboards to visualize metric data. The good news ZMON deploys Grafana 2.x along with our plugin to read metric data from KairosDB. Grafana is served directly from the ZMON controller, and read requests are proxied through the controller to not expose the write/delete API from KairosDB to everyone. Dashboards are also saved via the controller, no need for any additional data store.
