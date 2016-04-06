@@ -4,7 +4,7 @@
 "Read Only" Display Login
 *************************
 
-The ZMON front end requires users to login. However a very common way of deploying dashboards is on TV screens running across offices spaces to e.g. render Grafana dashboards or ZMON dashboards.
+The ZMON front end requires users to login. However a very common way of deploying dashboards is on TV screens running across office spaces to e.g. render Grafana or ZMON dashboards.
 For this ZMON provides you with a way to login a read only authenticated user via one-time tokens. Those tokens can be created by any real user via the ZMON CLI.
 
 
