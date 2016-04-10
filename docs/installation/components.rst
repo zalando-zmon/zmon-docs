@@ -2,7 +2,7 @@
 Components
 ************************
 
-.. image:: images/components.svg
+.. image:: ../images/components.svg
 
 Controller
 ==========
