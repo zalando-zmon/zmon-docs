@@ -2,6 +2,8 @@
 Components
 ************************
 
+.. image:: images/components.svg
+
 Controller
 ==========
 
