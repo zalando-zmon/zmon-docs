@@ -149,7 +149,7 @@ To push the updated check definition to ZMON run:
 
 .. code-block:: bash
 
-   $ zmon check-definitions update site-availability.yaml
+   $ zmon check-definitions update website-availability.yaml
    Updating check definition... http://localhost:8080/#/check-definitions/view/2
 
 More information on using the command line client can be found here: :ref:`zmon-cli`.
