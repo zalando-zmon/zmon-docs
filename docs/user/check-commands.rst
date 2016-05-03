@@ -971,6 +971,16 @@ The object returned by the :py:func:`redis` function provides the following meth
     ::
 
         redis().hgetall("example_hash_key")
+        
+        
+.. py:method:: scan(cursor, [match=None], [count=None])
+
+    Returns a ``set`` with the next cursor and the results from this scan. 
+    Please see the Redis documentation on how to use this function exactly: http://redis.io/commands/scan
+
+    ::
+
+        redis().scan(0, 'prefix*', 10)
 
 .. py:method:: statistics()
 
