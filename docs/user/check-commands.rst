@@ -154,9 +154,9 @@ Most of the values are retrieved via JMX:
 JMX
 ---
 
-For usage of JMXQuery you need "jmxquery" running (this is not yet released)
+To use JMXQuery, run "jmxquery" (this is not yet released)
 
-Queries beans’ attributes on hosts specified in entities filter.::
+Queries beans’ attributes on hosts specified in entities filter::
 
     jmx().query('java.lang:type=Memory', 'HeapMemoryUsage', 'NonHeapMemoryUsage').results()
 
