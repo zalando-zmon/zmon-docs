@@ -2,8 +2,6 @@
 Essential ZMON Components
 ************************
 
-To use ZMON requires these four components: zmon-controller_, zmon-scheduler_, zmon-worker_, and zmon-eventlog-service_.
-
 .. image:: ../images/components.svg
 
 Controller
