@@ -9,7 +9,7 @@ To use ZMON requires these four components: zmon-controller_, zmon-scheduler_, z
 Controller
 ==========
 
-zmon-controller_ runs the AngularJS frontend and serves as an endpoint for retrieving data and managing your ZMON deployment via REST API (with help from the command line client). It needs a connection configured to:
+zmon-controller_ runs ZMON's AngularJS frontend and serves as an endpoint for retrieving data and managing your ZMON deployment via REST API (with help from the command line client). It needs a connection configured to:
 
  * PostgreSQL to store/retrieve all kind of data: entities, checks, dashboards, alerts
  * Redis, to keep the state of ZMON's alerts
