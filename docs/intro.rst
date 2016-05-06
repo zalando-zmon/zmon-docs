@@ -2,7 +2,7 @@
 Introduction
 ************
 
-ZMON is an open-source platform monitoring tool developed at Zalando_ and used in production since 2014. It works out-of-the-box and offers customized alerts and dashboards with Grafana2; unlimited scaling and storage with KairosDB and Cassandra; clients for iOS and Android monitoring; and a common language (Python). 
+ZMON is an open-source platform monitoring tool developed at Zalando_ and used in production since early 2014. It works out-of-the-box and offers customized alerts and dashboards with Grafana2; unlimited scaling and storage with KairosDB and Cassandra; iOS and Android clients; and a common language (Python), among other features. 
 
 Using ZMON requires these four components: zmon-controller_, zmon-scheduler_, zmon-worker_, and zmon-eventlog-service_. The following components are optional:
 
@@ -16,7 +16,7 @@ Using ZMON requires these four components: zmon-controller_, zmon-scheduler_, zm
 ZMON Origins
 ========
 
-ZMON started as a Hackweek late 2013 to replace ICINGA. Scalability was crucial but manageability and flexibility were equally important. By then a lot of small teams needed to monitor their services independent of each other. Early 2014 it went into production and teams migrated all checks from ICINGA to ZMON which serves Zalando Tech until today.
+ZMON was born in December 2013 during Zalando's annual `Hack Week`_, when a group of Zalando engineers aimed to develop a replacement for ICINGA. Scalability, manageability and flexibility were all key, as Zalando's small teams needed to be able to monitor their services independent of each other. In early 2014, Zalando teams began migrating all checks from ICINGA. ZMON continues to serve Zalando Tech.
 
 The main concepts behind ZMON are a split of responsibilities between checks and alerts and the use of entities to describe everything to monitor. Both are being managed by RESTful APIs giving teams the power to configure their requirements autonomously. ZMON's Frontend also allows you to manage alerts and dashboards. At the same time ZMON's UI comes with Grafana "built-in" to power data heavy dashboards. Observed data in general is shared between teams, alerts can be inherited and cloned to reuse code and knowledge. A built-in understanding of teams and privileges build around teams improves the usability in an environment with many teams.
 
@@ -129,3 +129,4 @@ To make your life easier there is the command line client, a slim wrapper around
 .. _zmon-actuator: https://github.com/zalando/zmon-actuator
 .. _zmon-aws-agent: https://github.com/zalando/zmon-aws-agent
 .. _zmon-data-service: https://github.com/zalando/zmon-data-service
+.. _Hack Week: https://tech.zalando.de/blog/?tags=Hack%20Week
