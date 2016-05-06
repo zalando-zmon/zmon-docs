@@ -127,7 +127,7 @@ The team behind ZMON continues to improve performance and functionality. Please 
 .. _Python: http://www.python.org
 .. _Zalando: https://tech.zalando.de/
 .. _zmon-controller: https://github.com/zalando/zmon-controller
-.. _zmon-demo: https://github.com/zalando/zmon-demo
+.. _demo: https://github.com/zalando/zmon-demo
 .. _zmon-scheduler: https://github.com/zalando/zmon-scheduler
 .. _zmon-worker: https://github.com/zalando/zmon-worker
 .. _zmon-eventlog-service: https://github.com/zalando/zmon-eventlog-service
