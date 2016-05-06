@@ -5,12 +5,13 @@ Introduction
 ZMON is an open-source platform monitoring tool developed at Zalando_ and used in production since 2014. It works out-of-the-box and offers customized alerts and dashboards with Grafana2; unlimited scaling and storage with KairosDB and Cassandra; clients for iOS and Android monitoring; and a common language (Python). 
 
 Using ZMON requires these four components: zmon-controller_, zmon-scheduler_, zmon-worker_, and zmon-eventlog-service_. The following components are optional:
-- zmon-android_:
-_ zmon-ios_:
-- zmon-cli_:
-- zmon-actuator_
-- zmon-aws-agent_
-- zmon-data-service_:
+
+- zmon-android_: An Android client for ZMON monitoring 
+- zmon-ios_: An iOS client for ZMON monitoring 
+- zmon-cli_: A command line client
+- zmon-actuator_: Offering improved REST endpoint metrics for your Spring Boot projects
+- zmon-aws-agent_: Works with the AWS API to retrieve "known" applications
+- zmon-data-service_: zmon-worker sends its data to this for Redis storage (for the frontend), KairosDB storage (for charting), and notification handling
 
 ZMON Origins
 ========
