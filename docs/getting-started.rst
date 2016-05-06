@@ -2,7 +2,7 @@
 Getting Started
 ***************
 
-In order to easily get started use our preconfigured Vagrant box.
+In order to easily get started use our pre-configured Vagrant box.
 
 You need to have Vagrant *(at least 1.7.4)* and a Vagrant Provider (e.g. VirtualBox) installed on your machine.
 
@@ -50,8 +50,9 @@ To explore this concept, we'll create a simple check and define some alerts on i
 Create a check-definition
 -------------------------
 
-Since it's currently not possible to create a check via web interface, you need to use the zmon-cli for that
-(see: :ref:`cli-usage`).
+One possiblity to create a check command is to use the CLI (see: :ref:`cli-usage`).
+
+However a more convenient way is to use the "Trial Run" feature that lets you develop check and alert and execute it immediately to see its effect. Once you are happy with your check command and filter you can save it from the Trial Run directly. Some prefer downloading the YAML def. from there to store and maintain it e.g. in GIT.
 
 Create an alert
 ---------------
