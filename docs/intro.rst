@@ -25,7 +25,7 @@ Using ZMON requires these four components: zmon-controller_, zmon-scheduler_, zm
 ZMON Origins
 ========
 
-ZMON was born in late 2013 during Zalando's annual `Hack Week`_, when a group of Zalando engineers aimed to develop a replacement for ICINGA. Scalability, manageability and flexibility were all critical, as Zalando's small teams needed to be able to monitor their services independent of each other. In early 2014, Zalando teams began migrating all checks from ICINGA. ZMON continues to serve Zalando Tech.
+ZMON was born in late 2013 during Zalando's annual `Hack Week`_, when a group of Zalando engineers aimed to develop a replacement for ICINGA. Scalability, manageability and flexibility were all critical, as Zalando's small teams needed to be able to monitor their services independent of each other. In early 2014, Zalando teams began migrating all checks to ZMON, which continues to serve Zalando Tech.
 
 Entities
 ========
