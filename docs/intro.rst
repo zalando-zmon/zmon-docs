@@ -2,7 +2,20 @@
 Introduction
 ************
 
-ZMON is Zalando's open source platform monitoring tool. A team of Zalando Technology started the development in a Hackweek late 2013 to replace ICINGA. Scalability was crucial but manageability and flexibility were equally important. By then a lot of small teams needed to monitor their services independent of each other. Early 2014 it went into production and teams migrated all checks from ICINGA to ZMON which serves Zalando Tech until today.
+ZMON is an open-source platform monitoring tool developed at Zalando_ and used in production since 2014. It works out-of-the-box and offers customized alerts and dashboards with Grafana2; unlimited scaling and storage with KairosDB and Cassandra; clients for iOS and Android monitoring; and a common language (Python). 
+
+Using ZMON requires these four components: zmon-controller_, zmon-scheduler_, zmon-worker_, and zmon-eventlog-service_. The following components are optional:
+- zmon-android_:
+_ zmon-ios_:
+- zmon-cli_:
+- zmon-actuator_
+- zmon-aws-agent_
+- zmon-data-service_:
+
+ZMON Origins
+========
+
+ZMON started as a Hackweek late 2013 to replace ICINGA. Scalability was crucial but manageability and flexibility were equally important. By then a lot of small teams needed to monitor their services independent of each other. Early 2014 it went into production and teams migrated all checks from ICINGA to ZMON which serves Zalando Tech until today.
 
 The main concepts behind ZMON are a split of responsibilities between checks and alerts and the use of entities to describe everything to monitor. Both are being managed by RESTful APIs giving teams the power to configure their requirements autonomously. ZMON's Frontend also allows you to manage alerts and dashboards. At the same time ZMON's UI comes with Grafana "built-in" to power data heavy dashboards. Observed data in general is shared between teams, alerts can be inherited and cloned to reuse code and knowledge. A built-in understanding of teams and privileges build around teams improves the usability in an environment with many teams.
 
@@ -13,7 +26,7 @@ Custom adapters or use of the built-in entity service's REST API allows easy int
 Entities
 ========
 
-Entities are used in ZMON to describe your infrastructure or platform. They are used to basically bind check variables to fixed values.
+ZMON uses entities to describe your infrastructure or platform, and to bind check variables to fixed values.
 
 .. code-block:: json
 
@@ -104,3 +117,14 @@ ZMON features a REST API to manage all the essential moving parts during your da
 To make your life easier there is the command line client, a slim wrapper around the REST API, that makes it easier for humans to work with it, hiding away some issues and enabling e.g. working with YAML files or pushing collections of entities.
 
 .. _Python: http://www.python.org
+.. _Zalando: https://tech.zalando.de/
+.. _zmon-controller: https://github.com/zalando/zmon-controller
+.. _zmon-scheduler: https://github.com/zalando/zmon-scheduler
+.. _zmon-worker: https://github.com/zalando/zmon-worker
+.. _zmon-eventlog-service: https://github.com/zalando/zmon-eventlog-service
+.. _zmon-android: https://github.com/zalando/zmon-android
+.. _zmon-ios: https://github.com/zalando/zmon-ios
+.. _zmon-cli: https://github.com/zalando/zmon-cli
+.. _zmon-actuator: https://github.com/zalando/zmon-actuator
+.. _zmon-aws-agent: https://github.com/zalando/zmon-aws-agent
+.. _zmon-data-service: https://github.com/zalando/zmon-data-service
