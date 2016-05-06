@@ -2,7 +2,16 @@
 Introduction
 ************
 
-ZMON is an open-source platform monitoring tool developed at Zalando_ and used in production since early 2014. It works out-of-the-box and offers customized alerts and dashboards with Grafana2; unlimited scaling and storage with KairosDB and Cassandra; iOS and Android clients; and a common language (Python), among other features. 
+ZMON is an open-source platform monitoring tool developed at Zalando_ and used in production since early 2014. It offers unlimited scaling and storage with KairosDB and Cassandra; iOS and Android clients; and a common language (Python). ZMON splits checking and alerting responsibilities from processes that use entities to describe what's being monitored. RESTful APIs manage both, giving teams the power to configure their requirements autonomously. 
+
+ZMON can be used by anyone, but offers particular advantages for technical organizations with many autonomous teams. Its frontend (see demo_) comes with Grafana "built-in," enabling teams to create and manage their own data-heavy, customized alerts and dashboards and share observed data with other teams. Alerts can be inherited and cloned, which makes reusing and sharing code and knowledge easy. 
+
+ZMON also enables painless integration with CMDBs and service discovery and deploy tools via custom adapters or its built-in entity service's REST API. For an example, see zmon-aws-agent_ to learn how we connect AWS instance discovery with our monitoring.
+
+ZMON Components
+========
+
+.. image:: images/components.svg
 
 Using ZMON requires these four components: zmon-controller_, zmon-scheduler_, zmon-worker_, and zmon-eventlog-service_. The following components are optional:
 
@@ -11,18 +20,12 @@ Using ZMON requires these four components: zmon-controller_, zmon-scheduler_, zm
 - zmon-cli_: A command line client
 - zmon-actuator_: Offering improved REST endpoint metrics for your Spring Boot projects
 - zmon-aws-agent_: Works with the AWS API to retrieve "known" applications
-- zmon-data-service_: zmon-worker sends its data to this for Redis storage (for the frontend), KairosDB storage (for charting), and notification handling
+- zmon-data-service_: Intercepts data from zmon-worker for Redis storage (for the frontend), KairosDB storage (for charting), and notification handling
 
 ZMON Origins
 ========
 
-ZMON was born in December 2013 during Zalando's annual `Hack Week`_, when a group of Zalando engineers aimed to develop a replacement for ICINGA. Scalability, manageability and flexibility were all key, as Zalando's small teams needed to be able to monitor their services independent of each other. In early 2014, Zalando teams began migrating all checks from ICINGA. ZMON continues to serve Zalando Tech.
-
-The main concepts behind ZMON are a split of responsibilities between checks and alerts and the use of entities to describe everything to monitor. Both are being managed by RESTful APIs giving teams the power to configure their requirements autonomously. ZMON's Frontend also allows you to manage alerts and dashboards. At the same time ZMON's UI comes with Grafana "built-in" to power data heavy dashboards. Observed data in general is shared between teams, alerts can be inherited and cloned to reuse code and knowledge. A built-in understanding of teams and privileges build around teams improves the usability in an environment with many teams.
-
-.. image:: images/components.svg
-
-Custom adapters or use of the built-in entity service's REST API allows easy integration into existing tools like CMDBs, service discovery or deploy tools. With the ZMON AWS Agent there exists an example how we connect AWS instance discovery with our monitoring.
+ZMON was born in late 2013 during Zalando's annual `Hack Week`_, when a group of Zalando engineers aimed to develop a replacement for ICINGA. Scalability, manageability and flexibility were all critical, as Zalando's small teams needed to be able to monitor their services independent of each other. In early 2014, Zalando teams began migrating all checks from ICINGA. ZMON continues to serve Zalando Tech.
 
 Entities
 ========
@@ -54,7 +57,7 @@ Or more abstract objects:
   	}
   }
 
-Entity properties are not defined in any schema, you can add properties as you feel fit, enabling later a finer grained filtering or selection of entities. E.g. our host entities also include a physical model to later select the proper hardware checks.
+Entity properties are not defined in any schema, so you can add properties as you see fit. enabling later a finer grained filtering or selection of entities. E.g. our host entities also include a physical model to later select the proper hardware checks.
 
 Checks
 ======
@@ -120,6 +123,7 @@ To make your life easier there is the command line client, a slim wrapper around
 .. _Python: http://www.python.org
 .. _Zalando: https://tech.zalando.de/
 .. _zmon-controller: https://github.com/zalando/zmon-controller
+.. _zmon-demo: https://github.com/zalando/zmon-demo
 .. _zmon-scheduler: https://github.com/zalando/zmon-scheduler
 .. _zmon-worker: https://github.com/zalando/zmon-worker
 .. _zmon-eventlog-service: https://github.com/zalando/zmon-eventlog-service
