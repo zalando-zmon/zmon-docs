@@ -4,25 +4,16 @@
 Entities
 ********
 
-Entities are in general describing what you want to monitor in your infrastructure. This may be as basic as a host, with its attributes hostname and IP, or it may be a bit more complex like a PostgreSQL sharded cluster consisting of an identifier and a set of connection strings.
+Entities describe what you want to monitor in your infrastructure. This can be as basic as a host, with its attributes hostname and IP; or something more complex, like a PostgreSQL sharded cluster with its identifier and set of connection strings.
 
-Internally the entities are stored in the entity service that is part of the controller or they are discovered by adapters in the scheduler. Thus ZMON gives you two options for automation/integration into your platform. At Zalando we use both, connecting ZMON to tools like our CMDB but also pushing entities via the REST API.
+ZMON gives you two options for autonomation in/integration with your platform: storing entities via zmon-controller_'s entity service, or discovering them via the adapters in zmon-scheduler_. At Zalando we use both, connecting ZMON to tools like our CMDB but also pushing entities via REST API.
 
-Using the entity service, entities are described using a single JSON document.
-
-Any entity must contain an ID that is unique within your ZMON deployment. We often use a pattern like <hostname>(:<port>) to create uniqueness on host and application level, but this is up to you.
-
-You can find some examples for entities in:
-
-  https://github.com/zalando/zmon/tree/master/examples/entities
-
+ZMON's entity service describes entities with a single JSON document. Any entity must contain an ID that is unique within your ZMON deployment. We often use a pattern like <hostname>(:<port>) to create uniqueness at the host and application levels, but this is up to you.
 
 Examples
 --------
 
-Describing the Vagrant Box one could for example use the following entities:
-
-The scheduler instance:
+In working with the Vagrant Box, you can use the scheduler instance entity like this:
 
 .. code-block:: json
 
@@ -34,9 +25,9 @@ The scheduler instance:
         "ports": {"3421":3421},
     }
 
-We use the "ports" dictionary to also describe additional open ports, often a second port is added exposing management features, like with spring-boot.
+Here, you can use the "ports" dictionary to also describe additional open ports. As with Spring Boot, a second port is usually added, exposing management features.
 
-The PostgreSQL instance:
+Now let's look at an example of the PostgreSQL instance:
 
 .. code-block:: json
 
@@ -47,4 +38,10 @@ The PostgreSQL instance:
         "shards": {"zmon":"localhost:5432/local_zmon_db"}
     }
 
-The usage of the property "shards" is given by how the worker exposes PostgreSQL clusters to the sql() function.
+Usage of the property "shards" is given by how ZMON's worker exposes PostgreSQL clusters to the sql() function.
+
+View more examples here_. 
+
+.. _zmon-controller: https://github.com/zalando/zmon-controller
+.. _zmon-scheduler: https://github.com/zalando/zmon-scheduler
+.. _here: https://github.com/zalando/zmon/tree/master/examples/entities
