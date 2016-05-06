@@ -2,24 +2,20 @@
 Getting Started
 ***************
 
-In order to easily get started use our pre-configured Vagrant box.
-
-You need to have Vagrant *(at least 1.7.4)* and a Vagrant Provider (e.g. VirtualBox) installed on your machine.
-
-You can obtain the Vagrant box from https://github.com/zalando/zmon. Clone the repository with git:
+To quickly get started with ZMON, use the preconfigured Vagrant box featured on the `main ZMON repository`_. Make sure you've installed Vagrant *(at least 1.7.4)* and a Vagrant provider like VirtualBox on your machine. Clone the repository with Git:
 
 .. code-block:: bash
 
    $ git clone https://github.com/zalando/zmon.git
    $ cd zmon/
 
-From within the cloned repository run:
+From within the cloned repository, run:
 
 .. code-block:: bash
 
    $ vagrant up
 
-Bootstrapping the image for the first time will take quite long. (Time to grab some coffee)
+Bootstrapping the image for the first time will take a bit of time. You might want to grab some coffee while you wait. :)
 
 When it's finally up, Vagrant will report on how to reach the ZMON web interface:
 
@@ -29,43 +25,37 @@ When it's finally up, Vagrant will report on how to reach the ZMON web interface
     ==> default: Goto: https://localhost:8443
     ==> default: Login with your GitHub credentials
 
-Create your first alert
+Creating Your First Alert
 =======================
 
-Log in
+Log In
 ------
 
-Open your web browser and navigate to the URL reported by Vagrant (e.g. https://localhost:8443/).
-Click on *Sign In* and enter your GitHub credentials (you will be redirected to GitHub).
+Open your web browser and navigate to the URL reported by Vagrant: e.g. https://localhost:8443/. Click on *Sign In* and enter your GitHub credentials. You'll be redirected to GitHub.
 
-Checks and alerts
+Checks and Alerts
 -----------------
 
-In ZMON an alert shown on the dashboard typically consists of two parts: the check-definition, which is responsible for
-fetching the underlying data, and the alert-definition, which defines the condition under which the situation is
-considered critical. There can be multiple alerts with different conditions, operating on the same check.
+An alert shown on ZMON's dashboard typically consists of two parts: the *check-definition*, which is responsible for
+fetching the underlying data; and the *alert-definition*, which defines the condition under which the situation is
+considered critical. Multiple alerts with different conditions can operate on the same check.
 
-To explore this concept, we'll create a simple check and define some alerts on it.
+Let's explore this concept now by creating a simple check and defining some alerts on it.
 
-Create a check-definition
+Create a Check-Definition
 -------------------------
 
-One possiblity to create a check command is to use the CLI (see: :ref:`cli-usage`).
+One way to create a check command is by using ZMON's CLI. (See: :ref:`cli-usage`). A more convenient way, however, is to use the "Trial Run" feature, which enables you to develop checks and alerts, execute them immediately, and note their impact. Once you are happy with your check command and filter, you can save it from the Trial Run directly. Some users prefer to download the YAML definition from there to store and maintain it in Git.
 
-However a more convenient way is to use the "Trial Run" feature that lets you develop check and alert and execute it immediately to see its effect. Once you are happy with your check command and filter you can save it from the Trial Run directly. Some prefer downloading the YAML def. from there to store and maintain it e.g. in GIT.
-
-Create an alert
+Create an Alert
 ---------------
 
-To create the alert, we can use the web interface. In the top navigation select
-`Check defs <https://localhost:8443/#/check-definitions>`_ and click on *Website HTTP status* from the list.
-Clicking the button *"Add New Alert Definition"* lets you create a new Alert for this check-definition.
-Fill the form like this, and hit *"Save"*:
+In the top navigation of ZMON's web interface, select `Check defs <https://localhost:8443/#/check-definitions>`_ from the list and click on *Website HTTP status*. Then click *"Add New Alert Definition"* to create a new alert for this check-definition. Fill out the form (see example below), and hit *"Save"*:
 
 ==================== ==========================
-**Name**             Oops.. website is gone!
+**Name**             Oops ... website is gone!
 -------------------- --------------------------
-**Description**      website was not reachable.
+**Description**      Website was not reachable.
 -------------------- --------------------------
 **Priority**         Priority 1 (red)
 -------------------- --------------------------
@@ -78,23 +68,20 @@ Fill the form like this, and hit *"Save"*:
 **Status**           ACTIVE
 ==================== ==========================
 
-View dashboard
+View Dashboard
 --------------
 
-If the alerts condition evaluates true the alert will show up on the dashboard. Currently there is only one dashboard
-and it's configured to show all present alerts. To view the dashboard, select
-`Dashboards <https://localhost:8443/#/dashboards>`_ from the main menu and click on *Example Dashboard* from the list.
+If the alerts condition evaluates True, the alert will appear on the dashboard. Currently there's only one dashboard, and it's configured to show all present alerts. To view the dashboard, select
+`Dashboards <https://localhost:8443/#/dashboards>`_ from the main menu and click on *Example Dashboard*.
 
-In order to see the alert, you need to simulate the error condition. The alert should show up, if you modify its
-condition or if you modify the check-definition to return an error code. You can simply achieve this by setting the url
-in the check command to http://httpstat.us/500. (The number in the url represents the HTTP error code you will get.)
+To see the alert, you must simulate the error condition; try modifying its condition or the check-definition to return an error code). You do this, set the URL in the check command to http://httpstat.us/500. (The number in the URL represents the HTTP error code you will get.)
 
-To see the actual error code in the alert you might want to create/modify it like this:
+To see the actual error code in the alert, you might want to create/modify it like this:
 
 ==================== ================================
 **Name**             Website gone with status {code}
 -------------------- --------------------------------
-**Description**      website was not reachable.
+**Description**      Website was not reachable.
 -------------------- --------------------------------
 **Priority**         Priority 1 (red)
 -------------------- --------------------------------
@@ -109,21 +96,18 @@ To see the actual error code in the alert you might want to create/modify it lik
 
 .. _cli-usage:
 
-CLI usage
+Using the CLI
 =========
 
-The ZMON Vagrant box comes preinstalled with *zmon-cli*. In order to use the CLI log in to the running Vagrant box with:
+The ZMON Vagrant box comes preinstalled with *zmon-cli*. To use the CLI, log in to the running Vagrant box with:
 
 .. code-block:: bash
 
    $ vagrant ssh
 
-Our Vagrant box also contains some example yaml files for the creation of entities, checks and alerts. You will find
-those in */vagrant/examples*.
+The Vagrant box also contains some sample yaml files for creating entities, checks and alerts. You can find these in */vagrant/examples*.
 
-As a basic example fo CLI usage we'll create a definition, to check if google.com is reachable.
-Therefore *cd* to */vagrant/examples/check-definitions* and create a new check-definition by using the
-zmon-cli.
+As an example of using ZMON's CLI, let's create a definition to check if google.com is reachable. *cd* to */vagrant/examples/check-definitions* and, using zmon-cli, create a new check-definition:
 
 .. code-block:: bash
 
@@ -146,11 +130,13 @@ Edit the newly created *website-availability.yaml* to contain the following code
 
 Type :kbd:`ESC :wq RETURN` to save the file.
 
-To push the updated check definition to ZMON run:
+To push the updated check definition to ZMON, run:
 
 .. code-block:: bash
 
    $ zmon check-definitions update website-availability.yaml
    Updating check definition... http://localhost:8080/#/check-definitions/view/2
 
-More information on using the command line client can be found here: :ref:`zmon-cli`.
+Find more detailed information here: :ref:`zmon-cli`.
+
+.. _main ZMON repository: https://github.com/zalando/zmon
