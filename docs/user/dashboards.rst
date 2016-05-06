@@ -4,9 +4,7 @@
 Dashboards
 **********
 
-Dashboards allow configuring widgets and what alerts to show.
-
-Dasboards have the following fields:
+ZMON's customizable dashboards enable you to configure widgets and choose which alerts to show. Dashboards have the following fields:
 
     name
         The dashboard's name. This is mainly used to identify the dashboard.
