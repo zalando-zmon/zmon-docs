@@ -57,14 +57,12 @@ Or more abstract objects:
   	}
   }
 
-Entity properties are not defined in any schema, so you can add properties as you see fit. enabling later a finer grained filtering or selection of entities. E.g. our host entities also include a physical model to later select the proper hardware checks.
+Entity properties are not defined in any schema, so you can add properties as you see fit. This enables finer-grained filtering or selection of entities later on. As an example, host entities can include a physical model to later select the proper hardware checks.
 
 Checks
 ======
 
-A check describes how data is acquired, where the two key properties are: An entity filter and a check command. The entity filter selects a subset of entities by requiring an overlap on specified properties.
-
-Example:
+A check describes how data is acquired, and where the two key properties — an entity filter and a check command — are. The entity filter selects a subset of entities by requiring an overlap on specified properties. An example:
 
 .. code-block:: json
 
@@ -72,7 +70,7 @@ Example:
     "type":"host", "role":"cassandra-host"
   }
 
-The check command itself is an executable Python_ expression. ZMON provides a lot of custom functions that are bound to the selected entity. The following example uses our PostgreSQL wrapper to execute a query on every shard defined above.
+The check command itself is an executable Python_ expression. ZMON provides many custom functions that are bound to the selected entity. The following example uses a PostgreSQL wrapper to execute a query on every shard defined above:
 
 .. code-block:: python
 
@@ -80,9 +78,9 @@ The check command itself is an executable Python_ expression. ZMON provides a lo
 
   sql().execute("SELECT 1 as a").results()
 
-A check command always returns a value to the alert, this can be of any type.
+A check command always returns a value to the alert. This can be of any type.
 
-For people less familiar with Pythons ZMON also allows you to define a function on the top level and define your command in an easier less functional way:
+Not familiar with Python? No worries: ZMON allows you to define a function on the top level and define your command in an easier, less functional way:
 
 .. code-block:: python
 
@@ -93,9 +91,9 @@ For people less familiar with Pythons ZMON also allows you to define a function 
 Alerts
 ======
 
-A basic alert consists of an alert condition, and entity filter, and a team. More properties are available like exclude entities, details are explained later. Any alert has only two states, up or down. We do not support levels of criticality, and something like unknown. And alert is up, if it yields anything but False. This also includes exceptions thrown from check or alert expression, e.g. in case of connection problems.
+A basic alert consists of an alert condition, an entity filter, and a team. Exclude entities and other properties are also available. An alert has only two states: up or down. An alert is up if it yields anything but False; this also includes exceptions thrown from check or alert expression, e.g. in the event of connection problems. ZMON does not support levels of criticality, or something like "unknown." 
 
-Going back to the PostgreSQL check the below alert would pop up if either shard is not reachable, making use of exceptions bubbling up from the check command itself.
+Let's revisit the above PostgreSQL check again. If either shard were not reachable, this alert would pop up: 
 
 .. code-block:: yaml
 
@@ -104,21 +102,27 @@ Going back to the PostgreSQL check the below alert would pop up if either shard 
     - type: postgresql-cluster
   alert_condition: "False"
 
-Alerts support parameters to the alert condition via UI, thus teams can decide to easily implement different thresholds. Together with the priority field defining the dashboard color this enables users to render their dashboards according to their understanding of priorities.
+This makes use of exceptions bubbling up from the check command itself.
+ 
+Via ZMON's UI, alerts support parameters to the alert condition. This makes it easy for teams/users to implement different thresholds, and — with the priority field defining the dashboard color — render their dashboards to reflect their priorities.
 
 Dashboards
 ==========
 
-Dashboards consists of a widget area where you can render important data in a graphical way, with charts, gauges or just text. The second section consists of rendering all active alerts for the team filter defined on dashboard level. Using the team filter you select the alerts you want to have on your dashboards, multiple teams can be specified. Additionally TAGs are supported to subselect topics.
+Dashboards include a widget area where you can render important data with charts, gauges, or plain text. Another section features rendering of all active alerts for the team filter, defined at the dashboard level. Using the team filter, select the alerts you want your dashboard to include. Specify multiple teams, if necessary. TAGs are supported to subselect topics.
 
 .. image:: images/dashboard.png
 
 REST API and CLI
 ================
 
-ZMON features a REST API to manage all the essential moving parts during your daily work: creating and updating entities, which allows easy sync with your existing infrastructure. Creating and modifying checks and alerts is possible, the scheduler will pick changes up quickly, no need to restart or deploy anything.
+To make your life easier, ZMON's REST API manages all the essential moving parts to support your daily work — creating and updating entities to allow for sync-up with your existing infrastructure. When you create and modify checks and alerts, the scheduler will quickly pick up these changes so you won't have to restart or deploy anything.
 
-To make your life easier there is the command line client, a slim wrapper around the REST API, that makes it easier for humans to work with it, hiding away some issues and enabling e.g. working with YAML files or pushing collections of entities.
+And ZMON's command line client - a slim wrapper around the REST API - also adds usability by making it simpler to work with YAML files or push collections of entities.
+
+Development Status
+================
+The team behind ZMON continues to improve performance and functionality. Please let us know via GitHub's issues tracker if you find any bugs or issues.
 
 .. _Python: http://www.python.org
 .. _Zalando: https://tech.zalando.de/
