@@ -4,12 +4,24 @@
 Monitoring on AWS
 *****************
 
-This section assumes that you're running zmon-aws-agent_, which automatically discovers your EC2 instances, auto-scaling groups, ELBs, and more.
+This section assumes that you're running zmon-aws-agent_, which automatically discovers your EC2 instances, auto-scaling of groups, ELBs, and more.
+
+CloudWatch Metrics
+---------------
+You can achieve most basic monitoring with AWS CloudWatch_. CloudWatch EC2 metrics contain the following information:
+
+- CPU Utilization
+- Network traffic
+- Disk throughput/operations per second (only for ephemeral storage; EBS volumes are not included)
+
+ZMON allows querying arbitrary CloudWatch metrics using the “cloudwatch()” `check command`_.
 
 Security Groups
 ---------------
 
-Depending on your AWS setup, you'll probably have to open particular ports/instances to access from ZMON. Using a limited set of ports to expose management APIs and the Prometheus node exporter will make your life easier.
+Depending on your AWS setup, you'll probably have to open particular ports/instances to access from ZMON. Using a limited set of ports to expose management APIs and the Prometheus node exporter will make your life easier. ZMON allows parsing of Prometheus metrics via the “http().prometheus()” check command_).
+
+You can deploy ZMON into each of your AWS accounts to allow cross-team monitoring and dashboards. Make sure that your security groups allow ZMON to connect to port 9100 of your monitored instances.
 
 Not having the proper security groups configured is mainly visible by not getting the expected results at all, as packages are dropped by the EC2 instance rather then e.g. getting a connection refused.
 
@@ -21,7 +33,7 @@ EC2 Instances
 
 Having enough **diskspace** on your instance is important; `here's a sample check`_. By default, you can only get space used from CloudWatch_. Using Amazon's own script, you can push free space to CloudWatch and pull this data via ZMON. Alternatively, you can run the `Prometheus Node exporter`_ to pull disk space data from the EC2 node itself via HTTP. 
 
-Similarly, you can pull CPU-related metrics from CloudWatch. The Prometheus Node exporter also exposes these metrics.
+Similarly, you can pull CPU-related metrics from CloudWatch. The Prometheus Node exporter also exposes these metrics. 
 
 You also need enough available **INodes**.
 
@@ -50,13 +62,18 @@ Documentation to come.
 Application API Monitoring
 --------------------------
 
-When monitoring an application, you'll usually want to check the number of received requests, latency patterns, and the number of returned status codes. These data points form a pretty clear picture of what is going on with the application. Additional metrics will help you find problems as well as opportunities for improvement. Assuming that your applications provide HTTP APIs hidden behind ELBs, you can use ZMON to gather this data from CloudWatch.
+When monitoring an application, you'll usually want to check the number of received requests, latency patterns, and the number of returned status codes. These data points form a pretty clear picture of what is going on with the application. 
 
-For more detailed data, ZMON offers options for different languages and frameworks; for example, zmon-actuator_ for Spring Boot. ZMON gathers the data by querying a JSON endpoint adhering to the DropWizard metrics standard with some convention on the naming of timers. But basically on timer per API PATH and status code. (We also recommend checking out Friboo_ for working with Clojure, and the Python/Flask framework Connexion_.
+Additional metrics will help you find problems as well as opportunities for improvement. Assuming that your applications provide HTTP APIs hidden behind ELBs, you can use ZMON to gather this data from CloudWatch.
 
-In any case, the http(url=...).actuator_metrics() will parse the data into a Python dict that allows you to easy monitor and alert on changes in API behavior.
+For more detailed data, ZMON offers options for different languages and frameworks. One is zmon-actuator_, for Spring Boot. ZMON gathers the data by querying a JSON endpoint adhering to the DropWizard metrics standard with some convention on the naming of timers, but basically on timer per API PATH and status code.
+
+We also recommend checking out Friboo_ for working with Clojure, and the Python/Flask framework Connexion_.
+
+The http(url=...).actuator_metrics() will parse the data into a Python dict that allows you to easily monitor and alert on changes in API behavior.
 
 .. _zmon-aws-agent: https://github.com/zalando/zmon-aws-agent
+.. _check command: https://zmon.readthedocs.io/en/latest/user/check-commands.html#cloudwatch
 .. _CloudWatch: https://aws.amazon.com/cloudwatch/
 .. _Prometheus Node exporter: https://github.com/prometheus/node_exporter
 .. _here's a sample check: https://github.com/zalando/zmon/tree/master/examples/check-definitions/ec2-diskspace.yaml
