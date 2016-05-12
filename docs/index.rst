@@ -2,6 +2,7 @@ ZMON Docs
 =========
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    intro
@@ -10,6 +11,7 @@ ZMON Docs
 .. _user-docs:
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: User Documentation
 
@@ -29,6 +31,7 @@ ZMON Docs
 .. _developer-docs:
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: Developer Documentation
 
@@ -43,16 +46,20 @@ ZMON Docs
 .. toctree::
    :maxdepth: 2
    :caption: Installation Documentation
+   :hidden:
 
    installation/requirements
    installation/components
    installation/configuration
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
    :caption: Appendix
 
    apendix/glossary
+
+.. include:: intro.rst
 
 
 Indices and Tables
