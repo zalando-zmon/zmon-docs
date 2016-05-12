@@ -1,6 +1,8 @@
-************************
+.. _requirements:
+
+************
 Requirements
-************************
+************
 
 The requirements below are all open soure technologies that need to be available for ZMON to run with all its features.
 

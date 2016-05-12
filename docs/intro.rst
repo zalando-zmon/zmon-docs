@@ -2,25 +2,28 @@
 Introduction
 ************
 
-ZMON is an open-source platform monitoring tool developed at Zalando_ and used in production since early 2014. It offers unlimited scaling and storage with KairosDB and Cassandra; iOS and Android clients; and a common language (Python). ZMON splits checking and alerting responsibilities from processes that use entities to describe what's being monitored. RESTful APIs manage both, giving teams the power to configure their requirements autonomously.
+ZMON is a flexible and extensible open-source platform monitoring tool developed at Zalando_ and is in production use since early 2014. It offers proven scaling with its distributed nature and fast storage with KairosDB on top of Cassandra. ZMON splits checking(data acquisition) from the alerting responsibilities and uses abstract entities to describe what's being monitored. Checks and alerts rely on Python expressions, giving the user a lot of power and connectivity. Besides the UI it provides RESTful APIs to manage and configure most properties automatically.
 
-ZMON can be used by anyone, but offers particular advantages for technical organizations with many autonomous teams. Its frontend (see demo_) comes with Grafana "built-in," enabling teams to create and manage their own data-heavy, customized alerts and dashboards and share observed data with other teams. Alerts can be inherited and cloned, which makes reusing and sharing code and knowledge easy.
+ZMON can be used by anyone, but offers particular advantages for technical organizations with many autonomous teams. Its front end (see Demo_ / Repo_) comes with Grafana2 "built-in," enabling teams to create and manage their own data-driven dashboards along side ZMON's own team/personal dashboards for alerts and custom widgets. Inherting and cloning of alerts makes reusing and sharing code and knowledge easier among teams. Alerts can trigger HipChat, Slack, and E-Mail notifications.  iOS and Android clients are work in progress, but push notifications are already implemented.
 
-ZMON also enables painless integration with CMDBs and service discovery and deploy tools via custom adapters or its built-in entity service's REST API. For an example, see zmon-aws-agent_ to learn how we connect AWS instance discovery with our monitoring.
+ZMON also enables painless integration with CMDBs, deployment tools, and service discovery via custom adapters or its built-in entity service's REST API. For an example, see zmon-aws-agent_ to learn how we connect AWS service discovery with our monitoring in the cloud.
 
 ZMON Components
 ===============
 
 .. image:: images/components.svg
 
-Using ZMON requires these four components: zmon-controller_, zmon-scheduler_, zmon-worker_, and zmon-eventlog-service_. The following components are optional:
+A minimum setup of ZMON requires these four components: zmon-controller_, zmon-scheduler_, zmon-worker_, and zmon-eventlog-service_ plus the storage covered in the :ref:`requirements` section.
 
+The following components are optional:
+
+- zmon-cli_: A command line client for managing entities/checks/alerts if needed
+- zmon-aws-agent_: Works with the AWS API to retrieve "known" applications
+- zmon-data-service_: Intercepts data from zmon-worker for Redis storage (for the frontend), KairosDB storage (for charting)
+- zmon-metric-cache_: Small scale special purpose metric store for API metrics in ZMON's cloud UI
+- zmon-notification-service_: Provides mobile API and push notification support for GCM to Android/iOS app
 - zmon-android_: An Android client for ZMON monitoring
 - zmon-ios_: An iOS client for ZMON monitoring
-- zmon-cli_: A command line client
-- zmon-actuator_: Offering improved REST endpoint metrics for your Spring Boot projects
-- zmon-aws-agent_: Works with the AWS API to retrieve "known" applications
-- zmon-data-service_: Intercepts data from zmon-worker for Redis storage (for the frontend), KairosDB storage (for charting), and notification handling
 
 ZMON Origins
 ============
@@ -127,7 +130,8 @@ The team behind ZMON continues to improve performance and functionality. Please 
 .. _Python: http://www.python.org
 .. _Zalando: https://tech.zalando.de/
 .. _zmon-controller: https://github.com/zalando/zmon-controller
-.. _demo: https://github.com/zalando/zmon-demo
+.. _Demo: https://demo.zmon.io
+.. _Repo: https://github.com/zalando/zmon-demo
 .. _zmon-scheduler: https://github.com/zalando/zmon-scheduler
 .. _zmon-worker: https://github.com/zalando/zmon-worker
 .. _zmon-eventlog-service: https://github.com/zalando/zmon-eventlog-service
@@ -137,4 +141,6 @@ The team behind ZMON continues to improve performance and functionality. Please 
 .. _zmon-actuator: https://github.com/zalando/zmon-actuator
 .. _zmon-aws-agent: https://github.com/zalando/zmon-aws-agent
 .. _zmon-data-service: https://github.com/zalando/zmon-data-service
+.. _zmon-notification-service: https://github.com/zalando/zmon-notification-service
+.. _zmon-metric-cache: https://github.com/zalando/zmon-metric-cache
 .. _Hack Week: https://tech.zalando.de/blog/?tags=Hack%20Week
