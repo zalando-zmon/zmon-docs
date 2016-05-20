@@ -1552,6 +1552,65 @@ The ``eventlog()`` function allows you to conveniently count EventLog_ events by
 
     The ``count()`` method internally requests the EventLog Viewer's "count" JSON endpoint.
 
+AppDynamics
+-------------
+
+Enable AppDynamics Healthrule violations check.
+
+.. py:function:: appdynamics(url)
+
+Methods of AppDynamics
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:function:: healthrule_violations(application, time_range_type='', duration_in_mins=None, start_time=None, end_time=None, severity=None)
+
+    ::
+
+    Return Healthrule violations for AppDynamics application.
+
+    :param application: Application name or ID
+    :type application: str
+
+    :param time_range_type: Valid time range type.
+    :type time_range_type: str
+
+    :param duration_in_mins: Time duration in mins. Required for BEFORE_NOW, AFTER_TIME, BEFORE_TIME range types.
+    :type duration_in_mins: int
+
+    :param start_time: Start time (in milliseconds) from which the metric data is returned.
+    :type start_time: int
+
+    :param end_time: End time (in milliseconds) until which the metric data is returned.
+    :type end_time: int
+
+    :param severity: Filter results based on severity. Valid values CRITICAL or WARNING.
+    :type severity: str
+
+    :return: List of healthrule violations
+    :rtype: list
+
+    Example query:
+
+    .. code-block:: python
+
+        appdynamics('https://appdynamics/controller/rest').healthrule_violations('49', time_range_type='BEFORE_NOW', duration_in_mins=5)
+
+        [
+            {
+                affectedEntityDefinition: {
+                    entityId: 408,
+                    entityType: "BUSINESS_TRANSACTION",
+                    name: "/error"
+                },
+                detectedTimeInMillis: 0,
+                endTimeInMillis: 0,
+                id: 39637,
+                incidentStatus: "OPEN",
+                name: "Backend errrors (percentage)",
+                severity: "CRITICAL",
+                startTimeInMillis: 1462244635000,
+            }
+        ]
 
 
 Entity
