@@ -1059,7 +1059,11 @@ Elasticsearch
 Provides search queries and health check against an Elasticsearch cluster.
 
 
-.. py:function:: elasticsearch(url, timeout=10, oauth2=False)
+.. py:function:: elasticsearch(url=None, timeout=10, oauth2=False)
+
+.. note::
+
+    If ``url`` is **None**, then the plugin will use the default Elasticsearch cluster set in worker configuration.
 
 
 Methods of Elasticsearch

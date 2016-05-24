@@ -54,8 +54,8 @@ The client however also supports loading data from .json and .yaml files, both m
 
         .. code-block:: bash
 
-           $ senza entities push my-data.yaml
-           $ senza ent pu my-data.yaml
+           $ zmon entities push my-data.yaml
+           $ zmon ent pu my-data.yaml
 
 Search and filter
 ^^^^^^^^^^^^^^^^^
