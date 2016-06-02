@@ -4,35 +4,24 @@
 Comments
 ********
 
-Commenting on an alert
-----------------------
+Comments are useful in providing additional information to other members of your team (or other teams) about your alerts. Those with ADMIN, LEAD and USER roles can add comments to an alert, but VIEWERS can not. ADMINs can delete either their own or other people's comments. USERs can delete only their own comments. 
 
-Adding comments is a useful way to provide additional information when analyzing an alert.
-
-Adding a comment
+Adding Comments
 ----------------
 
-To add comments to an alert, you must either have ADMIN, LEAD or USER roles (VIEWERS are not allowed to add comments) and execute the following steps:
+Follow these steps:
 
-* Open the alert definition on which to add your comment.
-* You can either click on the top right link named `Comments` to add a general comment for all entities, or click on the balloon on the left side of the entity name to add a comment for the specified entity.
-* In the comments window, type your comment and use as many lines as you require.
-* Click `Post comment` button to save your comment.
+* Open the alert definition where you want to add your comment.
+* Either click on the top-right link `Comments` to add a **general** comment (for all entities), or click on the balloon on the left side of the entity name to add a comment on a **specific** entity.
+* In the comments window, type your comment. Use as many lines as you need.
+* Click the `Post comment` button and save your comment. Done!
 
-Seeing existing comments
+Seeing Existing Comments
 ------------------------
 
-To see all existing comments:
+It's easy: Just open the alert definition, then click on `Comments` (top-right link).
 
-* Open alert definition.
-* Click on the top right link named `Comments`.
-
-Deleting a comment
+Deleting Comments
 ------------------
 
-You can either delete your own comments if you have USER role or delete other people's comment if you have ADMIN role.
-To delete a comment you should:
-
-* Open alert definition.
-* Click on the top right link named `Comments`.
-* Click in the cross above the comment.
+Deleting is also easy: Open the alert definition, click on the top right-link `Comments`, click on the cross above the comment, and delete.
