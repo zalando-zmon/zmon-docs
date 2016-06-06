@@ -31,9 +31,9 @@ Low-Level or Basic Properties
 EC2 Instances
 =============
 
-Having enough **diskspace** on your instance is important; `here's a sample check`_. By default, you can only get space used from CloudWatch_. Using Amazon's own script, you can push free space to CloudWatch and pull this data via ZMON. Alternatively, you can run the `Prometheus Node exporter`_ to pull disk space data from the EC2 node itself via HTTP. 
+Having enough **diskspace** on your instance is important; `here's a sample check`_. By default, you can only get space used from CloudWatch_. Using Amazon's own script, you can push free space to CloudWatch and pull this data via ZMON. Alternatively, you can run the `Prometheus Node exporter`_ to pull disk space data from the EC2 node itself via HTTP.
 
-Similarly, you can pull CPU-related metrics from CloudWatch. The Prometheus Node exporter also exposes these metrics. 
+Similarly, you can pull CPU-related metrics from CloudWatch. The Prometheus Node exporter also exposes these metrics.
 
 You also need enough available **INodes**.
 
@@ -62,7 +62,7 @@ Documentation to come.
 Application API Monitoring
 --------------------------
 
-When monitoring an application, you'll usually want to check the number of received requests, latency patterns, and the number of returned status codes. These data points form a pretty clear picture of what is going on with the application. 
+When monitoring an application, you'll usually want to check the number of received requests, latency patterns, and the number of returned status codes. These data points form a pretty clear picture of what is going on with the application.
 
 Additional metrics will help you find problems as well as opportunities for improvement. Assuming that your applications provide HTTP APIs hidden behind ELBs, you can use ZMON to gather this data from CloudWatch.
 
@@ -76,7 +76,7 @@ The http(url=...).actuator_metrics() will parse the data into a Python dict that
 .. _check command: https://zmon.readthedocs.io/en/latest/user/check-commands.html#cloudwatch
 .. _CloudWatch: https://aws.amazon.com/cloudwatch/
 .. _Prometheus Node exporter: https://github.com/prometheus/node_exporter
-.. _here's a sample check: https://github.com/zalando/zmon/tree/master/examples/check-definitions/ec2-diskspace.yaml
+.. _here's a sample check: https://github.com/zalando/zmon/tree/master/examples/check-definitions/11-ec2-diskspace.yaml
 .. _zmon-actuator: https://github.com/zalando-zmon/zmon-actuator
 .. _Friboo: https://github.com/zalando-stups/friboo
 .. _Connexion: https://github.com/zalando/connexion
