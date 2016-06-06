@@ -4,66 +4,79 @@
 Monitoring on AWS
 *****************
 
-For this section we will assume that you do have the ZMON AWS agent running. It will automatically discover EC2 instances, Auto-scaling groups, ELBs, and more for you.
+This section assumes that you're running zmon-aws-agent_, which automatically discovers your EC2 instances, auto-scaling of groups, ELBs, and more.
 
-Security groups
+CloudWatch Metrics
+---------------
+You can achieve most basic monitoring with AWS CloudWatch_. CloudWatch EC2 metrics contain the following information:
+
+- CPU Utilization
+- Network traffic
+- Disk throughput/operations per second (only for ephemeral storage; EBS volumes are not included)
+
+ZMON allows querying arbitrary CloudWatch metrics using the “cloudwatch()” `check command`_.
+
+Security Groups
 ---------------
 
-Depending on your AWS setup you most likely need to open particular ports/instances to access from ZMON. Using a limited set of ports to e.g. expose management APIs and the Prometheus node exporter will make your life easier.
+Depending on your AWS setup, you'll probably have to open particular ports/instances to access from ZMON. Using a limited set of ports to expose management APIs and the Prometheus node exporter will make your life easier. ZMON allows parsing of Prometheus metrics via the “http().prometheus()” check command_).
+
+You can deploy ZMON into each of your AWS accounts to allow cross-team monitoring and dashboards. Make sure that your security groups allow ZMON to connect to port 9100 of your monitored instances.
 
 Not having the proper security groups configured is mainly visible by not getting the expected results at all, as packages are dropped by the EC2 instance rather then e.g. getting a connection refused.
 
-Low level or basic properties
+Low-Level or Basic Properties
 -----------------------------
 
-
-EC2 instances
+EC2 Instances
 =============
 
-Diskspace:
+Having enough **diskspace** on your instance is important; `here's a sample check`_. By default, you can only get space used from CloudWatch_. Using Amazon's own script, you can push free space to CloudWatch and pull this data via ZMON. Alternatively, you can run the `Prometheus Node exporter`_ to pull disk space data from the EC2 node itself via HTTP. 
 
-You want to avoid running into troubles with not having enough diskspace on your instance. Sadly by default you can only get space used from cloud watch. Using Amazon's own script you can push free space to cloud watch and pull this data via ZMON. Alternatively what we are doing is running the Prometheus Node exporter that allows you to pull not only disk space data from the EC2 node itself via HTTP.
+Similarly, you can pull CPU-related metrics from CloudWatch. The Prometheus Node exporter also exposes these metrics. 
 
-Besides diskspace you also want to make sure that you have enough free INodes available!
+You also need enough available **INodes**.
 
-Example check:
-
-    https://github.com/zalando/zmon/tree/master/examples/check-definitions/ec2-diskspace.yaml
-
-CPU:
-
-Similar to diskspace CPU related metrics can be pulled from cloud watch or exposed via the Prometheus node exporter.
-
-Memory:
-
-Again as above you can either query via cloud watch, use Prometheus Node exporter to feed ZMON or you can go with low level snmp() but we in general don't encourage this.
+Regarding **memory**, you can either query via CloudWatch, use Prometheus Node exporter to feed ZMON, or go with low-level snmp(). In general, we don't encourage this.
 
 Elastic Load Balancers
 ======================
 
-As mentioned above you can query AWS Cloud Watch to get ELB specific metrics. On top of that the ZMON agent will also put data into the ELB entity allowing you to monitor instance and healthy instance count.
+You can query AWS CloudWatch to get ELB-specific metrics. The ZMON agent will put data into the ELB entity, allowing you to monitor instance and healthy instance count.
 
-Auto scaling groups
+Auto-Scaling Groups
 ===================
 
-The agent creates an auto scaling group entity that provides you with the number of desired instances and the number of instances in a healthy state, this should enable you to monitor wether the ASG actually works and hosts spawn into a productive state.
+ZMON's agent creates an auto-scaling group entity that provides you with the number of desired instances and the number of instances in a healthy state. This enables you to monitor whether the ASG actually works and hosts spawn into a productive state.
 
 RDS Instances
 -------------
 
+Documentation to come.
 
 ElasticCache Redis
 ------------------
 
+Documentation to come.
 
-Application API monitoring
+Application API Monitoring
 --------------------------
 
-  In most cases your want to monitor what is really going on in your application itself, most likely you are interested in the number of requests you are receiving, how your latency looks like and how it looks in terms of status codes returned.
-  Gathering this data you can paint a pretty good picture of what is going on and combined with other metrics and systems should help you find the problems or options for improvement.
+When monitoring an application, you'll usually want to check the number of received requests, latency patterns, and the number of returned status codes. These data points form a pretty clear picture of what is going on with the application. 
 
-  Assuming many applications are providing HTTP APIs hidden behind ELBs, you can use ZMON to gather data from Amazon's Cloud Watch, this gives you a very rough impression.
+Additional metrics will help you find problems as well as opportunities for improvement. Assuming that your applications provide HTTP APIs hidden behind ELBs, you can use ZMON to gather this data from CloudWatch.
 
-  For more detailed data we have different options for different languages/frameworks implemented, mainly for Spring Boot using the zmon-actuator or for Friboo (Clojure) and for Connextion(Python/Flask). In that case ZMON will gather the data by querying a JSON endpoint adhering to the DropWizard metrics standard with some convention on the naming of timers. But basically on timer per API PATH and status code.
+For more detailed data, ZMON offers options for different languages and frameworks. One is zmon-actuator_, for Spring Boot. ZMON gathers the data by querying a JSON endpoint adhering to the DropWizard metrics standard with some convention on the naming of timers, but basically on timer per API PATH and status code.
 
-  In any case, the http(url=...).actuator_metrics() will parse the data into a Python dict, that allows you to easy monitor and alert on changes in API behavior.
+We also recommend checking out Friboo_ for working with Clojure, and the Python/Flask framework Connexion_.
+
+The http(url=...).actuator_metrics() will parse the data into a Python dict that allows you to easily monitor and alert on changes in API behavior.
+
+.. _zmon-aws-agent: https://github.com/zalando/zmon-aws-agent
+.. _check command: https://zmon.readthedocs.io/en/latest/user/check-commands.html#cloudwatch
+.. _CloudWatch: https://aws.amazon.com/cloudwatch/
+.. _Prometheus Node exporter: https://github.com/prometheus/node_exporter
+.. _here's a sample check: https://github.com/zalando/zmon/tree/master/examples/check-definitions/ec2-diskspace.yaml
+.. _zmon-actuator: https://github.com/zalando/zmon-actuator
+.. _Friboo: https://github.com/zalando-stups/friboo
+.. _Connexion: https://github.com/zalando/connexion
