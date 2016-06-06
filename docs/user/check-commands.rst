@@ -12,12 +12,14 @@ HTTP
 
 Access to HTTP (and HTTPS) endpoints is provided by the :py:func:`http` function.
 
-.. py:function:: http(url, [timeout=10], [max_retries=0], [verify=True], [oauth2=True])
+.. py:function:: http(url, [method='GET'], [timeout=10], [max_retries=0], [verify=True], [oauth2=True], [allow_redirects=None])
 
     :param str url: The URL that is to be queried. See below for details.
+    :param str method: The http request method. Allowed values are ``GET`` or ``HEAD``.
     :param float timeout: The timeout for the HTTP request, in seconds. Defaults to :py:obj:`10`.
     :param int max_retries: The number of times the HTTP request should be retried if it fails. Defaults to :py:obj:`0`.
     :param bool verify: Can be set to :py:obj:`False` to disable SSL certificate verification.
+    :param bool allow_redirects: Follow request redirects. If ``None`` then it will be set to :py:obj:`True` in case of ``GET`` and :py:obj:`False` in case of ``HEAD`` request.
     :return: An object encapsulating the response from the server. See below.
 
         For checks on entities that define the attributes :py:attr:`url` or :py:attr:`host`, the given URL may be relative. In that case, the URL :samp:`http://<{value}><{url}>` is queried, where :samp:`<{value}>` is the value of that attribute, and :samp:`<{url}>` is the URL passed to this function. If an entity defines both :py:attr:`url` and :py:attr:`host`, the former is used.
