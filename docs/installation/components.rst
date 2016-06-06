@@ -49,7 +49,7 @@ zmon-eventlog-service_ is our slim implementation of an event store, keeping tra
 Needs connection to:
  * PostgreSQL to store events using jsonb
 
-.. _zmon-controller: https://github.com/zalando/zmon-controller
-.. _zmon-scheduler: https://github.com/zalando/zmon-scheduler
-.. _zmon-worker: https://github.com/zalando/zmon-worker
-.. _zmon-eventlog-service: https://github.com/zalando/zmon-eventlog-service
+.. _zmon-controller: https://github.com/zalando-zmon/zmon-controller
+.. _zmon-scheduler: https://github.com/zalando-zmon/zmon-scheduler
+.. _zmon-worker: https://github.com/zalando-zmon/zmon-worker
+.. _zmon-eventlog-service: https://github.com/zalando-zmon/zmon-eventlog-service

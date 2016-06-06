@@ -26,7 +26,7 @@ When it's finally up, Vagrant will report on how to reach the ZMON web interface
     ==> default: Login with your GitHub credentials
 
 Creating Your First Alert
-=======================
+=========================
 
 Log In
 ------
@@ -97,7 +97,7 @@ To see the actual error code in the alert, you might want to create/modify it li
 .. _cli-usage:
 
 Using the CLI
-=========
+=============
 
 The ZMON Vagrant box comes preinstalled with *zmon-cli*. To use the CLI, log in to the running Vagrant box with:
 

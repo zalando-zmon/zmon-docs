@@ -72,11 +72,11 @@ We also recommend checking out Friboo_ for working with Clojure, and the Python/
 
 The http(url=...).actuator_metrics() will parse the data into a Python dict that allows you to easily monitor and alert on changes in API behavior.
 
-.. _zmon-aws-agent: https://github.com/zalando/zmon-aws-agent
+.. _zmon-aws-agent: https://github.com/zalando-zmon/zmon-aws-agent
 .. _check command: https://zmon.readthedocs.io/en/latest/user/check-commands.html#cloudwatch
 .. _CloudWatch: https://aws.amazon.com/cloudwatch/
 .. _Prometheus Node exporter: https://github.com/prometheus/node_exporter
 .. _here's a sample check: https://github.com/zalando/zmon/tree/master/examples/check-definitions/ec2-diskspace.yaml
-.. _zmon-actuator: https://github.com/zalando/zmon-actuator
+.. _zmon-actuator: https://github.com/zalando-zmon/zmon-actuator
 .. _Friboo: https://github.com/zalando-stups/friboo
 .. _Connexion: https://github.com/zalando/connexion
