@@ -42,6 +42,6 @@ Usage of the property "shards" is given by how ZMON's worker exposes PostgreSQL 
 
 View more examples here_. 
 
-.. _zmon-controller: https://github.com/zalando/zmon-controller
-.. _zmon-scheduler: https://github.com/zalando/zmon-scheduler
+.. _zmon-controller: https://github.com/zalando-zmon/zmon-controller
+.. _zmon-scheduler: https://github.com/zalando-zmon/zmon-scheduler
 .. _here: https://github.com/zalando/zmon/tree/master/examples/entities

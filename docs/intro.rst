@@ -129,18 +129,18 @@ The team behind ZMON continues to improve performance and functionality. Please 
 
 .. _Python: http://www.python.org
 .. _Zalando: https://tech.zalando.de/
-.. _zmon-controller: https://github.com/zalando/zmon-controller
+.. _zmon-controller: https://github.com/zalando-zmon/zmon-controller
 .. _Demo: https://demo.zmon.io
-.. _Repo: https://github.com/zalando/zmon-demo
-.. _zmon-scheduler: https://github.com/zalando/zmon-scheduler
-.. _zmon-worker: https://github.com/zalando/zmon-worker
-.. _zmon-eventlog-service: https://github.com/zalando/zmon-eventlog-service
-.. _zmon-android: https://github.com/zalando/zmon-android
-.. _zmon-ios: https://github.com/zalando/zmon-ios
-.. _zmon-cli: https://github.com/zalando/zmon-cli
-.. _zmon-actuator: https://github.com/zalando/zmon-actuator
-.. _zmon-aws-agent: https://github.com/zalando/zmon-aws-agent
-.. _zmon-data-service: https://github.com/zalando/zmon-data-service
-.. _zmon-notification-service: https://github.com/zalando/zmon-notification-service
-.. _zmon-metric-cache: https://github.com/zalando/zmon-metric-cache
+.. _Repo: https://github.com/zalando-zmon/zmon-demo
+.. _zmon-scheduler: https://github.com/zalando-zmon/zmon-scheduler
+.. _zmon-worker: https://github.com/zalando-zmon/zmon-worker
+.. _zmon-eventlog-service: https://github.com/zalando-zmon/zmon-eventlog-service
+.. _zmon-android: https://github.com/zalando-zmon/zmon-android
+.. _zmon-ios: https://github.com/zalando-zmon/zmon-ios
+.. _zmon-cli: https://github.com/zalando-zmon/zmon-cli
+.. _zmon-actuator: https://github.com/zalando-zmon/zmon-actuator
+.. _zmon-aws-agent: https://github.com/zalando-zmon/zmon-aws-agent
+.. _zmon-data-service: https://github.com/zalando-zmon/zmon-data-service
+.. _zmon-notification-service: https://github.com/zalando-zmon/zmon-notification-service
+.. _zmon-metric-cache: https://github.com/zalando-zmon/zmon-metric-cache
 .. _Hack Week: https://tech.zalando.de/blog/?tags=Hack%20Week
