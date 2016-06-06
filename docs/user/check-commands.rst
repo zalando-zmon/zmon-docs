@@ -1562,7 +1562,7 @@ Enable AppDynamics Healthrule violations check.
 Methods of AppDynamics
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. py:function:: healthrule_violations(application, time_range_type='', duration_in_mins=None, start_time=None, end_time=None, severity=None)
+.. py:function:: healthrule_violations(application, time_range_type=BEFORE_NOW, duration_in_mins=5, start_time=None, end_time=None, severity=None)
 
     ::
 
@@ -1571,16 +1571,16 @@ Methods of AppDynamics
     :param application: Application name or ID
     :type application: str
 
-    :param time_range_type: Valid time range type. Valid range types are BEFORE_NOW, BEFORE_TIME, AFTER_TIME and BETWEEN_TIMES.
+    :param time_range_type: Valid time range type. Valid range types are BEFORE_NOW, BEFORE_TIME, AFTER_TIME and BETWEEN_TIMES. Default is BEFORE_NOW.
     :type time_range_type: str
 
-    :param duration_in_mins: Time duration in mins. Required for BEFORE_NOW, AFTER_TIME, BEFORE_TIME range types.
+    :param duration_in_mins: Time duration in mins. Required for BEFORE_NOW, AFTER_TIME, BEFORE_TIME range types. Default is 5 mins.
     :type duration_in_mins: int
 
-    :param start_time: Start time (in milliseconds) from which the metric data is returned.
+    :param start_time: Start time (in milliseconds) from which the metric data is returned. Default is 5 mins ago.
     :type start_time: int
 
-    :param end_time: End time (in milliseconds) until which the metric data is returned.
+    :param end_time: End time (in milliseconds) until which the metric data is returned. Default is now.
     :type end_time: int
 
     :param severity: Filter results based on severity. Valid values CRITICAL or WARNING.
