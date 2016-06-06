@@ -1571,7 +1571,7 @@ Methods of AppDynamics
     :param application: Application name or ID
     :type application: str
 
-    :param time_range_type: Valid time range type.
+    :param time_range_type: Valid time range type. Valid range types are BEFORE_NOW, BEFORE_TIME, AFTER_TIME and BETWEEN_TIMES.
     :type time_range_type: str
 
     :param duration_in_mins: Time duration in mins. Required for BEFORE_NOW, AFTER_TIME, BEFORE_TIME range types.
