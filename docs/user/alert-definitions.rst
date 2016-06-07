@@ -98,7 +98,7 @@ conditions.
 
 Please refer to Recipes section in :ref:`Python Tutorial <python-tutorial>` for some Python tricks you may use.
 
-Named captures can be used to customize the alert display on the :term:`dashboard` by using template substitution in the alert name. Currently, all captured values are stored in Graphite, under the key: *zmon2.alerts.{alert_id}.captures.{capture_name}*.
+Named captures can be used to customize the alert display on the :term:`dashboard` by using template substitution in the alert name.
 
 If you call your capture *dashboard*, it will be used on dashboard next to entity name instead of entity value.
 For example, if you have a host-based alert that fails on z-host1 and z-host2, you would normally see something like that
