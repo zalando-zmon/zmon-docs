@@ -13,13 +13,20 @@ ZMON Components
 
 .. image:: images/components.svg
 
-A minimum setup of ZMON requires these four components: zmon-controller_, zmon-scheduler_, zmon-worker_, and zmon-eventlog-service_ plus the storage covered in the :ref:`requirements` section.
+A minimum setup of ZMON requires these four components:
+
+- zmon-controller_
+- zmon-scheduler_
+- zmon-worker_
+- zmon-eventlog-service_
+
+Plus the storage covered in the :ref:`requirements` section.
 
 The following components are optional:
 
 - zmon-cli_: A command line client for managing entities/checks/alerts if needed
 - zmon-aws-agent_: Works with the AWS API to retrieve "known" applications
-- zmon-data-service_: Intercepts data from zmon-worker for Redis storage (for the frontend), KairosDB storage (for charting)
+- zmon-data-service_: API for multi DC federation: receiver for remote workers primarily
 - zmon-metric-cache_: Small scale special purpose metric store for API metrics in ZMON's cloud UI
 - zmon-notification-service_: Provides mobile API and push notification support for GCM to Android/iOS app
 - zmon-android_: An Android client for ZMON monitoring
