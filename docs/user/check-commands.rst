@@ -1117,6 +1117,40 @@ Methods of Elasticsearch
             "took": 2
         }
 
+.. py:function:: count(indices=None, q='', body=None)
+
+    ::
+
+    Return ES count of matching query.
+
+    :param indices: List of indices to search. Limited to only 10 indices. ['_all'] will search all available
+                    indices, which effectively leads to same results as `None`. Indices can accept wildcard form.
+    :type indices: list
+
+    :param q: Search query string. Will be ignored if ``body`` is not None.
+    :type  q: str
+
+    :param body: Dict holding an ES query DSL.
+    :type body: dict
+
+    :return: ES query result.
+    :rtype: dict
+
+    Example query:
+
+    .. code-block:: python
+
+        elasticsearch('http://es-cluster').count(indices=['logstash-*'], q='client:192.168.20.* AND http_status:500')
+
+        {
+            "_shards": {
+                "failed": 0,
+                "successful": 16,
+                "total": 16
+            },
+            "count": 12
+        }
+
 .. py:method:: health()
 
     ::
