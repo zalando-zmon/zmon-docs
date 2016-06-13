@@ -1591,9 +1591,14 @@ The ``eventlog()`` function allows you to conveniently count EventLog_ events by
 AppDynamics
 -------------
 
-Enable AppDynamics Healthrule violations check.
+Enable AppDynamics Healthrule violations check and *optionally* query underlying Elasticsearch cluster raw logs.
 
-.. py:function:: appdynamics(url)
+.. note::
+
+    In order to be able to access ES logs, ``plugin.appdynamics.es_url`` & ``plugin.appdynamics.index_prefix`` config  variables should be set. If those config variables are not set then AppDynamics plugin will function properly but will raise ``RuntimeError`` if a log method is called.
+
+
+.. py:function:: appdynamics(url=None)
 
 Methods of AppDynamics
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -1648,6 +1653,44 @@ Methods of AppDynamics
             }
         ]
 
+.. py:function:: query_logs(q='', body=None, size=100, source_type=SOURCE_TYPE_APPLICATION_LOG)
+
+    ::
+
+    Perform search query on AppDynamics ES logs.
+
+    :param q: Query string used in search.
+    :type q: str
+
+    :param body: (dict) holding an ES query DSL.
+    :type body: dict
+
+    :param size: Number of hits to return. Default is 100.
+    :type size: int
+
+    :param source_type: ``sourceType`` field filtering. Default to ``application-log``, and will be part of ``q``.
+    :type source_type: str
+
+    :return: ES query result ``hits``.
+    :rtype: list
+
+.. py:function:: count_logs(q='', body=None, source_type=SOURCE_TYPE_APPLICATION_LOG)
+
+    ::
+
+    Perform count query on AppDynamics ES logs.
+
+    :param q: Query string used in search.
+    :type q: str
+
+    :param body: (dict) holding an ES query DSL.
+    :type body: dict
+
+    :param source_type: ``sourceType`` field filtering. Default to ``application-log``, and will be part of ``q``.
+    :type source_type: str
+
+    :return: Query match count.
+    :rtype: int
 
 Entity
 ------
