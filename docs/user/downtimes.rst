@@ -1,8 +1,8 @@
 .. _downtimes:
 
-*********
+
 Downtimes
-*********
+---------
 
 This functionality allows the user to acknowledge existing alert or create a downtime schedule for anticipated service
 interruption. When acknowleding an existing alert, the user has to provide predicted duration, and when creating

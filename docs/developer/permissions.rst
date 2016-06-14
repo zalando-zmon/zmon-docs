@@ -4,6 +4,10 @@
 Permissions
 ***********
 
+.. note::
+
+  Deprecated / not up to date
+
 ZMON is a privilege-separated web application which allows different access levels for each user role. User roles are fetched from LDAP after successful authentication.
 
 Currently there are 4 different roles:

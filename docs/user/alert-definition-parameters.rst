@@ -1,20 +1,20 @@
 .. _alert-definition-parameters:
 
-***************************
+
 Alert Definition Parameters
-***************************
+---------------------------
 
 Alert definition *parameters* allows one to decouple alert condition from constants that are used inside it.
 
 Use Case: Technical alert condition
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If your alert condition is highly technical with a lot of Python code in it, it is often makes sense to split actual calculation from threshold values and move such constant values into parameters.
 
 The same may apply in certain cases to alert definitions created by technical staff, which later need to be adjusted by non-technical people - if you split calculation from variable definition, you may let non-technical people just change values without touching calculation logic.
 
 Use Case: Same alert, different priorities
-------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Another use case where we recommend to use parameters is when you need to have the same alert come up with a different priority depending on threshold values.
 
@@ -27,7 +27,7 @@ Proposed structure would look like:
 * Alert "B2" inherits from "A" specifying *priority* YELLOW and associated parameter values
 
 An example: Setting a simple parameter in trial run
----------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the zmon2 web interface click on the trial run button.
 
@@ -70,4 +70,3 @@ Notice also that there is a special parameter called **params** that holds a dic
 Last but not least: *Most of the time you don't need to capture the parameter values*, we did it like this so you can visually see that the parameters are evaluated, this means that you can run exactly the same check with this **Alert Condition**::
 
     value>threshold + len(params)
-

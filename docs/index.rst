@@ -16,17 +16,34 @@ ZMON Docs
    :caption: User Documentation
 
    user/entities
-   user/check-commands
+   user/check-definitions
    user/alert-definitions
-   user/alert-definition-parameters
-   user/alert-definition-inheritance
-   user/monitoringonaws
-   user/comments
-   user/downtimes
+
    user/dashboards
    user/grafana
    user/tv-login
-   user/permissions
+
+   user/check-commands
+   user/alert-ref/alert_reference_functions
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Guides
+
+   user/monitoringonaws
+
+
+.. _installation:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Deploying ZMON
+   :hidden:
+
+   installation/requirements
+   installation/components
+   installation/configuration
 
 .. _developer-docs:
 
@@ -40,17 +57,8 @@ ZMON Docs
    developer/python-tutorial
    developer/tests
    developer/redis
+   developer/permissions
 
-.. _installation:
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Installation Documentation
-   :hidden:
-
-   installation/requirements
-   installation/components
-   installation/configuration
 
 .. toctree::
    :hidden:

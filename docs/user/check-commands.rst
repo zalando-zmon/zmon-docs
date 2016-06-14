@@ -1,8 +1,8 @@
 .. _check-commands:
 
-**************
-Check Commands
-**************
+***********************
+Check Command Reference
+***********************
 
 To give an overview of available commands, we divided them into several
 categories.
