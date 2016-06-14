@@ -4,8 +4,8 @@
 Downtimes
 *********
 
-This functionality allows the user to acknowledge existing alert or create a downtime schedule for anticipated service
-interruption. When acknowleding an existing alert, the user has to provide predicted duration, and when creating
+This functionality allows the user to acknowledge an existing alert or create a downtime schedule for an anticipated service
+interruption. When acknowleding an existing alert, the user has to provide the predicted duration, and when creating
 a scheduled downtime - start and end date. If the downtime is currently active, meaning an alert occured within the
 downtime period, the alert notification won't be shown in the dashboard and it'll be greyed out in alert details page.
 Please note that the downtime will not be evaluated immediately after creation, meaning that the alert might appear
