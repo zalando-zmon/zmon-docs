@@ -4,7 +4,11 @@
 Grafana3 and KairosDB
 *********************
 
-Grafana is a powerful open-source tool for creating dashboards to visualize metric data. ZMON deploys Grafana 2.x along with our plugin to read metric data from KairosDB. Grafana is served directly from the ZMON controller. Read requests are proxied through the controller so as not to expose the write/delete API from KairosDB. Dashboards are also saved via the controller, so there's no need for any additional data store.
+Grafana is a powerful open-source tool for creating dashboards to visualize metric data.
+ZMON deploys Grafana 3.x along with the new KairosDB plugin to read metric data from KairosDB.
+Grafana is served directly from the ZMON controller.
+Read requests are proxied through the controller so as not to expose the write/delete API from KairosDB.
+Dashboards are also saved via the controller, so there's no need for any additional data store.
 
   http://www.grafana.org
 
@@ -16,7 +20,9 @@ Workers will send all their data to KairosDB. Depending on the KairosDB setting,
 Serialization
 -------------
 
-For checks retrieving only numeric values data storage in KairosDB is easy. But the worker will also flatten more complex result types and persist them in KairosDB. At Zalando checks that yield only single numeric values have become quite rare.
+For checks retrieving only numeric values data storage in KairosDB is easy.
+But the worker will also flatten more complex result types and persist them in KairosDB.
+At Zalando checks that yield only single numeric values have become quite rare.
 
 If the check returns dictionary the worker will try to flatten its structure and persist all entries with a numeric value.
 
@@ -59,4 +65,5 @@ For a certrain set of metrics additional tags may be deployed(REST metrics/actua
  * sc: HTTP status code
  * sg: first digit of HTTP status code
 
-Some of the tagging may seem strange, but as KairosDB does not allow real operations on tags they are basically precreated to allow easier filtering in the tools/charts. This is also fine from a storage/performance point of view during writes, as KairosDB's cassandra implementation createds a new row for each unique tuple (time series name, set of tags) thus this is only stored once.
+Some of the tagging may seem strange, but as KairosDB does not allow real operations on tags they are basically precreated to allow easier filtering in the tools/charts.
+This is also fine from a storage/performance point of view during writes, as KairosDB's Cassandra implementation creates a new row for each unique tuple (time series name, set of tags) thus this is only stored once.

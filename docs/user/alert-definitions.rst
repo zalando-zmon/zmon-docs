@@ -136,7 +136,9 @@ Note: The entity name can be included in the alert message by using a special pl
 Notifications
 -------------
 
-ZMON notifications lets you know when you have a new alert without check the web UI. This section will explain how to use the different options available to notify about changes in alert states. We support E-Mail, HipChat, Slack and one SMS provider that we have been using.
+ZMON notifications lets you know when you have a new alert without check the web UI.
+This section will explain how to use the different options available to notify about changes in alert states.
+We support E-Mail, HipChat, Slack and one SMS provider that we have been using.
 
 The notifications field is a list of function calls (see below for examples), calling one of the following methods of notification:
 
@@ -146,9 +148,9 @@ The notifications field is a list of function calls (see below for examples), ca
 .. py:function:: send_slack([channel, message, repeat, token])
 .. py:function:: send_hipchat([room, message, color='red', repeat, token, notify=False])
 
-If the alert has the top priority and should be handled immediately, you can specify the repeat interval for each
-notification. In this case, you will be notified periodically, according to the specified interval, while the alert
-persists. The interval is specified in seconds.
+If the alert has the top priority and should be handled immediately, you can specify the repeat interval for each notification.
+In this case, you will be notified periodically, according to the specified interval, while the alert persists.
+The interval is specified in seconds.
 
 To receive push notifications you need one of the ZMON mobile apps (configured for your deployment) and subscribe to alert ids, before you can receive notifications.
 
@@ -272,27 +274,23 @@ Example SMS:
 Time periods
 ------------
 
-ZMON 2.0 allows specifying time periods in alert definitions. When
-specified, user will be notified about the alert only when it occurs
-during given period. Examples below cover most common use cases of time
-periods’ definitions.
+ZMON 2.0 allows specifying time periods in alert definitions.
+When specified, user will be notified about the alert only when it occurs during given period.
+Examples below cover most common use cases of time periods’ definitions.
 
 To specify a time period from Monday through Friday, 9:00 to 17:00, use a
 period such as
 
         wd {Mon-Fri} hr {9-16}
 
-When specifying a range by using -, it is best to think of - as meaning
-through. It is 9:00 through 16:00, which is just before 17:00 (16:59:59).
+When specifying a range by using -, it is best to think of - as meaning through.
+It is 9:00 through 16:00, which is just before 17:00 (16:59:59).
 
-To specify a time period from Monday through Friday, 9:00 to 17:00 on
-Monday, Wednesday, and Friday, and 9:00 to 15:00 on Tuesday and Thursday,
-use a period such as
+To specify a time period from Monday through Friday, 9:00 to 17:00 on Monday, Wednesday, and Friday, and 9:00 to 15:00 on Tuesday and Thursday, use a period such as
 
         wd {Mon Wed Fri} hr {9-16}, wd{Tue Thu} hr {9-14}
 
-To specify a time period that extends Mon-Fri 9-16, but alternates
-weeks in a month, use a period such as
+To specify a time period that extends Mon-Fri 9-16, but alternates weeks in a month, use a period such as
 
         wk {1 3 5} wd {Mon Wed Fri} hr {9-16}
 
@@ -312,8 +310,7 @@ And this is too:
 
         mo {Jan Feb}, mo {Nov Dec}
 
-To specify a period that describes every other half-hour, use something
-like:
+To specify a period that describes every other half-hour, use something like:
 
         minute { 0-29 }
 

@@ -4,8 +4,10 @@
 "Read Only" Display Login
 *************************
 
-The ZMON front end requires users to login. However a very common way of deploying dashboards is on TV screens running across office spaces to e.g. render Grafana or ZMON dashboards.
-For this ZMON provides you with a way to login a read only authenticated user via one-time tokens. Those tokens can be created by any real user via the ZMON CLI.
+The ZMON front end requires users to login.
+However a very common way of deploying dashboards is on TV screens running across office spaces to e.g. render Grafana or ZMON dashboards.
+For this ZMON provides you with a way to login a read only authenticated user via one-time tokens.
+Those tokens can be created by any real user via the ZMON CLI.
 
 
 Getting a token
@@ -32,6 +34,7 @@ Use the above token in the target browser to login directly. This will create a 
 How does it work
 ================
 
-First time a valid one time token is used to login we associate a random UUID with it and the device IP. Both is registered within ZMON to create a persisted session, thus this will continue to work after the frontend gets deployed.
+First time a valid one time token is used to login we associate a random UUID with it and the device IP.
+Both is registered within ZMON to create a persisted session, thus this will continue to work after the frontend gets deployed.
 
 So once used the token cannot be reused and you need to create another one if you want to run additional displays.
