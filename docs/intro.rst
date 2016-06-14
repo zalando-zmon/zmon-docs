@@ -2,18 +2,18 @@
 Introduction
 ************
 
-ZMON is a flexible and extensible open-source platform monitoring tool developed at Zalando_ and is in production use since early 2014. It offers proven scaling with its distributed nature and fast storage with KairosDB on top of Cassandra. ZMON splits checking(data acquisition) from the alerting responsibilities and uses abstract entities to describe what's being monitored. Checks and alerts rely on Python expressions, giving the user a lot of power and connectivity. Besides the UI it provides RESTful APIs to manage and configure most properties automatically.
+ZMON is a flexible and extensible open-source platform monitoring tool developed at Zalando_ and is in production use since early 2014. It offers proven scaling with its distributed nature and fast storage with KairosDB on top of Cassandra. ZMON splits checking(data acquisition) from the alerting responsibilities and uses abstract entities to describe what's being monitored. Its checks and alerts rely on Python expressions, giving the user a lot of power and connectivity. Besides the UI it provides RESTful APIs to manage and configure most properties automatically.
 
-ZMON can be used by anyone, but offers particular advantages for technical organizations with many autonomous teams. Its front end (see Demo_ / Bootstrap_ / Vagrant_) comes with Grafana3 "built-in," enabling teams to create and manage their own data-driven dashboards along side ZMON's own team/personal dashboards for alerts and custom widgets. Inherting and cloning of alerts makes reusing and sharing code and knowledge easier among teams. Alerts can trigger HipChat, Slack, and E-Mail notifications. iOS and Android clients are work in progress, but push notifications are already implemented.
+Anyone can use ZMON, but offers particular advantages for technical organizations with many autonomous teams. Its front end (see Demo_ / Bootstrap_ / Vagrant_) comes with Grafana3 "built-in," enabling teams to create and manage their own data-driven dashboards along side ZMON's own team/personal dashboards for alerts and custom widgets. Being able to inherit and clone alerts makes it easier for teams to reuse and share code. Alerts can trigger HipChat, Slack, and E-Mail notifications. iOS and Android clients are works in progress, but push notifications are already implemented.
 
-ZMON also enables painless integration with CMDBs, deployment tools, and service discovery via custom adapters or its built-in entity service's REST API. For an example, see zmon-aws-agent_ to learn how we connect AWS service discovery with our monitoring in the cloud.
+ZMON also enables painless integration with CMDBs and deployment tools. It also supports service discovery via custom adapters or its built-in entity service's REST API. For an example, see zmon-aws-agent_ to learn how we connect AWS service discovery with our monitoring in the cloud.
 
 ZMON Components
 ===============
 
 .. image:: images/components.svg
 
-A minimum setup of ZMON requires these four components:
+A minimum ZMON setup requires these four components:
 
 - zmon-controller_: UI/Grafana/Oauth2 Login/Github Login
 - zmon-scheduler_: Scheduling check/alert evaluation
