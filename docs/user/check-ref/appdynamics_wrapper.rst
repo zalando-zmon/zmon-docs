@@ -3,11 +3,6 @@ AppDynamics
 
 Enable AppDynamics Healthrule violations check and *optionally* query underlying Elasticsearch cluster raw logs.
 
-.. note::
-
-    In order to be able to access elastic search logs, ``plugin.appdynamics.es_url`` and ``plugin.appdynamics.index_prefix`` config variables for the zmon-worker should be set.
-
-
 .. py:function:: appdynamics(url=None)
 
 Methods of AppDynamics
