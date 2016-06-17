@@ -100,6 +100,8 @@ The following functions are available in the alert condition expression:
 
     Returns a list for each entity containing the most recent value for the alert's check on that entity. Works regardless of the type of value. DOES NOT WORK in Trial Run right now!
 
+.. _history-distance-label:
+
 History distance functionality
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The history distance functionality currently only works for numeric values, and not for structured ones, or arrays.
