@@ -3,13 +3,14 @@ HTTP
 
 Access to HTTP (and HTTPS) endpoints is provided by the :py:func:`http` function.
 
-.. py:function:: http(url, [method='GET'], [timeout=10], [max_retries=0], [verify=True], [oauth2=True], [allow_redirects=None])
+.. py:function:: http(url, [method='GET'], [timeout=10], [max_retries=0], [verify=True], [oauth2=False], [allow_redirects=None])
 
     :param str url: The URL that is to be queried. See below for details.
     :param str method: The HTTP request method. Allowed values are ``GET`` or ``HEAD``.
     :param float timeout: The timeout for the HTTP request, in seconds. Defaults to :py:obj:`10`.
     :param int max_retries: The number of times the HTTP request should be retried if it fails. Defaults to :py:obj:`0`.
     :param bool verify: Can be set to :py:obj:`False` to disable SSL certificate verification.
+    :param bool oauth2: Can be set to :py:obj:`True` to inject a OAuth 2 ``Bearer`` access token in the outgoing request
     :param bool allow_redirects: Follow request redirects. If ``None`` then it will be set to :py:obj:`True` in case of ``GET`` and :py:obj:`False` in case of ``HEAD`` request.
     :return: An object encapsulating the response from the server. See below.
 
