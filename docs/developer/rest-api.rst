@@ -134,7 +134,7 @@ of success this method will return HTTP 200.
 Deleting a downtime
 ^^^^^^^^^^^^^^^^^^^
 
-**Resource URL:** DELETE /rest/api/v1/downtimes/{id}
+**Resource URL:** DELETE /api/v1/downtimes/{id}
 
 **Description**
 
@@ -156,13 +156,13 @@ and the client SHOULD NOT repeat the request without modifications. In case of s
 
 .. code-block:: bash
 
-    curl -v --user hjacobs:test 'https://zmon.example.com/rest/api/v1/downtimes/cf6ada50-3eb2-4c17-8d09-4eb03dc19cf5' \
+    curl -v --user hjacobs:test 'https://zmon.example.com/api/v1/downtimes/cf6ada50-3eb2-4c17-8d09-4eb03dc19cf5' \
       -H 'Content-Type: application/json' \
       -X DELETE
 
 *Request*::
 
-    DELETE /rest/api/v1/downtimes/cf6ada50-3eb2-4c17-8d09-4eb03dc19cf5 HTTP/1.1
+    DELETE /api/v1/downtimes/cf6ada50-3eb2-4c17-8d09-4eb03dc19cf5 HTTP/1.1
     Authorization: Basic aGphY29iczp0ZXN0
     User-Agent: curl/7.30.0
     Host: zmon.example.com
@@ -190,7 +190,7 @@ For more info about this feature, please check :ref:`this <alert-definitions>`
 Creating a new Alert Definition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Resource URL:** POST /rest/api/v1/alert-definitions
+**Resource URL:** POST /api/v1/alert-definitions
 
 **Description**
 
@@ -293,12 +293,12 @@ will return HTTP 200.
 
 .. code-block:: bash
 
-    curl --user hjacobs:test 'https://zmon.example.com/rest/api/v1/alert-definitions' -H 'Content-Type: application/json' \
+    curl --user hjacobs:test 'https://zmon.example.com/api/v1/alert-definitions' -H 'Content-Type: application/json' \
         --data-binary $'{"name": "City Longitude >0", "description": "Test whether a city lies east or west", "team": "Platform/Software", "responsible_team": "Platform/Software", "entities": [{"type": "city"}], "entities_exclude": [], "condition": "capture(longitude=float(value)) > longitude_param", "notifications": [], "check_definition_id": 20, "status": "ACTIVE", "priority": 2, "period": "", "template": false, "parameters": {"longitude_param": {"comment": "Longitude parameter","type": "float", "value": 0}}, "tags": ["CITY"]}'
 
 *Request*::
 
-    POST /rest/api/v1/alert-definitions HTTP/1.1
+    POST /api/v1/alert-definitions HTTP/1.1
     Authorization: Basic aGphY29iczp0ZXN0
     User-Agent: curl/7.30.0
     Host: zmon.example.com
@@ -322,7 +322,7 @@ will return HTTP 200.
 Updating an Alert Definition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Resource URL:** PUT /rest/api/v1/alert-definitions/{id}
+**Resource URL:** PUT /api/v1/alert-definitions/{id}
 
 **Description**
 
@@ -334,14 +334,14 @@ For more info about the parameters, please check :ref:`how to create a new Alert
 
 .. code-block:: bash
 
-    curl --user hjacobs:test 'https://zmon.example.com/rest/api/v1/alert-definitions/788' \
+    curl --user hjacobs:test 'https://zmon.example.com/api/v1/alert-definitions/788' \
     -H 'Content-Type: application/json' \
     --data-binary $'{"name": "City Longitude >0", "description": "Checks whether a city lies east or west", "team": "Platform/Software", "responsible_team": "Platform/Software", "entities": [{"type": "city"}], "entities_exclude": [], "condition": "capture(longitude=float(value)) > longitude_param", "notifications": [], "check_definition_id": 20, "status": "ACTIVE", "priority": 2, "period": "", "template": false, "parameters": {"longitude_param": {"comment": "Longitude parameter","type": "float", "value": 0}}, "tags": ["CITY"]}' \
     -X PUT
 
 *Request*::
 
-    PUT /rest/api/v1/alert-definitions/788 HTTP/1.1
+    PUT /api/v1/alert-definitions/788 HTTP/1.1
     Authorization: Basic aGphY29iczp0ZXN0
     User-Agent: curl/7.30.0
     Host: zmon.example.com
@@ -365,7 +365,7 @@ For more info about the parameters, please check :ref:`how to create a new Alert
 Find an Alert Defintion by ID
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Resource URL:** GET /rest/api/v1/alert-definitions/{id}
+**Resource URL:** GET /api/v1/alert-definitions/{id}
 
 **Description**
 
@@ -375,12 +375,12 @@ Find an existing alert definition by id. If the alert definintion doesn't exist,
 
 .. code-block:: bash
 
-    curl -v --user hjacobs:test 'https://zmon.example.com/rest/api/v1/alert-definitions/788' \
+    curl -v --user hjacobs:test 'https://zmon.example.com/api/v1/alert-definitions/788' \
     -H 'Content-Type: application/json'
 
 *Request*::
 
-    GET /rest/api/v1/alert-definitions/788 HTTP/1.1
+    GET /api/v1/alert-definitions/788 HTTP/1.1
     Authorization: Basic aGphY29iczp0ZXN0
     User-Agent: curl/7.30.0
     Host: zmon.example.com
@@ -406,7 +406,7 @@ Find an existing alert definition by id. If the alert definintion doesn't exist,
 Retrieving Alert Status
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-**Resource URL:** GET /rest/api/v1/status/alert/{alert ids}/
+**Resource URL:** GET /api/v1/status/alert/{alert ids}/
 
 **Description**
 
@@ -447,11 +447,11 @@ will return HTTP 200.
 
 .. code-block:: bash
 
-    curl --user hjacobs:test 'https://zmon.example.com/rest/api/v1/status/alert/69,3454/'
+    curl --user hjacobs:test 'https://zmon.example.com/api/v1/status/alert/69,3454/'
 
 *Request*::
 
-    GET https://zmon.example.com/rest/api/v1/status/alert/69,3454/ HTTP/1.1
+    GET https://zmon.example.com/api/v1/status/alert/69,3454/ HTTP/1.1
     Authorization: Basic aGphY29iczp0ZXN0
     User-Agent: curl/7.30.0
     Host: zmon.example.com
