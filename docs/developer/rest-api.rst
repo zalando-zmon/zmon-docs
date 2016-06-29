@@ -7,17 +7,7 @@ Rest API
 Authentication & Authorization
 ------------------------------
 
-ZMON API only supports basic authentication.
-
-In order to make authorized calls to ZMON's API, one should first obtain a robot user.
-
-Currently, there are 2 roles available:
-
-* api-reader
-* api-writer
-
-As the name suggests, role api-reader allows an user to execute read-only calls while api-writer allows one to write
-to ZMON.
+You need to obtain a token to access ZMON's REST API. For the default deployment using Github rely on access tokens from Github, otherwise it depends on your selected provider.
 
 Your application should always examine the HTTP status of the response. Any value other than 200 indicates a failure.
 
@@ -70,7 +60,7 @@ For more info about this feature, please check :ref:`this <downtimes>`
 Scheduling a downtime
 ^^^^^^^^^^^^^^^^^^^^^
 
-**Resource URL:** POST /rest/api/v1/downtimes
+**Resource URL:** POST /api/v1/downtimes
 
 **Description**
 
@@ -115,13 +105,13 @@ of success this method will return HTTP 200.
 
 .. code-block:: bash
 
-    curl -v --user hjacobs:test 'https://zmon.example.com/rest/api/v1/downtimes' \
+    curl -v --user hjacobs:test 'https://zmon.example.com/api/v1/downtimes' \
        -H 'Content-Type: application/json' \
        --data-binary $'{"comment":"Cities downtime","end_time":1408665600,"entities":["cd-kinshasa", "cn-peking"]}'
 
 *Request*::
 
-    POST /rest/api/v1/downtimes HTTP/1.1
+    POST /api/v1/downtimes HTTP/1.1
     Authorization: Basic aGphY29iczp0ZXN0
     User-Agent: curl/7.30.0
     Host: zmon.example.com
