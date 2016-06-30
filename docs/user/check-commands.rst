@@ -502,7 +502,7 @@ The following general-purpose functions are available in check commands:
 
     Given a time specification such as ``'-10m'`` for "ten minutes ago" or ``'+3h'`` for "in three hours", returns an object representing that timestamp. Valid units are ``s`` for seconds, ``m`` for minutes, ``h`` for hours, and ``d`` for days.
 
-    The time specification `spec` can also be an ``epoch`` or a valid ISO timestamp in of the following formats:
+    The time specification `spec` can also be a Unix epoch/timestamp or a valid ISO timestamp in of the following formats:
     ``YYYY-MM-DD HH:MM:SS.mmmmm``,
     ``YYYY-MM-DD HH:MM:SS``,
     ``YYYY-MM-DD HH:MM`` or
