@@ -3,9 +3,9 @@ Component Configuration
 ***********************
 
 In this section we assume that you want to use Docker as means of deployment.
-The ZMON Dockerimages in Zalando's Open Source registry are exactly the once we use ourselves, injecting all configuartion via environment variables.
+The ZMON Dockerimages in Zalando's Open Source registry are exactly the ones we use ourselves, injecting all configuartion via environment variables.
 
-If this does not fit your needs you can run the artifacts directly and decide to use environment variables or modify the ex. config files.
+If this does not fit your needs you can run the artifacts directly and decide to use environment variables or modify the example config files.
 
 At this point we also assume the requirements in terms of PostgreSQL, Redis and KairosDB are available and you have the credentials at hand.
 If not see :ref:`requirements`. The minimal configuration options below are taken from the Demo's Bootstrap_ script!
@@ -20,7 +20,7 @@ For environments where you have no OAauth2 setup you can configure pre-shared ke
 
 .. note::
 
-   Feel free to look at Zalando's Plan-B, which is a freely available OAuth2 provider we use for our platform to secure service to service communication.
+   Feel free to look at Zalando's `Plan-B <http://planb.readthedocs.io/en/latest/>`_, which is a freely available OAuth2 provider we use for our platform to secure service to service communication.
 
 Creating a preshared token can be achieved like this:
 
