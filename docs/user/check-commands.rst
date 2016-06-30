@@ -531,6 +531,10 @@ The following general-purpose functions are available in check commands:
         >>> time('2014-01-01 01:13') - time('2014-01-01 01:01')
         12
 
+.. py:function:: timestamp()
+
+    Returns Unix time stamp. This wraps time.time()
+
 
 .. py:function:: tuple(iterable)
 
