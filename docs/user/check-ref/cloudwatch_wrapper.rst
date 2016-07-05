@@ -51,12 +51,14 @@ The desired metric can now be queried in ZMON:
     cloudwatch().query({'AutoScalingGroupName': 'my-asg-*'}, 'DiskReadBytes', 'Sum')
 
 
-
 .. _list_metrics boto documentation: http://boto.readthedocs.org/en/latest/ref/cloudwatch.html#boto.ec2.cloudwatch.CloudWatchConnection.list_metrics
+
 
 .. py:method:: alarms(alarm_names=None, alarm_name_prefix=None, state_value=STATE_ALARM, action_prefix=None, max_records=50)
 
     Retrieve cloudwatch alarms filtered by state value.
+
+    See `describe_alarms boto documentation`_ for more details.
 
     :param alarm_names: List of alarm names.
     :type alarm_names: list
@@ -64,10 +66,10 @@ The desired metric can now be queried in ZMON:
     :param alarm_name_prefix: Prefix of alarms. Cannot be specified if ``alarm_names`` is specified.
     :type alarm_name_prefix: str
 
-    :param state_value: State value used in alarm filtering. Available values are STATE_OK, STATE_ALARM(default) and STATE_DATA.
+    :param state_value: State value used in alarm filtering. Available values are ``OK``, ``ALARM`` (default) and ``INSUFFICIENT_DATA``.
     :type state_value: str
 
-    :param action_prefix: Action prefix.
+    :param action_prefix: Action name prefix. Example ``arn:aws:autoscaling:`` to filter results for all autoscaling related alarms.
     :type action_prefix: str
 
     :param max_records: Maximum records to be returned. Default is 50.
@@ -75,3 +77,37 @@ The desired metric can now be queried in ZMON:
 
     :return: List of MetricAlarms.
     :rtype: list
+
+
+.. _describe_alarms boto documentation: http://boto3.readthedocs.io/en/latest/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms
+
+.. code-block:: python
+
+    cloudwatch().alarms(state_value='ALARM')[0]
+    {
+        'ActionsEnabled': True,
+        'AlarmActions': ['arn:aws:autoscaling:...'],
+        'AlarmArn': 'arn:aws:cloudwatch:...',
+        'AlarmConfigurationUpdatedTimestamp': datetime.datetime(2016, 5, 12, 10, 44, 15, 707000, tzinfo=tzutc()),
+        'AlarmDescription': 'Scale-down if CPU < 50% for 10.0 minutes (Average)',
+        'AlarmName': 'metric-alarm-for-service-x',
+        'ComparisonOperator': 'LessThanThreshold',
+        'Dimensions': [
+            {
+                'Name': 'AutoScalingGroupName',
+                'Value': 'service-x-asg'
+            }
+        ],
+        'EvaluationPeriods': 2,
+        'InsufficientDataActions': [],
+        'MetricName': 'CPUUtilization',
+        'Namespace': 'AWS/EC2',
+        'OKActions': [],
+        'Period': 300,
+        'StateReason': 'Threshold Crossed: 1 datapoint (36.1) was less than the threshold (50.0).',
+        'StateReasonData': '{...}',
+        'StateUpdatedTimestamp': datetime.datetime(2016, 5, 12, 10, 44, 16, 294000, tzinfo=tzutc()),
+        'StateValue': 'ALARM',
+        'Statistic': 'Average',
+        'Threshold': 50.0
+    }
