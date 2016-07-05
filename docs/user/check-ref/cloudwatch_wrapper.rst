@@ -53,3 +53,25 @@ The desired metric can now be queried in ZMON:
 
 
 .. _list_metrics boto documentation: http://boto.readthedocs.org/en/latest/ref/cloudwatch.html#boto.ec2.cloudwatch.CloudWatchConnection.list_metrics
+
+.. py:method:: alarms(alarm_names=None, alarm_name_prefix=None, state_value=STATE_ALARM, action_prefix=None, max_records=50)
+
+    Retrieve cloudwatch alarms filtered by state value.
+
+    :param alarm_names: List of alarm names.
+    :type alarm_names: list
+
+    :param alarm_name_prefix: Prefix of alarms. Cannot be specified if ``alarm_names`` is specified.
+    :type alarm_name_prefix: str
+
+    :param state_value: State value used in alarm filtering. Available values are STATE_OK, STATE_ALARM(default) and STATE_DATA.
+    :type state_value: str
+
+    :param action_prefix: Action prefix.
+    :type action_prefix: str
+
+    :param max_records: Maximum records to be returned. Default is 50.
+    :type max_records: int
+
+    :return: List of MetricAlarms.
+    :rtype: list
