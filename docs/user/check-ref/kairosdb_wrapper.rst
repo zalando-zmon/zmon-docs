@@ -19,7 +19,7 @@ Methods of KairosDB
     :param name: Metric name.
     :type name: str
 
-    :param group_by: List of fields to group by. Currently ignored.
+    :param group_by: List of fields to group by.
     :type group_by: list
 
     :param tags: Filtering tags.
