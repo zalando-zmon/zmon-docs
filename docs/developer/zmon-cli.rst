@@ -16,15 +16,13 @@ Installation
 Configuration
 ^^^^^^^^^^^^^
 
-The config file needs to contain a link to ZMON and your user credentials for zmon.
+Configure your zmon cli by running ``configure``-
 
-.. code-block:: yaml
+.. code-block:: bash
 
-  # ~.zmon-cli.yaml
-  url: https://localhost:8443/api/v1
-  token: 123
-  verify: false
+  zmon configure
 
+If you are using github for authentication, have an unprivileged personal access token ready.
 
 Entities
 --------
