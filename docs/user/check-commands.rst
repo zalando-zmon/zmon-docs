@@ -11,6 +11,7 @@ categories.
 .. include:: check-ref/cassandra_wrapper.rst
 .. include:: check-ref/cloudwatch_wrapper.rst
 .. include:: check-ref/counter_wrapper.rst
+.. include:: check-ref/dns_wrapper.rst
 .. include:: check-ref/elastic_search_wrapper.rst
 .. include:: check-ref/eventlog_wrapper.rst
 .. include:: check-ref/history_wrapper.rst
