@@ -13,6 +13,7 @@ categories.
 .. include:: check-ref/counter_wrapper.rst
 .. include:: check-ref/dns_wrapper.rst
 .. include:: check-ref/elastic_search_wrapper.rst
+.. include:: check-ref/entities_wrapper.rst
 .. include:: check-ref/eventlog_wrapper.rst
 .. include:: check-ref/history_wrapper.rst
 .. include:: check-ref/http_wrapper.rst
