@@ -21,6 +21,10 @@ Provides access to ZMON entities.
     :param oauth2: Use OAUTH for authentication. Default is ``False``.
     :type oauth2: bool
 
+.. note::
+
+    If `service_url` or `infrastructure_account` were not supplied, their corresponding values in worker plugin config will be used.
+
 
 Methods of Entities
 ^^^^^^^^^^^^^^^^^^^
@@ -29,7 +33,7 @@ Methods of Entities
 
     ::
 
-    Search entities in local infrastructure account. If `infrastructure_account` is not supplied in kwargs, then the one supplied upon intialization will be used.
+    Search entities in local infrastructure account. If `infrastructure_account` is not supplied in kwargs, then should search entities "local" to your filtered entities by using the same `infrastructure_account` as a default filter.
 
     :param kwargs: Filtering kwargs
     :type kwargs: str
