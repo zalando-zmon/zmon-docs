@@ -3,7 +3,32 @@ AppDynamics
 
 Enable AppDynamics Healthrule violations check and *optionally* query underlying Elasticsearch cluster raw logs.
 
-.. py:function:: appdynamics(url=None)
+.. py:function:: appdynamics(url=None, username=None, password=None, es_url=None, index_prefix='')
+
+    ::
+
+    Initialize AppDynamics wrapper.
+
+    :param url: Appdynamics url.
+    :type url: str
+
+    :param username: Appdynamics username.
+    :type username: str
+
+    :param password: Appdynamics password.
+    :type password: str
+
+    :param es_url: Appdynamics Elasticsearch cluster url.
+    :type es_url: str
+
+    :param index_prefix: Appdynamics Elasticsearch cluster logs index prefix.
+    :type index_prefix: str
+
+.. note::
+
+    If ``username`` and ``password`` are not supplied, then OAUTH2 will be used.
+
+    If ``appdynamics()`` is initialized with no args, then plugin configuration values will be used.
 
 Methods of AppDynamics
 ^^^^^^^^^^^^^^^^^^^^^^
