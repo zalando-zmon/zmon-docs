@@ -4,7 +4,8 @@
 Notifications Reference
 ***********************
 
-ZMON provides several means of notification in case of alerts. Notifications will be triggered when alert status change.
+ZMON provides several means of notification in case of alerts. Notifications will be triggered when alert status change. Please refer to
+:ref:`Notification options <notification-options-label>` for different worker configuration options.
 
 .. include:: notifications/hipchat.rst
 .. include:: notifications/http.rst
