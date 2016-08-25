@@ -180,9 +180,31 @@ Configure Metric Cache (optional):
   -e WORKER_METRICCACHE_URL=http://zmon-metric-cache:8086/api/v1/rest-api-metrics/ \
   -e WORKER_METRICCACHE_CHECK_ID=9 \
 
+.. _notification-options-label:
+
 Notification Options
 --------------------
 
+Hipchat
+^^^^^^^
+``WORKER_NOTIFICATIONS_HIPCHAT_TOKEN``
+    Access token for HipChat notifications.
+``WORKER_NOTIFICATIONS_HIPCHAT_URL``
+    URL of HipChat server.
+
+HTTP
+^^^^
+``WORKER_NOTIFICATIONS_HTTP_DEFAULT_URL``
+    HTTP endpoint default URL.
+``WORKER_NOTIFICATIONS_HTTP_WHITELIST_URLS``
+    List of whitelist URL endpoints. If URL is not in this list, then exception will be raised.
+``WORKER_NOTIFICATIONS_HTTP_ALLOW_ALL``
+    Allow any URL to be used in HTTP notification.
+``WORKER_NOTIFICATIONS_HTTP_HEADERS``
+    Default headers to be used in HTTP requests.
+
+Mail
+^^^^
 ``WORKER_NOTIFICATIONS_MAIL_HOST``
     SMTP host for email notifications.
 ``WORKER_NOTIFICATIONS_MAIL_PORT``
@@ -193,10 +215,9 @@ Notification Options
     SMTP user for email notifications.
 ``WORKER_NOTIFICATIONS_MAIL_PASSWORD``
     SMTP password for email notifications.
-``WORKER_NOTIFICATIONS_HIPCHAT_TOKEN``
-    Access token for HipChat notifications.
-``WORKER_NOTIFICATIONS_HIPCHAT_URL``
-    URL of HipChat server.
+
+Slack
+^^^^^
 ``WORKER_NOTIFICATIONS_SLACK_TOKEN``
     Slack access token for notifications to Slack channels.
 
