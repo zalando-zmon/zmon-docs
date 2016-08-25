@@ -25,6 +25,7 @@ ZMON Docs
 
    user/check-commands
    user/alert-ref/alert_reference_functions
+   user/notifications
 
 .. toctree::
    :hidden:
