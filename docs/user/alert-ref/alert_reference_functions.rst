@@ -8,6 +8,9 @@ Whenever one of these functions takes an argument named ``time_spec``, that argu
 
 Therefore, a value of ``5m`` would indicate that all values gathered in the last five minutes should be taken into account.
 
+.. note::
+    Trial Run doesn't provide any previous values. Please check how functions depending on check values behave in case values were not available.
+
 The following functions are available in the alert condition expression:
 
 
@@ -85,7 +88,7 @@ The following functions are available in the alert condition expression:
 
 .. py:function:: value_series([n=1])
 
-    Returns the last n values for the underlying checks and the current entity.
+    Returns the last n values for the underlying checks and the current entity. Return ``[]`` if there are no values.
 
 .. py:function:: alert_series(f, [n=1])
 
