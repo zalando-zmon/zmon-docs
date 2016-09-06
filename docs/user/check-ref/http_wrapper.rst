@@ -72,11 +72,15 @@ The object returned by the :py:func:`http` function provides methods: :py:meth:`
 
         http("/heartbeat.jsp", timeout=5).code()
 
+.. _http-actuator:
+
 .. py:method:: actuator_metrics(prefix='zmon.response.')
 
     Parses the json result of a metrics endpoint into a map ep->method->status->metric
 
         http("/metrics", timeout=5).actuator_metrics()
+
+.. _http-prometheus:
 
 .. py:method:: prometheus()
 
