@@ -105,13 +105,15 @@ Since Cloudwatch metrics are different for each ELB type, please check `CloudWat
     # Classic ELB
     lb_name = entity['name']
     key = 'LoadBalancerName'
+    namespace = 'AWS/ELB'
 
     # Check if Application ELBv2 entity
     if entity.get('elb_type') == 'application':
         lb_name = entity['cloudwatch_name']
         key = 'LoadBalancer'
+        namespace = 'AWS/ApplicationELB'
 
-    cloudwatch().query_one({key: lb_name}, 'RequestCount', 'Sum', 'AWS/ELB')
+    cloudwatch().query_one({key: lb_name}, 'RequestCount', 'Sum', namespace)
 
 .. note::
 
