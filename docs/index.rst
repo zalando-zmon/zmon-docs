@@ -55,6 +55,7 @@ ZMON Docs
 
    developer/rest-api
    developer/zmon-cli
+   developer/zmon-python-client
    developer/python-tutorial
    developer/tests
    developer/redis
