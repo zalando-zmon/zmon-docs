@@ -94,6 +94,10 @@ The following functions are available in the alert condition expression:
 
     Returns True if function f either raises exception or returns True for the last n check values for the given entity. Use this function to build an alert that only is raised if the last n intervals are up. This can solve alert where you face flapping due to technical issues.
 
+    .. note::
+
+        If number of check values is less than ``n``, then ``f`` will be evaluated for those values and alerts could be raised accordingly.
+
 .. py:function:: entity_results()
 
      List for every entity containing a dict with the following keys: ``value`` (the most recent value for the alert's check on that entity), ``ts`` (the time when the check evaluation was started, in seconds since the epoch, as a floating-point number), and ``td`` (the check's duration, in seconds, as a floating-point number). Works regardless of the type of value. DOES NOT WORK in Trial Run right now!
