@@ -1,7 +1,7 @@
 Pagerduty
 ---------
 
-Notify `Pagerduty <https://www.pagerduty.com/>`_ of a new alert status. If the alert ended then notification will ``resolve`` pagerduty incident.
+Notify `Pagerduty <https://www.pagerduty.com/>`_ of a new alert status. If alert is **active**, then a new pagerduty incident with type ``trigger`` will be sent. If alert is **inactive** then incident type will be updated to ``resolve``.
 
 
 .. py:function:: notify_pagerduty(message='', per_entity=False, include_alert=True, **kwargs)
