@@ -15,3 +15,4 @@ ZMON provides several means of notification in case of alerts. Notifications wil
 .. include:: notifications/pagerduty.rst
 .. include:: notifications/push.rst
 .. include:: notifications/slack.rst
+.. include:: notifications/twilio.rst
