@@ -221,6 +221,14 @@ Slack
 ``WORKER_NOTIFICATIONS_SLACK_TOKEN``
     Slack access token for notifications to Slack channels.
 
+Twilio
+^^^^^^
+``WORKER_NOTIFICATIONS_SERVICE_URL``
+    URL of notification service (needs to be publicly accessible)
+``WORKER_NOTIFICATIONS_SERVICE_KEY``
+    Preshared key to call notification service if not using oauth2
+
+
 
 Plug-In Options
 ---------------
@@ -247,3 +255,27 @@ If you need to access MySQL specify the user credentials below, again we suggest
 
 
 .. _Bootstrap: https://github.com/zalando-zmon/zmon-demo
+
+
+Notification Service
+====================
+
+Optional component to service mobile API, push notifications and Twilio notifications.
+
+Options
+-------
+
+``NOTIFICATIONS_TWILIO_API_KEY``
+    API Key
+``NOTIFICATIONS_TWILIO_USER``
+    User
+``NOTIFICATIONS_TWILIO_PHONE_NUMBER``
+    Phone number to use
+``NOTIFICATIONS_DOMAIN``
+    Domain under which notification service is reachable
+``SPRING_APPLICATION_JSON``
+    Use this to define preshared keys if not using oauth2. Specify key and max validity.
+
+    .. code-block:: json
+
+        {"notifications":{"shared_keys":{"<your random key>": 1504981053654}}}'

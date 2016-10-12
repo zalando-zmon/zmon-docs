@@ -14,3 +14,13 @@ Use Twilio to receive phone calls if alerts pop up. This includes basic ACK and 
 
     :param numbers: Numbers to call
     :type numers: list
+
+
+.. note::
+
+    Remember to configure your worker for this.
+
+    .. code-block:: bash
+
+        NOTIFICATION_SERVICE_URL
+        NOTIFICATION_SERVICE_KEY
