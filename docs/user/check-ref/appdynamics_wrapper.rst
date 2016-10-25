@@ -83,6 +83,39 @@ Methods of AppDynamics
             }
         ]
 
+.. py:function:: metric_data(application, metric_path, time_range_type=BEFORE_NOW, duration_in_mins=5, start_time=None, end_time=None, rollup=True)
+
+        ::
+
+        AppDynamics's metric-data API
+
+        :param application: Application name or ID
+        :type application: str
+
+        :param metric_path: The path to the metric in the metric hierarchy
+        :type metric_path: str
+
+        :param time_range_type: Valid time range type. Valid range types are BEFORE_NOW, BEFORE_TIME, AFTER_TIME and
+                                BETWEEN_TIMES. Default is BEFORE_NOW.
+        :type time_range_type: str
+
+        :param duration_in_mins: Time duration in mins. Required for BEFORE_NOW, AFTER_TIME, BEFORE_TIME range types.
+        :type duration_in_mins: int
+
+        :param start_time: Start time (in milliseconds) from which the metric data is returned. Default is 5 mins ago.
+        :type start_time: int
+
+        :param end_time: End time (in milliseconds) until which the metric data is returned. Default is now.
+        :type end_time: int
+
+        :param rollup: By default, the values of the returned metrics are rolled up into a single data point
+                       (rollup=True). To get separate results for all values within the time range, set the
+                       ``rollup`` parameter to ``False``.
+        :type rollup: bool
+
+        :return: metric values for a metric
+        :rtype: list
+
 .. py:function:: query_logs(q='', body=None, size=100, source_type=SOURCE_TYPE_APPLICATION_LOG, duration_in_mins=5)
 
     ::
