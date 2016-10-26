@@ -31,7 +31,7 @@ ZMON's customizable dashboards enable you to configure widgets and choose which 
         dashboard has. An example of a valid widget configuration is the
         following:
 
-        .. code-block:: yaml
+        .. code-block:: json
 
             [
                 {
@@ -103,6 +103,9 @@ These widgets expect a "checkDefinitionId", "entityId" and "title" properties:
 * "entityId" - if your check is based on GLOBAL, leave "GLOBAL", otherwise specify name of entity (as it appears in alert details) that you will use to get the data from (as check returns one result for each entity).
 * "title" - text displayed in the top part of the widget.
 
+For chart widgets, instead of using "checkDefinitionId" + "entityId", you can also define the data
+to be shown `using a KairosDB query <#data-from-kairosdb-queries>`_.
+
 They'll share the full screen width unless you set the "width" property,
 ranging from 12 (full width, calculated in "columns", see `Bootstrap <http://getbootstrap.com/2.3.2/scaffolding.html#gridSystem>`_) to 2 (smallest meaningful) or even 1.
 
@@ -167,6 +170,76 @@ data series as showed below.
     }
 
 See `the Flot documentation <https://github.com/flot/flot/blob/master/API.md#plot-options>`_ for more details.
+
+
+Data from KairosDB-queries
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As detailed in the :ref:`Grafana3 and KairosDB section <grafana>`, all ZMON check data is saved into KairosDB, and
+can be queried from there. For chart widgets, you can directly use
+`a KairosDB query <https://kairosdb.github.io/docs/build/html/restapi/QueryMetrics.html>`_ in the ``options``
+section of a widget to specify the data series to be used.
+The query consists of the key ``metrics`` (which indicates the data series to use)
+and a time specifier, for our purposes usually ``start_relative``. In addition you can use
+``cache_time`` (in seconds) to indicate that a previous result can be reused.
+
+Here is an example which shows the values of `check 1 <https://demo.zmon.io/#/check-definitions/view/1>`_
+for just three of its entities.
+
+.. code-block:: json
+
+    {
+        "options": {
+            "lines": {},
+            "legend": {
+                "backgroundOpacity": 0.1,
+                "show": true,
+                "position": "ne"
+            },
+            "series": {
+                "stack": false
+            },
+            "start_relative": {
+                "unit": "minutes",
+                "value": "30"
+            },
+            "metrics": [
+                {
+                    "tags": {
+                        "entity": [
+                            "website-zalando.de",
+                            "website-zalando.ch",
+                            "website-zalando.at"
+                        ],
+                        "key": []
+                    },
+                    "name": "zmon.check.1",
+                    "group_by": [
+                        {
+                            "name": "tag",
+                            "tags": [
+                                "entity",
+                                "key"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "cache_time": 0,
+            "colors": [
+                "#F00",
+                "#0F0",
+                "#00F"
+            ]
+        },
+        "type": "chart",
+        "title": "Response time (just de/at/ch)"
+    }
+
+
+An easy way to compose the KairosDB queries (specially the value for ``metrics``) is to
+create a new Grafana Dashboard in the built-in Grafana and then copy the query from the
+requests sent by the browser (Developer Tools → Network in Chromium).
 
 
 networkmap
