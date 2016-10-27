@@ -10,7 +10,7 @@ Grafana is served directly from the ZMON controller.
 Read requests are proxied through the controller so as not to expose the write/delete API from KairosDB.
 Dashboards are also saved via the controller, so there's no need for any additional data store.
 
-  http://www.grafana.org
+  http://grafana.org
 
 Check data
 ==========
