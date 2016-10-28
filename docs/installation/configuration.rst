@@ -14,21 +14,29 @@ Authentication
 ==============
 
 For the ZMON controller we assume that it is publicly accessible.
-Thus the UI always requires users to login.
-The REST API relies on tokens via the ``Authorization`` header to allow access.
+Thus the UI always requires users to login and the REST API, too.
+The REST API relies on tokens via the ``Authorization: Bearer <token>`` header to allow access.
 For environments where you have no OAauth2 setup you can configure pre-shared keys for API access.
 
 .. note::
 
    Feel free to look at Zalando's `Plan-B <http://planb.readthedocs.io/en/latest/>`_, which is a freely available OAuth2 provider we use for our platform to secure service to service communication.
 
-Creating a preshared token can be achieved like this:
+Creating a preshared token can be achieved like this and adding them to the Controller configuration.
 
 .. code-block:: bash
 
   SCHEDULER_TOKEN=$(makepasswd --string=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ --chars 32)
 
-Luckily only the scheduler requries access to the controller. For the scheduler, KairosDB, eventlog-service and metric-cache if deployed we assume for now they are private. Theses services are accessed only by worker and controller and do not need to be public. Same is true for Redis, PostgreSQL and Cassandra. However in general we advise you to setup proper credentials and roles where possible.
+.. warning::
+
+    Due to magic in matching env vars token must be ALL UPPERCASE
+
+Scheduler and worker both at times call the controller's REST API thus you need to configure tokens for them.
+For the scheduler, KairosDB, eventlog-service and metric-cache if deployed we assume for now they are private.
+Theses services are accessed only by worker and controller and do not need to be public.
+Same is true for Redis, PostgreSQL and Cassandra.
+However in general we advise you to setup proper credentials and roles where possible.
 
 Running Docker
 ==============
@@ -119,7 +127,7 @@ Setup URLs for other services:
     -e ZMON_METRICCACHE_URL=http://zmon-metric-cache:8086/ \
     -e ZMON_SCHEDULER_URL=http://zmon-scheduler:8085/ \
 
-And last but not least, configure a preshared token, to allow the scheduler to access the REST API.
+And last but not least, configure a preshared token, to allow the scheduler and worker to access the REST API. Remember tokens need to all uppercase here.
 
 .. code-block:: bash
 
@@ -173,6 +181,13 @@ Configure EventLog service:
 
   -e WORKER_EVENTLOG_HOST=zmon-eventlog-service \
   -e WORKER_EVENTLOG_PORT=8081 \
+
+Configure Worker token to access controller API: (relying on Python tokens library here)
+
+.. code-block:: bash
+
+  -e  OAUTH2_ACCESS_TOKENS=uid=$WORKER_TOKEN \
+
 
 Configure Metric Cache (optional):
 
