@@ -124,7 +124,8 @@ And last but not least, configure a preshared token, to allow the scheduler to a
 .. code-block:: bash
 
     -e PRESHARED_TOKENS_${SCHEDULER_TOKEN}_UID=zmon-scheduler \
-    -e PRESHARED_TOKENS_${SCHEDULER_TOKEN}_EXPIRES_AT=1758021422
+    -e PRESHARED_TOKENS_${SCHEDULER_TOKEN}_EXPIRES_AT=1758021422 \
+    -e PRESHARED_TOKENS_${SCHEDULER_TOKEN}_AUTHORITY=user
 
 Scheduler
 =========
