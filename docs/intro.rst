@@ -81,6 +81,10 @@ Or more abstract objects:
 
 Entity properties are not defined in any schema, so you can add properties as you see fit. This enables finer-grained filtering or selection of entities later on. As an example, host entities can include a physical model to later select the proper hardware checks.
 
+Below you see an exmple of the entity view with alerts per entity.
+
+.. image:: images/entities.png
+
 Checks
 ======
 

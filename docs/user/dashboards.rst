@@ -4,6 +4,8 @@
 Dashboards
 **********
 
+.. image:: /images/dashboard1.png
+
 ZMON's customizable dashboards enable you to configure widgets and choose which alerts to show. Dashboards have the following fields:
 
     name
@@ -242,45 +244,7 @@ create a new Grafana Dashboard in the built-in Grafana and then copy the query f
 requests sent by the browser (Developer Tools → Network in Chromium).
 
 
-networkmap
-----------
-
-The network map widget shows a high level overview of our infrastructure,
-with boxes that highlights our frontend and backend services status.
-
-You can specify a template by setting the "template" option in the config
-JSON to the name of the desired template. Currently only the default
-"networkMap" is available, but more should be added in the near future.
-
-A shapeAlerts option can override default values set by sysops:
-
-* First set the "alertIds" option with a list of all alert IDs to be
-  monitored by the view, separated by comma.
-* To bind specific alert IDs to the boxes, use the "shapeAlerts"
-  property having a list of class names (representing the boxes)
-  and their related alert IDs.
-
-Sample networkmap widget:
-
-.. code-block:: yaml
-
-    {
-        "type": "networkmap",
-        "title": "Network overview",
-        "options": {
-            "alertIds": "1,2,4,6,13,44,45,47,90",
-            "template": "networkMap",
-            "shapeAlerts": {
-                "country-de": "1,6",
-                "country-uk": "2,6",
-                "country-es": "4,6",
-                "bnb": "47,49"
-            }
-        }
-    }
-
-
-Iframe
+IFRAME
 ------
 
 The Iframe widget is a simple widget that allows you to embed a thrid
@@ -368,4 +332,3 @@ Please note that you can mix different styles and alerts, as shown on
 the previous sample. If alerts 1 and 9 are active, it will blink with
 a red background. If you define different styles with the same alert ID
 it will always give priority to the last one.
-

@@ -12,6 +12,10 @@ Dashboards are also saved via the controller, so there's no need for any additio
 
   http://grafana.org
 
+ Example of latency and requests charted via Grafana:
+
+ .. image:: /images/grafana-example1.png
+
 Check data
 ==========
 

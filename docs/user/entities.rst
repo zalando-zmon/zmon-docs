@@ -14,6 +14,8 @@ ZMON's entity service describes entities with a single JSON document.
 Any entity must contain an ID that is unique within your ZMON deployment.
 We often use a pattern like <hostname>(:<port>) to create uniqueness at the host and application levels, but this is up to you.
 
+At the check execution we bind entity properties as default values to the functions executed, e.g. the IP gets used for relative ``http()`` requests.
+
 Examples
 --------
 
@@ -49,4 +51,4 @@ View more examples here_.
 
 .. _zmon-controller: https://github.com/zalando-zmon/zmon-controller
 .. _zmon-scheduler: https://github.com/zalando-zmon/zmon-scheduler
-.. _here: https://github.com/zalando/zmon/tree/master/examples/entities
+.. _here: https://github.com/zalando-zmon/zmon-demo/tree/master/bootstrap/entities
