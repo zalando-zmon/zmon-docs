@@ -332,17 +332,6 @@ second half-hour the rest of the week, use the period
 For more examples and syntax reference, please refer to this `documentation <http://search.cpan.org/~pryan/Period-1.20/Period.pm#PERIOD_EXAMPLES>`_
 
 
-Alert Deletion
---------------
-
-To delete an alert definition, you must either have ADMIN, LEAD or USER roles and execute the following steps:
-
-* Open the alert definition to delete.
-* Click on the top right link named `Delete`.
-* Confirm deletion.
-
-Want to know more about alert deletion permissions? Please take a look into the :ref:`permissions` section.
-
 .. include:: alert-definition-inheritance.rst
 .. include:: alert-definition-parameters.rst
 .. include:: downtimes.rst

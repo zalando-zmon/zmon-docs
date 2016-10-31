@@ -59,7 +59,6 @@ ZMON Docs
    developer/python-tutorial
    developer/tests
    developer/redis
-   developer/permissions
 
 
 .. toctree::

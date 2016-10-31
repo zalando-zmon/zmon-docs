@@ -4,7 +4,8 @@
 Check Definitions
 *****************
 
-Checks are ZMON's way of gathering data from arbitrary entities, e.g. databases, micro services, hosts and more. Create them as describe below using either the UI or the CLI.
+Checks are ZMON's way of gathering data from arbitrary entities, e.g. databases, micro services, hosts and more.
+Create them as describe below using either the UI or the CLI.
 
 Key properties
 ==============
@@ -41,3 +42,8 @@ Using trial run
 
 Using the CLI
 -------------
+
+.. code-block:: bash
+
+    $ zmon check init new-check.yaml
+    $ zmon check push new-check.yaml

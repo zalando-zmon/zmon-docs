@@ -204,15 +204,24 @@ ZMON AWS agent will also sync IAM/ACM SSL certificates, with type ``certificate`
 Application API Monitoring
 --------------------------
 
-When monitoring an application, you'll usually want to check the number of received requests, latency patterns, and the number of returned status codes. These data points form a pretty clear picture of what is going on with the application.
+When monitoring an application, you'll usually want to check the number of received requests, latency patterns, and the number of returned status codes.
+These data points form a pretty clear picture of what is going on with the application.
 
-Additional metrics will help you find problems as well as opportunities for improvement. Assuming that your applications provide HTTP APIs hidden behind ELBs, you can use ZMON to gather this data from CloudWatch.
+Additional metrics will help you find problems as well as opportunities for improvement.
+Assuming that your applications provide HTTP APIs hidden behind ELBs, you can use ZMON to gather this data from CloudWatch.
 
-For more detailed data, ZMON offers options for different languages and frameworks. One is zmon-actuator_, for Spring Boot. ZMON gathers the data by querying a JSON endpoint adhering to the DropWizard metrics standard with some convention on the naming of timers, but basically on timer per API PATH and status code.
+For more detailed data, ZMON offers options for different languages and frameworks.
+One is zmon-actuator_ for Spring Boot.
+ZMON gathers the data by querying a JSON endpoint ``/metrics`` adhering to the DropWizard metrics layout with some convention on the naming of timers.
+Basically on timer per API path and status code.
 
-We also recommend checking out Friboo_ for working with Clojure, and the Python/Flask framework Connexion_.
+We also recommend checking out Friboo_ for working with Clojure, the Python/Flask framework Connexion_ or Markscheider_ for Play/Scala development.
 
 The :ref:`http(url=...).actuator_metrics() <http-actuator>` will parse the data into a Python dict that allows you to easily monitor and alert on changes in API behavior.
+
+This also drives ZMON's cloud UI.
+
+.. image:: /images/cloud1.png
 
 .. _appliance: https://github.com/zalando-zmon/zmon-appliance
 .. _CloudWatch ELB metrics: http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html
@@ -225,3 +234,4 @@ The :ref:`http(url=...).actuator_metrics() <http-actuator>` will parse the data 
 .. _ZMON worker: https://github.com/zalando-zmon/zmon-worker
 .. _zmon-actuator: https://github.com/zalando-zmon/zmon-actuator
 .. _zmon-aws-agent: https://github.com/zalando-zmon/zmon-aws-agent
+.. _markscheider: https://github.com/zalando-incubator/markscheider

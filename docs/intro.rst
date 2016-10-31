@@ -18,6 +18,8 @@ ZMON also enables painless integration with CMDBs and deployment tools.
 It also supports service discovery via custom adapters or its built-in entity service's REST API.
 For an example, see zmon-aws-agent_ to learn how we connect AWS service discovery with our monitoring in the cloud.
 
+Feel free to contact us via `slack.zmon.io`_.
+
 ZMON Components
 ===============
 
@@ -177,3 +179,4 @@ The team behind ZMON continues to improve performance and functionality. Please 
 .. _zmon-notification-service: https://github.com/zalando-zmon/zmon-notification-service
 .. _zmon-metric-cache: https://github.com/zalando-zmon/zmon-metric-cache
 .. _Hack Week: https://tech.zalando.de/blog/?tags=Hack%20Week
+.. _slack.zmon.io: https://slack.zmon.io
