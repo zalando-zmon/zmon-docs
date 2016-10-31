@@ -234,8 +234,8 @@ Mail
 
 Slack
 ^^^^^
-``WORKER_NOTIFICATIONS_SLACK_TOKEN``
-    Slack access token for notifications to Slack channels.
+``WORKER_NOTIFICATIONS_SLACK_WEBHOOK``
+    Slack webhook for channel notifications.
 
 Twilio
 ^^^^^^
