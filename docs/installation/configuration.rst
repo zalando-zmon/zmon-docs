@@ -155,6 +155,14 @@ Not the reuse of the above defined pre shared key!
    -e SCHEDULER_ENTITY_SERVICE_URL=http://zmon-controller:8080/ \
    -e SCHEDULER_CONTROLLER_URL=http://zmon-controller:8080/ \
 
+If you run into scenarios of different queues or the demand for different levels of parallelism, e.g. limiting number of queries run at MySQL/PostgreSQL databases use the following as an example:
+
+.. code-block:: bash
+
+    -e SPRING_APPLICATION_JSON='{"scheduler":{"queue_property_mapping":{"zmon:queue:mysql":[{"type":"mysql"}]}}}'
+
+This will route checks agains entities of type "mysql" to another queue.
+
 Worker
 ======
 
@@ -168,6 +176,15 @@ Configure Redis Access:
 .. code-block:: bash
 
   -e WORKER_REDIS_SERVERS=zmon-redis:6379 \
+
+Configure parallelism and throughput:
+
+.. code-block:: bash
+
+  -e WORKER_ZMON_QUEUES=zmon:queue:default/25,zmon:queue:mysql/3
+
+Specify the number of worker processes that are polling the queues and execute tasks.
+You can specify multiple queues here to listen to.
 
 Configure KairosDB:
 
@@ -294,4 +311,4 @@ Options
 
     .. code-block:: json
 
-        {"notifications":{"shared_keys":{"<your random key>": 1504981053654}}}'
+        {"notifications":{"shared_keys":{"<your random key>": 1504981053654}}}
