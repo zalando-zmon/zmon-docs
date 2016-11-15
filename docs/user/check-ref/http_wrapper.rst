@@ -11,6 +11,7 @@ Access to HTTP (and HTTPS) endpoints is provided by the :py:func:`http` function
     :param int max_retries: The number of times the HTTP request should be retried if it fails. Defaults to :py:obj:`0`.
     :param bool verify: Can be set to :py:obj:`False` to disable SSL certificate verification.
     :param bool oauth2: Can be set to :py:obj:`True` to inject a OAuth 2 ``Bearer`` access token in the outgoing request
+    :param str oauth2_token_name: The name of the OAuth 2 token. Default is ``uid``.
     :param bool allow_redirects: Follow request redirects. If ``None`` then it will be set to :py:obj:`True` in case of ``GET`` and :py:obj:`False` in case of ``HEAD`` request.
     :return: An object encapsulating the response from the server. See below.
 
