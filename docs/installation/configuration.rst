@@ -205,6 +205,11 @@ Configure Worker token to access controller API: (relying on Python tokens libra
 
   -e  OAUTH2_ACCESS_TOKENS=uid=$WORKER_TOKEN \
 
+Configure Worker named tokens to access external APIs:
+
+.. code-block:: bash
+
+  -e WORKER_HTTP_OAUTH2_TOKENS=token_name1=scope1,scope2,scope3:token_name2=scope1,scope2
 
 Configure Metric Cache (optional):
 
