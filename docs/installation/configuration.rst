@@ -209,7 +209,7 @@ Configure Worker named tokens to access external APIs:
 
 .. code-block:: bash
 
-  -e WORKER_HTTP_OAUTH2_TOKENS=token_name1=scope1,scope2,scope3:token_name2=scope1,scope2
+  -e WORKER_PLUGIN_HTTP_OAUTH2_TOKENS=token_name1=scope1,scope2,scope3:token_name2=scope1,scope2
 
 Configure Metric Cache (optional):
 
