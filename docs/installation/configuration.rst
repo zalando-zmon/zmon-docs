@@ -88,7 +88,10 @@ We use the following wrapper for this:
 Controller
 ==========
 
-Configure your Github application:
+Authentication
+^^^^^^^^^^^^^^
+
+Configure your Github application
 
 .. code-block:: bash
 
@@ -102,6 +105,8 @@ Make everyone admin for now:
 
     -e ZMON_AUTHORITIES_SIMPLE_ADMINS=* \
 
+Dependencies
+^^^^^^^^^^^^
 
 Configure PostgreSQL access:
 
@@ -116,6 +121,11 @@ Setup Redis connection:
 
     -e REDIS_HOST=zmon-redis \
     -e REDIS_PORT=6379 \
+
+Set CORS allowed origins:
+
+.. code-block:: bash
+
     -e ENDPOINTS_CORS_ALLOWED_ORIGINS=https://demo.zmon.io \
 
 Setup URLs for other services:
@@ -134,6 +144,23 @@ And last but not least, configure a preshared token, to allow the scheduler and 
     -e PRESHARED_TOKENS_${SCHEDULER_TOKEN}_UID=zmon-scheduler \
     -e PRESHARED_TOKENS_${SCHEDULER_TOKEN}_EXPIRES_AT=1758021422 \
     -e PRESHARED_TOKENS_${SCHEDULER_TOKEN}_AUTHORITY=user
+
+Firebase and Webpush
+^^^^^^^^^^^^^^^^^^^^
+
+Enable desktop push notification UI with the following options:
+
+.. code-block:: bash
+
+    -e ZMON_ENABLE_FIREBASE=true \
+    -e ZMON_NOTIFICATIONSERVICE_URL=http://zmon-notification-service:8087/ \
+    -e ZMON_FIREBASE_API_KEY="AIzaSyBM1ktKS5u_d2jxWPHVU7Xk39s-PG5gy7c" \
+    -e ZMON_FIREBASE_AUTH_DOMAIN="zmon-demo.firebaseapp.com" \
+    -e ZMON_FIREBASE_DATABASE_URL="https://zmon-demo.firebaseio.com" \
+    -e ZMON_FIREBASE_STORAGE_BUCKET="zmon-demo.appspot.com" \
+    -e ZMON_FIREBASE_MESSAGING_SENDER_ID="280881042812" \
+
+This feature requires additional config for the worker and to run the notification-service.
 
 Scheduler
 =========
@@ -169,7 +196,7 @@ Worker
 The worker configuration is split into essential configuration options, like Redis and KairosDB and the plugin configuration, e.g. PostgreSQL credentials, ...
 
 Essential Options
------------------
+^^^^^^^^^^^^^^^^^
 
 Configure Redis Access:
 
@@ -221,17 +248,31 @@ Configure Metric Cache (optional):
 .. _notification-options-label:
 
 Notification Options
+^^^^^^^^^^^^^^^^^^^^
+
+Firebase and Webpush
 --------------------
+To trigger notifications for desktop web and mobile apps set the following params to point to notification service.
+
+``WORKER_NOTIFICATIONS_PUSH_URL``
+    Notification service base url
+
+``WORKER_NOTIFICATIONS_PUSH_KEY``
+    A shared key configured in the notification service
+
 
 Hipchat
-^^^^^^^
+-------
 ``WORKER_NOTIFICATIONS_HIPCHAT_TOKEN``
     Access token for HipChat notifications.
 ``WORKER_NOTIFICATIONS_HIPCHAT_URL``
     URL of HipChat server.
 
 HTTP
-^^^^
+----
+
+This allows to trigger HTTP Post calls to arbitrary services.
+
 ``WORKER_NOTIFICATIONS_HTTP_DEFAULT_URL``
     HTTP endpoint default URL.
 ``WORKER_NOTIFICATIONS_HTTP_WHITELIST_URLS``
@@ -242,7 +283,7 @@ HTTP
     Default headers to be used in HTTP requests.
 
 Mail
-^^^^
+----
 ``WORKER_NOTIFICATIONS_MAIL_HOST``
     SMTP host for email notifications.
 ``WORKER_NOTIFICATIONS_MAIL_PORT``
@@ -255,12 +296,12 @@ Mail
     SMTP password for email notifications.
 
 Slack
-^^^^^
+-----
 ``WORKER_NOTIFICATIONS_SLACK_WEBHOOK``
     Slack webhook for channel notifications.
 
 Twilio
-^^^^^^
+------
 ``WORKER_NOTIFICATIONS_SERVICE_URL``
     URL of notification service (needs to be publicly accessible)
 ``WORKER_NOTIFICATIONS_SERVICE_KEY``
@@ -300,20 +341,35 @@ Notification Service
 
 Optional component to service mobile API, push notifications and Twilio notifications.
 
-Options
--------
+Authentication
+^^^^^^^^^^^^^^
+
+``SPRING_APPLICATION_JSON``
+    Use this to define pre-shared keys if not using OAuth2. Specify key and max validity.
+
+    .. code-block:: json
+
+        {"notifications":{"shared_keys":{"<your random key>": 1504981053654}}}
+
+
+Firebase and Web Push
+^^^^^^^^^^^^^^^^^^^^^
+
+``NOTIFICATIONS_GOOGLE_PUSH_SERVICE_API_KEY``
+    Private Firebase messaging server key
+
+``NOTIFICATIONS_ZMON_URL``
+    ZMON's base URL
+
+
+Twilio options
+^^^^^^^^^^^^^^
 
 ``NOTIFICATIONS_TWILIO_API_KEY``
-    API Key
+    Private API Key
 ``NOTIFICATIONS_TWILIO_USER``
     User
 ``NOTIFICATIONS_TWILIO_PHONE_NUMBER``
     Phone number to use
 ``NOTIFICATIONS_DOMAIN``
     Domain under which notification service is reachable
-``SPRING_APPLICATION_JSON``
-    Use this to define preshared keys if not using oauth2. Specify key and max validity.
-
-    .. code-block:: json
-
-        {"notifications":{"shared_keys":{"<your random key>": 1504981053654}}}

@@ -20,3 +20,12 @@ Generate the ZMON HTML documentation locally:
     $ cd docs; make html
 
 .. _Sphinx: http://sphinx-doc.org/
+
+Run docs locally:
+
+.. code-block:: bash
+
+    $ python -m SimpleHTTPServer 8888
+
+Docs at:
+    `http://localhost:8888/_build/html/`
