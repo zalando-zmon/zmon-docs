@@ -254,11 +254,11 @@ Firebase and Webpush
 --------------------
 To trigger notifications for desktop web and mobile apps set the following params to point to notification service.
 
-``WORKER_NOTIFICATIONS_PUSH_URL``
+``WORKER_NOTIFICATION_SERVICE_URL``
     Notification service base url
 
-``WORKER_NOTIFICATIONS_PUSH_KEY``
-    A shared key configured in the notification service
+``WORKER_NOTIFICATION_SERVICE_KEY``
+    (optional, if not using oauth2) A shared key configured in the notification service
 
 
 Hipchat
@@ -302,11 +302,10 @@ Slack
 
 Twilio
 ------
-``WORKER_NOTIFICATIONS_SERVICE_URL``
+``WORKER_NOTIFICATION_SERVICE_URL``
     URL of notification service (needs to be publicly accessible)
-``WORKER_NOTIFICATIONS_SERVICE_KEY``
-    Preshared key to call notification service if not using oauth2
-
+``WORKER_NOTIFICATION_SERVICE_KEY``
+    (optional, if not using oauth2) Preshared key to call notification service
 
 
 Plug-In Options
