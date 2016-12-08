@@ -9,7 +9,7 @@ Its checks and alerts rely on Python expressions, giving the user a lot of power
 Besides the UI it provides RESTful APIs to manage and configure most properties automatically.
 
 Anyone can use ZMON, but offers particular advantages for technical organizations with many autonomous teams.
-Its front end (see Demo_ / Bootstrap_ / Vagrant_) comes with Grafana3 "built-in," enabling teams to create and manage their own data-driven dashboards along side ZMON's own team/personal dashboards for alerts and custom widgets.
+Its front end (see Demo_ / Bootstrap_ / Kubernetes_/ Vagrant_) comes with Grafana3 "built-in," enabling teams to create and manage their own data-driven dashboards along side ZMON's own team/personal dashboards for alerts and custom widgets.
 Being able to inherit and clone alerts makes it easier for teams to reuse and share code.
 Alerts can trigger HipChat, Slack, and E-Mail notifications.
 iOS and Android clients are works in progress, but push notifications are already implemented.
@@ -180,3 +180,4 @@ The team behind ZMON continues to improve performance and functionality. Please 
 .. _zmon-metric-cache: https://github.com/zalando-zmon/zmon-metric-cache
 .. _Hack Week: https://tech.zalando.de/blog/?tags=Hack%20Week
 .. _slack.zmon.io: https://slack.zmon.io
+.. _Kubernetes: https://github.com/zalando-zmon/zmon-kubernetes

@@ -79,4 +79,3 @@ Zmon
 
 .. autoclass:: zmon_cli.client.Zmon
     :members:
-
