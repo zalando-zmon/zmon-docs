@@ -1,5 +1,5 @@
-Amazon S3
-----------
+S3
+---
 
 Allows data to be pulled from S3 Objects.
 
@@ -48,7 +48,6 @@ Methods of S3
 
     Get the S3 Object associated with the given ``bucket_name`` and ``key``. This method will cause the object to be
     read into memory.
-
     :param bucket_name: the name of the S3 Bucket
     :param key: the key that identifies the S3 Object within the S3 Bucket
     :return: an ``S3Object`` object
