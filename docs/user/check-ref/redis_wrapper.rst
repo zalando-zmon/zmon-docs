@@ -93,6 +93,16 @@ The object returned by the :py:func:`redis` function provides the following meth
 
         redis().scan(0, 'prefix*', 10)
 
+
+.. py:method:: ttl(key)
+
+    Return the time to live of an expiring key.
+
+    ::
+
+        redis().ttl('lock')
+
+
 .. py:method:: statistics()
 
     Returns a ``dict`` with general Redis statistics such as memory usage and operations/s.
