@@ -209,3 +209,12 @@ but in case you'd like to change them:
 .. py:function:: bin_standard_deviation()
 
     Returns the standard deviation of the bins that were aggregated.
+
+
+Additional helper functions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can also use some additional functions that are used in check commands.
+
+* :ref:`time() <time-helper-function>`
+* :ref:`kairosdb() <check-kairosdb>`

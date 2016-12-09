@@ -500,7 +500,7 @@ The following general-purpose functions are available in check commands:
         >>> sum([])
         0
 
-
+.. _time-helper-function:
 .. py:function:: time([spec], [utc])
 
     Given a time specification such as ``'-10m'`` for "ten minutes ago" or ``'+3h'`` for "in three hours", returns an object representing that timestamp. Valid units are ``s`` for seconds, ``m`` for minutes, ``h`` for hours, and ``d`` for days.
