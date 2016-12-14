@@ -114,7 +114,7 @@ History distance functionality
 The history distance functionality currently only works for numeric values, and not for structured ones, or arrays.
 Call for a DistanceWrapper object. ::
 
-    history().distance([weeks=4], [bin_size='1h'], [snap_to_bin = True], [dict_extractor_path=lambda x: x])
+    history().distance([weeks=4], [bin_size='1h'], [snap_to_bin = True], [dict_extractor_path=''])
 
 An object will be returned, where you can call additional functions on. The default parameters should be good for most cases,
 but in case you'd like to change them:
