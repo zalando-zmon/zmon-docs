@@ -64,6 +64,15 @@ The object returned by the :py:func:`redis` function provides the following meth
         redis().get("example_redis_key")
 
 
+.. py:method:: keys(pattern)
+
+    Returns list of keys from Redis matchin pattern.
+
+    ::
+
+        redis().keys("*downtime*")
+
+
 .. py:method:: hget(key, field)
 
     Returns the value of the field `field` of the hash `key`. If `key` does not exist or does not have
@@ -92,6 +101,15 @@ The object returned by the :py:func:`redis` function provides the following meth
     ::
 
         redis().scan(0, 'prefix*', 10)
+
+
+.. py:method:: smembers(key)
+
+    Returns members of set ``key`` in Redis.
+
+    ::
+
+        redis().smembers("zmon:alert:1")
 
 
 .. py:method:: ttl(key)
