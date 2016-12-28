@@ -5,13 +5,59 @@ CloudWatch
 
 If running on AWS you can use ``cloudwatch()`` to access AWS metrics easily.
 
-.. py:method:: query_one(dimensions, metric_name, statistics, namespace, period=60, minutes=5)
+Methods of Cloudwatch
+^^^^^^^^^^^^^^^^^^^^^
 
-  Query a single AWS CloudWatch metric and return a single scalar value (float).
-  Metric will be aggregated over the last five minutes using the provided aggregation type.
+.. py:method:: query_one(dimensions, metric_name, statistics, namespace, period=60, minutes=5, start=None, end=None, extended_statistics=None)
 
-  This method is a more low-level variant of the ``query`` method: all parameters, including all dimensions need to be known.
+    ::
 
+    Query a single AWS CloudWatch metric and return a single scalar value (float).
+    Metric will be aggregated over the last five minutes using the provided aggregation type.
+
+    This method is a more low-level variant of the ``query`` method: all parameters, including all dimensions need to be known.
+
+    :param dimensions: Cloudwatch dimensions. Example ``{'LoadBalancerName': 'my-elb-name'}``
+    :type dimensions: dict
+
+    :param metric_name: Cloudwatch metric. Example ``'Latency'``.
+    :type metric_name: list
+
+    :param statistics: Cloudwatch metric statistics. Example ``'Sum'``
+    :type statistics: list
+
+    :param namespace: Cloudwatch namespace. Example ``'AWS/ELB'``
+    :type namespace: str
+
+    :param period: Cloudwatch statistics granularity in seconds. Default is 60.
+    :type period: int
+
+    :param minutes: Used to determine ``start`` time of the Cloudwatch query. Default is 5. Ignored if ``start`` is supplied.
+    :type minutes: int
+
+    :param start: Cloudwatch start timestamp. Default is ``None``.
+    :type start: int
+
+    :param end: Cloudwatch end timestamp. Default is ``None``. If not supplied, then end time is now.
+    :type end: int
+
+    :param extended_statistics: Cloudwatch ExtendedStatistics for percentiles query. Example ``['p95', 'p99']``.
+    :type extended_statistics: list
+
+    :return: Return a float if single value, dict otherwise.
+    :rtype: float, dict
+
+
+    Example query with percentiles for AWS ALB:
+
+    .. code-block:: python
+
+        cloudwatch().query_one({'LoadBalancer': 'app/my-alb/1234'}, 'TargetResponseTime', 'Average', 'AWS/ApplicationELB', extended_statistics=['p95', 'p99'])
+        {
+            'TargetResponseTime': 0.224,
+            'p95': 0.245,
+            'p99': 0.300
+        }
 
 .. py:method:: query(dimensions, metric_name, statistics='Sum', namespace=None, period=60, minutes=5)
 
@@ -57,6 +103,8 @@ The desired metric can now be queried in ZMON:
 
 
 .. py:method:: alarms(alarm_names=None, alarm_name_prefix=None, state_value=STATE_ALARM, action_prefix=None, max_records=50)
+
+    ::
 
     Retrieve cloudwatch alarms filtered by state value.
 

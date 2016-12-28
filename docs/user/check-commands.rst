@@ -586,3 +586,28 @@ The following general-purpose functions are available in check commands:
         [('A', 'a', 1), ('B', 'b', 2), ('C', 'c', 3)]
         >>> zip([], [1, 2, 3])
         []
+
+.. py:function:: re
+
+    ::
+
+    Python regex ``re`` module for all regex operations.
+
+    .. code-block:: python
+
+        >>> re.match(r'^ab.*', 'a123b') != None
+        False
+
+        >>> re.match(r'^ab.*', 'ab123') != None
+        True
+
+.. py:function:: math
+
+    ::
+
+    Python ``math`` module for all math operations.
+
+    .. code-block:: python
+
+        >>> math.log(4, 2)
+        2.0
