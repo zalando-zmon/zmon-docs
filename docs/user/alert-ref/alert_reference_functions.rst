@@ -14,12 +14,38 @@ Therefore, a value of ``5m`` would indicate that all values gathered in the last
 The following functions are available in the alert condition expression:
 
 
+.. py:function:: alert_series(f, [n=1])
+
+    Returns True if function f either raises exception or returns True for the last n check values for the given entity. Use this function to build an alert that only is raised if the last n intervals are up. This can solve alert where you face flapping due to technical issues.
+
+
+    .. code-block:: python
+
+        # check that the value is bigger than 5 the last 3 runs
+        alert_series(lambda v: v > 5, 3)
+
+
+    .. note::
+
+        If number of check values is less than ``n``, then ``f`` will be evaluated for those values and alerts could be raised accordingly.
+
+
 .. py:function:: capture(value)
                  capture(name=value)
 
     Saves the given value as a capture, and returns it unaltered. In the first form, the capture receives a generated name (:samp:`capture_{N}`). In the second form, the specified name is used as the name of the capture.
 
     **Example:** ``capture(foo=1)`` saves the value ``1`` in a capture named ``foo`` and returns ``1``.
+
+
+.. py:function:: entity_results()
+
+     List for every entity containing a dict with the following keys: ``value`` (the most recent value for the alert's check on that entity), ``ts`` (the time when the check evaluation was started, in seconds since the epoch, as a floating-point number), and ``td`` (the check's duration, in seconds, as a floating-point number). Works regardless of the type of value. DOES NOT WORK in Trial Run right now!
+
+
+.. py:function:: entity_values()
+
+    Returns a list for each entity containing the most recent value for the alert's check on that entity. Works regardless of the type of value. DOES NOT WORK in Trial Run right now!
 
 
 .. py:function:: timeseries_avg(time_spec)
@@ -90,22 +116,6 @@ The following functions are available in the alert condition expression:
 
     Returns the last n values for the underlying checks and the current entity. Return ``[]`` if there are no values.
 
-.. py:function:: alert_series(f, [n=1])
-
-    Returns True if function f either raises exception or returns True for the last n check values for the given entity. Use this function to build an alert that only is raised if the last n intervals are up. This can solve alert where you face flapping due to technical issues.
-
-    .. note::
-
-        If number of check values is less than ``n``, then ``f`` will be evaluated for those values and alerts could be raised accordingly.
-
-.. py:function:: entity_results()
-
-     List for every entity containing a dict with the following keys: ``value`` (the most recent value for the alert's check on that entity), ``ts`` (the time when the check evaluation was started, in seconds since the epoch, as a floating-point number), and ``td`` (the check's duration, in seconds, as a floating-point number). Works regardless of the type of value. DOES NOT WORK in Trial Run right now!
-
-
-.. py:function:: entity_values()
-
-    Returns a list for each entity containing the most recent value for the alert's check on that entity. Works regardless of the type of value. DOES NOT WORK in Trial Run right now!
 
 .. _history-distance-label:
 
