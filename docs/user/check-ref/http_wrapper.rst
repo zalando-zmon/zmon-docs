@@ -19,20 +19,27 @@ Access to HTTP (and HTTPS) endpoints is provided by the :py:func:`http` function
 
     This function cannot query URLs using a scheme other than HTTP or HTTPS; URLs that do not start with :samp:`http://` or :samp:`https://` are considered to be relative.
 
-    Sample usage::
+    Example:
 
-        http('http://www.example.org/data?fetch=json')
+        .. code-block:: python
+
+            http('http://www.example.org/data?fetch=json').json()
+
+            # avoid raising error in case the response error status (e.g. 500 or 503)
+            # but you are interested in the response json
+            http('http://www.example.org/data?fetch=json').json(raise_error=False)
+
 
 HTTP Responses
 ^^^^^^^^^^^^^^
 
 The object returned by the :py:func:`http` function provides methods: :py:meth:`json`, :py:meth:`text`, :py:meth:`headers`, :py:meth:`cookies`, :py:meth:`content_size`, :py:meth:`time` and :py:meth:`code`.
 
-.. py:method:: json()
+.. py:method:: json(raise_error=True)
 
     This method returns an object representing the content of the JSON response from the queried endpoint. Usually, this will be a map (represented by a Python :py:obj:`dict`), but, depending on the endpoint, it may also be a list, string, set, integer, floating-point number, or Boolean.
 
-.. py:method:: text()
+.. py:method:: text(raise_error=True)
 
     Returns the text response from queried endpoint::
 
@@ -43,25 +50,25 @@ The object returned by the :py:func:`http` function provides methods: :py:meth:`
     instances). The strip function removes all leading and trailing
     whitespace.
 
-.. py:method:: headers()
+.. py:method:: headers(raise_error=True)
 
     Returns the response headers in a case-insensitive dict-like object::
 
         http("/api/json", timeout=5).headers()['content-type']=='application/json'
 
-.. py:method:: cookies()
+.. py:method:: cookies(raise_error=True)
 
     Returns the response cookies in a dict like object::
 
         http("/heartbeat.jsp", timeout=5).cookies()['my_custom_cookie'] == 'custom_cookie_value'
 
-.. py:method:: content_size()
+.. py:method:: content_size(raise_error=True)
 
     Returns the length of the response content::
 
         http("/heartbeat.jsp", timeout=5).content_size() > 1024
 
-.. py:method:: time()
+.. py:method:: time(raise_error=True)
 
     Returns the elapsed time in seconds until response was received::
 
@@ -75,7 +82,7 @@ The object returned by the :py:func:`http` function provides methods: :py:meth:`
 
 .. _http-actuator:
 
-.. py:method:: actuator_metrics(prefix='zmon.response.')
+.. py:method:: actuator_metrics(prefix='zmon.response.', raise_error=True)
 
     Parses the json result of a metrics endpoint into a map ep->method->status->metric
 
