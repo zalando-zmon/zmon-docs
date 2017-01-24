@@ -59,6 +59,11 @@ Methods of Cloudwatch
             'p99': 0.300
         }
 
+.. note::
+
+   In very rare cases, e.g. for ELB metrics, you may see only 1/2 or 1-2/3 of the value in ZMON due to a race condition of what data is already present in cloud watch.
+   To fix this click "evaluate" on the alert, this will trigger the check and move its execution time to a new start time.
+
 .. py:method:: query(dimensions, metric_name, statistics='Sum', namespace=None, period=60, minutes=5)
 
   Query AWS CloudWatch for metrics. Metrics will be aggregated over the last five minutes using the provided aggregation type (default "Sum").
