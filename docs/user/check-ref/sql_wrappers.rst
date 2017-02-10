@@ -26,6 +26,10 @@ SQL
     It's also possible to query a single shard by providing its name::
 
         sql(shard='customer1').execute('SELECT COUNT(1) AS c FROM zc_data.customer').results() # returns list of values from a single shard
+    
+    It's also possible to query another database on the same server overwriting the shards information::
+    
+        sql(shards={'customer_db' : entity['host'] + ':' + str(entity['port']) + '/another_db'}).execute('SELECT COUNT(1) AS c FROM my_table').results()
 
     To execute a SQL statement on all LIVE customer shards, for example, use the following entity filter:
 
