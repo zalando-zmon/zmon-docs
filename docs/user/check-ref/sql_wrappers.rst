@@ -27,7 +27,7 @@ SQL
 
         sql(shard='customer1').execute('SELECT COUNT(1) AS c FROM zc_data.customer').results() # returns list of values from a single shard
     
-    It's also possible to query another database on the same server providing::
+    It's also possible to query another database on the same server overwriting the shards information::
     
         sql(shards={'customer_db' : entity['host'] + ':' + str(entity['port']) + '/antother_db'}).execute('SELECT COUNT(1) AS c FROM my_table').results()
 
