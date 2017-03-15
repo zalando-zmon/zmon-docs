@@ -126,7 +126,7 @@ A color for the font can be specified with the "color" property.
 A formatting string can be also specified to make python-like string
 interpolation and floating point precision rounding, by defining a "format"
 property in the options object. Syntax of the format string is mostly same as
-in python.
+in `python <https://docs.python.org/3/library/string.html#format-specification-mini-language>`_.
 
 Options example for all widgets to specify which value from the
 check result to be displayed using "jsonPath":
@@ -136,7 +136,7 @@ check result to be displayed using "jsonPath":
     "options": {
         "fontSize": 120,    # set font size to 120px,
         "color": "red",     # set color to red (also accepts #FF0000).
-        "format": "{:.3f}"  # show value with 3 places of floating point precision
+        "format": ".3f"     # show value with 3 places of floating point precision
     },
     "jsonPath": ".cpu.load1"
 
