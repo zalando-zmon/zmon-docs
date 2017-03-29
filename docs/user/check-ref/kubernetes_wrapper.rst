@@ -80,12 +80,6 @@ Methods of Kubernetes
         :return: List of nodes. Typical pod has "metadata", "status" and "spec".
         :rtype: list
 
-.. py:function:: svc(**kwargs)
-
-        ::
-
-        Alias for :func:`services`
-
 .. py:function:: services(name=None, **kwargs)
 
         ::
@@ -101,13 +95,6 @@ Methods of Kubernetes
         :return: List of services. Typical service has "metadata", "status" and "spec".
         :rtype: list
 
-
-.. py:function:: ep(**kwargs)
-
-        ::
-
-        Alias for :func:`endpoints`
-
 .. py:function:: endpoints(name=None, **kwargs)
 
         ::
@@ -122,12 +109,6 @@ Methods of Kubernetes
 
         :return: List of Endpoints. Typical Endpoint has "metadata", and "subsets".
         :rtype: list
-
-.. py:function:: ing(**kwargs)
-
-        ::
-
-        Alias for :func:`ingresses`
 
 .. py:function:: ingresses(name=None, **kwargs)
 
@@ -161,12 +142,6 @@ Methods of Kubernetes
 
         :return: List of Statefulsets. Typical Statefulset has "metadata", "status" and "spec".
         :rtype: list
-
-.. py:function:: rs(**kwargs)
-
-        ::
-
-        Alias for :func:`replicasets`
 
 .. py:function:: replicasets(name=None, replicas=None, **kwargs)
 
@@ -207,12 +182,6 @@ Methods of Kubernetes
         :return: List of Deployments. Typical Deployment has "metadata", "status" and "spec".
         :rtype: list
 
-.. py:function:: cm(**kwargs)
-
-        ::
-
-        Alias for :func:`configmaps`
-
 .. py:function:: configmaps(name=None, **kwargs)
 
         ::
@@ -227,12 +196,6 @@ Methods of Kubernetes
 
         :return: List of ConfigMaps. Typical ConfigMap has "metadata", "status" and "spec".
         :rtype: list
-
-.. py:function:: pvc(**kwargs)
-
-        ::
-
-        Alias for :func:`persistentvolumeclaims`
 
 .. py:function:: persistentvolumeclaims(name=None, phase=None, **kwargs)
 
@@ -251,12 +214,6 @@ Methods of Kubernetes
 
         :return: List of PersistentVolumeClaims. Typical PersistentVolumeClaim has "metadata", "status" and "spec".
         :rtype: list
-
-.. py:function:: pv(**kwargs)
-
-        ::
-
-        Alias for :func:`persistentvolumes`
 
 .. py:function:: persistentvolumes(name=None, phase=None, **kwargs)
 
