@@ -12,7 +12,8 @@ Provides a wrapper for querying Kubernetes cluster resources.
 
 .. note::
 
-    Kubernetes wrapper will authenticate using service account, which assumes the wroker is running in a Kubernetes cluster.
+    - Kubernetes wrapper will authenticate using service account, which assumes the worker is running in a Kubernetes cluster.
+    - All Kubernetes wrapper calls are scoped to the Kubernetes cluster hosting the worker. It is not intended to be used in querying multiple clusters.
 
 .. _labelSelectors:
 
@@ -21,7 +22,7 @@ Label Selectors
 
 Kubernetes API provides a way to filter resources using `labelSelector <https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/>`_. Kubernetes wrapper provides a friendly syntax for filtering.
 
-The following examples show different usage of Kubernetes wrapper with label filtering:
+The following examples show different usage of the Kubernetes wrapper utilizing label filtering:
 
 .. code-block:: python
 
@@ -48,7 +49,7 @@ Methods of Kubernetes
 
         ::
 
-        Return list of Pods.
+        Return list of `Pods <https://kubernetes.io/docs/user-guide/pods/>`_.
 
         :param name: Pod name.
         :type name: str
@@ -56,7 +57,7 @@ Methods of Kubernetes
         :param phase: Pod status phase. Valid values are: Pending, Running, Failed, Succeeded or Unknown.
         :type phase: str
 
-        :param ready: Pod ready status. If None then all pods are returned.
+        :param ready: Pod readiness status. If ``None`` then all pods are returned.
         :type ready: bool
 
         :param **kwargs: Pod :ref:`labelSelectors` filters.
@@ -69,7 +70,7 @@ Methods of Kubernetes
 
         ::
 
-        Return list of nodes. Namespace is ignored.
+        Return list of `Nodes <https://kubernetes.io/docs/admin/node/>`_. Namespace does not apply.
 
         :param name: Node name.
         :type name: str
@@ -84,7 +85,7 @@ Methods of Kubernetes
 
         ::
 
-        Return list of Services.
+        Return list of `Services <https://kubernetes.io/docs/user-guide/services/>`_.
 
         :param name: Service name.
         :type name: str
@@ -114,7 +115,7 @@ Methods of Kubernetes
 
         ::
 
-        Return list of Ingresses.
+        Return list of `Ingresses <https://kubernetes.io/docs/user-guide/ingress/>`_.
 
         :param name: Ingress name.
         :type name: str
@@ -129,7 +130,7 @@ Methods of Kubernetes
 
         ::
 
-        Return list of Statefulsets.
+        Return list of `Statefulsets <https://kubernetes.io/docs/user-guide/petset/>`_.
 
         :param name: Statefulset name.
         :type name: str
@@ -147,7 +148,7 @@ Methods of Kubernetes
 
         ::
 
-        Return list of ReplicaSets.
+        Return list of `ReplicaSets <https://kubernetes.io/docs/user-guide/replicasets/>`_.
 
         :param name: ReplicaSet name.
         :type name: str
@@ -165,7 +166,7 @@ Methods of Kubernetes
 
         ::
 
-        Return list of Deployments.
+        Return list of `Deployments <https://kubernetes.io/docs/user-guide/deployments/>`_.
 
         :param name: Deployment name.
         :type name: str
@@ -173,7 +174,7 @@ Methods of Kubernetes
         :param replicas: Deployment replicas.
         :type replicas: int
 
-        :param ready: Deployment ready status.
+        :param ready: Deployment readiness status.
         :type ready: bool
 
         :param **kwargs: Deployment :ref:`labelSelectors` filters.
@@ -186,7 +187,7 @@ Methods of Kubernetes
 
         ::
 
-        Return list of ConfigMaps.
+        Return list of `ConfigMaps <https://kubernetes.io/docs/user-guide/configmap/>`_.
 
         :param name: ConfigMap name.
         :type name: str
@@ -194,14 +195,14 @@ Methods of Kubernetes
         :param **kwargs: ConfigMap :ref:`labelSelectors` filters.
         :type **kwargs: dict
 
-        :return: List of ConfigMaps. Typical ConfigMap has "metadata", "status" and "spec".
+        :return: List of ConfigMaps. Typical ConfigMap has "metadata" and "data".
         :rtype: list
 
 .. py:function:: persistentvolumeclaims(name=None, phase=None, **kwargs)
 
         ::
 
-        Return list of PersistentVolumeClaims.
+        Return list of `PersistentVolumeClaims <https://kubernetes.io/docs/user-guide/persistent-volumes/>`_.
 
         :param name: PersistentVolumeClaim name.
         :type name: str
@@ -219,7 +220,7 @@ Methods of Kubernetes
 
         ::
 
-        Return list of PersistentVolumes.
+        Return list of `PersistentVolumes <https://kubernetes.io/docs/user-guide/persistent-volumes/>`_.
 
         :param name: PersistentVolume name.
         :type name: str
