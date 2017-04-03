@@ -63,7 +63,7 @@ Methods of Kubernetes
         :param **kwargs: Pod :ref:`labelSelectors` filters.
         :type **kwargs: dict
 
-        :return: List of pods. Typical pod has "metadata", "status" and "spec".
+        :return: List of pods. Typical pod has "metadata", "status" and "spec" fields.
         :rtype: list
 
 .. py:function:: nodes(name=None, **kwargs)
@@ -78,7 +78,7 @@ Methods of Kubernetes
         :param **kwargs: Node :ref:`labelSelectors` filters.
         :type **kwargs: dict
 
-        :return: List of nodes. Typical pod has "metadata", "status" and "spec".
+        :return: List of nodes. Typical pod has "metadata", "status" and "spec" fields.
         :rtype: list
 
 .. py:function:: services(name=None, **kwargs)
@@ -93,7 +93,7 @@ Methods of Kubernetes
         :param **kwargs: Service :ref:`labelSelectors` filters.
         :type **kwargs: dict
 
-        :return: List of services. Typical service has "metadata", "status" and "spec".
+        :return: List of services. Typical service has "metadata", "status" and "spec" fields.
         :rtype: list
 
 .. py:function:: endpoints(name=None, **kwargs)
@@ -108,7 +108,7 @@ Methods of Kubernetes
         :param **kwargs: Endpoint :ref:`labelSelectors` filters.
         :type **kwargs: dict
 
-        :return: List of Endpoints. Typical Endpoint has "metadata", and "subsets".
+        :return: List of Endpoints. Typical Endpoint has "metadata", and "subsets" fields.
         :rtype: list
 
 .. py:function:: ingresses(name=None, **kwargs)
@@ -123,7 +123,7 @@ Methods of Kubernetes
         :param **kwargs: Ingress :ref:`labelSelectors` filters.
         :type **kwargs: dict
 
-        :return: List of Ingresses. Typical Ingress has "metadata", "spec" and "status".
+        :return: List of Ingresses. Typical Ingress has "metadata", "spec" and "status" fields.
         :rtype: list
 
 .. py:function:: statefulsets(name=None, replicas=None, **kwargs)
@@ -141,7 +141,22 @@ Methods of Kubernetes
         :param **kwargs: Statefulset :ref:`labelSelectors` filters.
         :type **kwargs: dict
 
-        :return: List of Statefulsets. Typical Statefulset has "metadata", "status" and "spec".
+        :return: List of Statefulsets. Typical Statefulset has "metadata", "status" and "spec" fields.
+        :rtype: list
+
+.. py:function:: daemonsets(name=None, **kwargs)
+
+        ::
+
+        Return list of `Daemonsets <https://kubernetes.io/docs/admin/daemons/>`_.
+
+        :param name: Daemonset name.
+        :type name: str
+
+        :param **kwargs: Daemonset :ref:`labelSelectors` filters.
+        :type **kwargs: dict
+
+        :return: List of Daemonsets. Typical Daemonset has "metadata", "status" and "spec" fields.
         :rtype: list
 
 .. py:function:: replicasets(name=None, replicas=None, **kwargs)
@@ -159,7 +174,7 @@ Methods of Kubernetes
         :param **kwargs: ReplicaSet :ref:`labelSelectors` filters.
         :type **kwargs: dict
 
-        :return: List of ReplicaSets. Typical ReplicaSet has "metadata", "status" and "spec".
+        :return: List of ReplicaSets. Typical ReplicaSet has "metadata", "status" and "spec" fields.
         :rtype: list
 
 .. py:function:: deployments(name=None, replicas=None, ready=None, **kwargs)
@@ -180,7 +195,7 @@ Methods of Kubernetes
         :param **kwargs: Deployment :ref:`labelSelectors` filters.
         :type **kwargs: dict
 
-        :return: List of Deployments. Typical Deployment has "metadata", "status" and "spec".
+        :return: List of Deployments. Typical Deployment has "metadata", "status" and "spec" fields.
         :rtype: list
 
 .. py:function:: configmaps(name=None, **kwargs)
@@ -213,7 +228,7 @@ Methods of Kubernetes
         :param **kwargs: PersistentVolumeClaim :ref:`labelSelectors` filters.
         :type **kwargs: dict
 
-        :return: List of PersistentVolumeClaims. Typical PersistentVolumeClaim has "metadata", "status" and "spec".
+        :return: List of PersistentVolumeClaims. Typical PersistentVolumeClaim has "metadata", "status" and "spec" fields.
         :rtype: list
 
 .. py:function:: persistentvolumes(name=None, phase=None, **kwargs)
@@ -231,7 +246,7 @@ Methods of Kubernetes
         :param **kwargs: PersistentVolume :ref:`labelSelectors` filters.
         :type **kwargs: dict
 
-        :return: List of PersistentVolumes. Typical PersistentVolume has "metadata", "status" and "spec".
+        :return: List of PersistentVolumes. Typical PersistentVolume has "metadata", "status" and "spec" fields.
         :rtype: list
 
 .. py:function:: metrics()
