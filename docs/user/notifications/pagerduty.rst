@@ -8,7 +8,7 @@ Notify `Pagerduty <https://www.pagerduty.com/>`_ of a new alert status. If alert
     Pagerduty notification plugin uses API v2.
 
 
-.. py:function:: notify_pagerduty(message='', per_entity=False, include_alert=True, alert_class=None, alert_group=None, **kwargs)
+.. py:function:: notify_pagerduty(message='', per_entity=False, include_alert=True, routing_key=None, alert_class=None, alert_group=None, **kwargs)
 
     ::
 
@@ -22,6 +22,9 @@ Notify `Pagerduty <https://www.pagerduty.com/>`_ of a new alert status. If alert
 
     :param include_alert: Include alert data in incident payload ``custom_details``. Default is ``True``.
     :type include_alert: bool
+
+    :param routing_key: Pagerduty service ``routing_key``. If not specified, then the :ref:`service key configured <notification-options-label>` for the worker will be used.
+    :type routing_key: str
 
     :param alert_class: Set the Pagerduty incident class.
     :type alert_class: str
