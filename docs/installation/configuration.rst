@@ -307,6 +307,12 @@ Twilio
 ``WORKER_NOTIFICATION_SERVICE_KEY``
     (optional, if not using oauth2) Preshared key to call notification service
 
+Pagerduty
+---------
+``WORKER_NOTIFICATIONS_PAGERDUTY_SERVICEKEY``
+    Routing key for a Pagerduty service
+
+
 
 Plug-In Options
 ---------------
