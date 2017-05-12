@@ -3,7 +3,7 @@ Mail
 
 Send email notifications.
 
-.. py:function:: send_mail(subject=None, cc=None, html=False, hide_recipients=True, include_value=True, include_definition=True, include_captures=True, include_entity=True)
+.. py:function:: send_mail(subject=None, cc=None, html=False, hide_recipients=True, include_value=True, include_definition=True, include_captures=True, include_entity=True, per_entity=True)
 
     ::
 
@@ -32,6 +32,9 @@ Send email notifications.
 
     :param include_entity: Include affected entities in notification message.
     :type include_entity: bool
+
+    :param per_entity: Send new email notification per entity. Default is ``True``.
+    :type per_entity: bool
 
 
 .. note::
