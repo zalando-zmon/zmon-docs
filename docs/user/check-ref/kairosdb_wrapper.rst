@@ -12,7 +12,7 @@ Provides read access to the target KairosDB
 Methods of KairosDB
 ^^^^^^^^^^^^^^^^^^^
 
-.. py:function:: query(name, group_by = None, tags = None, start = -5, end = 0, time_unit='seconds', aggregators = None)
+.. py:function:: query(name, group_by = None, tags = None, start = -5, end = 0, time_unit='seconds', aggregators = None, start_absolute = None, end_absolute = None)
 
     ::
 
@@ -38,6 +38,12 @@ Methods of KairosDB
 
     :param aggregators: List of aggregators.
     :type aggregators: list
+
+    :param start_absolute: Absolute start time in milliseconds, overrides the start parameter which is relative
+    :type start_absolute: long
+
+    :param end_absolute: Absolute end time in milliseconds, overrides the end parameter which is relative
+    :type end_absolute: long
 
     :return: Result queries.
     :rtype: dict
