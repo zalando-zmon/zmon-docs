@@ -85,7 +85,7 @@ Methods of S3
 
     ::
 
-    List the S3 Object associated with the given ``bucket_name``, matching ``prefix``.  
+    List the S3 Object associated with the given ``bucket_name``, matching ``prefix``.
     By default, listing is possible for up to 1000 keys, so we use pagination internally to overcome this.
     :param bucket_name: the name of the S3 Bucket
     :param prefix: the prefix to search under
