@@ -48,6 +48,7 @@ Methods of S3
 
     Get the S3 Object associated with the given ``bucket_name`` and ``key``. This method will cause the object to be
     read into memory.
+
     :param bucket_name: the name of the S3 Bucket
     :param key: the key that identifies the S3 Object within the S3 Bucket
     :return: an ``S3Object`` object
@@ -87,6 +88,7 @@ Methods of S3
 
     List the S3 Object associated with the given ``bucket_name``, matching ``prefix``.
     By default, listing is possible for up to 1000 keys, so we use pagination internally to overcome this.
+
     :param bucket_name: the name of the S3 Bucket
     :param prefix: the prefix to search under
     :param max_items: the maximum number of objects to list.  Defaults to 100.
@@ -112,4 +114,6 @@ Methods of S3
 
        s3().list_bucket('my bucket', 'some_prefix').files()
 
-       s3().list_bucket('my bucket', 'some_prefix', 10000).files()  # for listing a lot of keys
+       files = s3().list_bucket('my bucket', 'some_prefix', 10000).files()  # for listing a lot of keys
+       last_modified = files[0]["last_modified"].isoformat()  # returns a string that can be passed to time()
+       age = time() - time(last_modified) 
