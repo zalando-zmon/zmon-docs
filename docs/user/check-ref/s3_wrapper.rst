@@ -85,7 +85,8 @@ Methods of S3
 
     ::
 
-    List the S3 Object associated with the given ``bucket_name``, matching ``prefix``. 
+    List the S3 Object associated with the given ``bucket_name``, matching ``prefix``.  
+    By default, listing is possible for up to 1000 keys, so we use pagination internally to overcome this.
     :param bucket_name: the name of the S3 Bucket
     :param prefix: the prefix to search under
     :param max_items: the maximum number of objects to list.  Defaults to 100.
@@ -105,3 +106,10 @@ Methods of S3
                    "last_modified": datetime.datetime(2017, 7, 16, 1, 1, 21, tzinfo=tzutc())
                }
 
+    Example usage:
+
+    .. code-block:: python
+
+       s3().list_bucket('my bucket', 'some_prefix').files()
+
+       s3().list_bucket('my bucket', 'some_prefix', 10000).files()  # for listing a lot of keys
