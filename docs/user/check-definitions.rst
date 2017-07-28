@@ -46,4 +46,4 @@ Using the CLI
 .. code-block:: bash
 
     $ zmon check init new-check.yaml
-    $ zmon check push new-check.yaml
+    $ zmon check update new-check.yaml
