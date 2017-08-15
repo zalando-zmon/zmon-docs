@@ -4,7 +4,7 @@ Opsgenie
 Notify `Opsgenie <https://www.opsgenie.com/>`_ of a new alert status. If alert is **active**, then a new opsgenie alert will be created. If alert is **inactive** then the alert will be closed.
 
 
-.. py:function:: notify_opsgenie(message='', per_entity=False, include_alert=True, **kwargs)
+.. py:function:: notify_opsgenie(message='', teams=None, per_entity=False, include_alert=True, **kwargs)
 
     ::
 
@@ -12,6 +12,9 @@ Notify `Opsgenie <https://www.opsgenie.com/>`_ of a new alert status. If alert i
 
     :param message: Alert message. If empty, then a message will be generated from the alert data.
     :type message: str
+
+    :param teams: Opsgenie teams to be notified. Value can be a single team or a list of teams.
+    :type teams: str | list
 
     :param per_entity: Send new alert per entity. This affects the ``alias`` value and impacts how de-duplication is handled in Opsgenie. Default is ``False``.
     :type per_entity: bool
@@ -23,4 +26,4 @@ Notify `Opsgenie <https://www.opsgenie.com/>`_ of a new alert status. If alert i
 
     .. code-block:: python
 
-        notify_opsgenie(message='Number of failed requests is too high!', include_alert=True)
+        notify_opsgenie(teams=['zmon', 'ops'], message='Number of failed requests is too high!', include_alert=True)
