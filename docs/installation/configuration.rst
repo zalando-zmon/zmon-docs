@@ -16,7 +16,7 @@ Authentication
 For the ZMON controller we assume that it is publicly accessible.
 Thus the UI always requires users to login and the REST API, too.
 The REST API relies on tokens via the ``Authorization: Bearer <token>`` header to allow access.
-For environments where you have no OAauth2 setup you can configure pre-shared keys for API access.
+For environments where you have no OAuth2 setup you can configure pre-shared keys for API access.
 
 .. note::
 
@@ -337,6 +337,12 @@ If you need to access MySQL specify the user credentials below, again we suggest
    WORKER_PLUGIN_MYSQL_USER
    WORKER_PLUGIN_MYSQL_PASS
 
+
+To disable a plug-in, set option "enabled" for that plug-in to `false`:
+
+.. code-block:: bash
+
+    WORKER_PLUGIN_LDAP_ENABLED=false
 
 .. _Bootstrap: https://github.com/zalando-zmon/zmon-demo
 
