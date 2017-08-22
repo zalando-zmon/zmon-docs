@@ -5,6 +5,19 @@ CloudWatch
 
 If running on AWS you can use ``cloudwatch()`` to access AWS metrics easily.
 
+.. py:function:: cloudwatch(region=None, assume_role_arn=None)
+
+    ::
+
+    Initialize CloudWatch wrapper.
+
+    :param region: AWS region for CloudWatch queries. Will be auto-detected if not supplied.
+    :type region: str
+
+    :param assume_role_arn: AWS IAM role ARN to be assumed. This can be useful in cross-account CloudWatch queries.
+    :type assume_role_arn: str
+
+
 Methods of Cloudwatch
 ^^^^^^^^^^^^^^^^^^^^^
 
