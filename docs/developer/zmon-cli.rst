@@ -25,7 +25,7 @@ Configure your zmon cli by running ``configure``-
 Authentication
 ^^^^^^^^^^^^^^
 
-ZMON CLI tool must authenticate against zmon. Internally in uses zign to obtain access token, but you can override that behaviour by exporting a variable ZMON_TOKEN.
+ZMON CLI tool must authenticate against ZMON. Internally in uses zign to obtain access token, but you can override that behaviour by exporting a variable ZMON_TOKEN.
 
 .. code-block:: bash
 
