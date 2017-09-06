@@ -32,8 +32,10 @@ Generally, ZMON entity is a set of properties that can be represented as a multi
             "subProperty2": "bar",            
         }
     }
+2 notes here to keep in mind:
 
-Please note that ``id`` and ``type`` properties are **mandatory**.
+1. ``id`` and ``type`` properties are **mandatory**.
+2. ZMON filtering (e.g. in ZMON UI) **does not support nested properties**.
 
 
 Examples
