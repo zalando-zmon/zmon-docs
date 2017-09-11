@@ -3,7 +3,7 @@ Hipchat
 
 Notify Hipchat room with alert status.
 
-.. py:function:: send_hipchat(room=None, message=None, token=None, notify=False, color='red')
+.. py:function:: send_hipchat(room=None, message=None, token=None, notify=False, color='red', link=False, link_text='go to alert')
 
     ::
 
@@ -23,6 +23,12 @@ Notify Hipchat room with alert status.
 
     :param color: Message color. Default is ``red`` if alert is raised.
     :type color: str
+
+    :param link: Add link to Hipchat message. Default is ``False``.
+    :type link: bool
+    
+    :param link_text: if ``link`` param is ``True``, this will be displayed as a link in the hipchat message. Default is  ``go to alert``.
+    :type link_text: str
 
 .. note::
 
