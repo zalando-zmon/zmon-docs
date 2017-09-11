@@ -25,10 +25,10 @@ Notify Hipchat room with alert status.
     :type color: str
 
     :param link: Add link to Hipchat message. Default is ``False``.
-    :type color: bool
+    :type link: bool
     
     :param link_text: if ``link`` param is ``True``, this will be displayed as a link in the hipchat message. Default is  ``go to alert``.
-    :type color: str
+    :type link_text: str
 
 .. note::
 
