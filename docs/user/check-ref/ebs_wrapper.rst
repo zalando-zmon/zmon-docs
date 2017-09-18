@@ -41,7 +41,7 @@ Methods of EBS
 
     .. code-block:: python
 
-       ebs().list_snapshot().items()
+       ebs().list_snapshots().items()
 
        snapshots = ebs().list_snapshots(max_items=1000).items()  # for listing more than the default of 100 snapshots
        start_time = snapshots[0]["start_time"].isoformat()  # returns a string that can be passed to time()
