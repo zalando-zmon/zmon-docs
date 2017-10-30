@@ -48,6 +48,15 @@ The following functions are available in the alert condition expression:
     Returns a list for each entity containing the most recent value for the alert's check on that entity. Works regardless of the type of value. DOES NOT WORK in Trial Run right now!
 
 
+.. py:function:: monotonic([count=2, increasing=True, strictly=False, data=None])
+
+    Returns true if the values in ``data`` are (strictly) monotonic increasing / decreasing values. When ``data`` is not given, uses the result of ``value_series(count)`` as data (only works for checks returning a single value).
+
+    .. code-block:: python
+
+        # check that the value of `some_key` is monotonic increasing for the last 5 checks (including this one)
+        monotonic(data=[v.get('some_key', 0) for v in alert_series(5)])
+
 .. py:function:: timeseries_avg(time_spec)
 
     The arithmetic mean of the check values gathered in the specified time period. Returns ``None`` if there are no values. Only works for numeric values.
