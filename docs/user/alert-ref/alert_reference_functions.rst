@@ -57,6 +57,11 @@ The following functions are available in the alert condition expression:
         # check that the value of `some_key` is monotonic increasing for the last 5 checks (including this one)
         monotonic(data=[v.get('some_key', 0) for v in alert_series(5)])
 
+    .. note::
+
+        The order of the ``data`` is expected to have the latest value first and the oldest last
+
+
 .. py:function:: timeseries_avg(time_spec)
 
     The arithmetic mean of the check values gathered in the specified time period. Returns ``None`` if there are no values. Only works for numeric values.
