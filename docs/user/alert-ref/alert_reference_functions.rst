@@ -55,7 +55,7 @@ The following functions are available in the alert condition expression:
     .. code-block:: python
 
         # check that the value of `some_key` is monotonic increasing for the last 5 checks (including this one)
-        monotonic(data=[v.get('some_key', 0) for v in alert_series(5)])
+        monotonic(data=[v.get('some_key', 0) for v in value_series(5)])
 
     .. note::
 
