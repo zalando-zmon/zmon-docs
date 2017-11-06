@@ -26,7 +26,7 @@ Notify `Opsgenie <https://www.opsgenie.com/>`_ of a new alert status. If alert i
     :type include_alert: bool
 
     :param description: An optional description. If present, this is inserted into the opsgenie alert description field.
-    :type message: str
+    :type description: str
 
 
     Example:
