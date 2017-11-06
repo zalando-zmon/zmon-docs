@@ -4,7 +4,7 @@ Opsgenie
 Notify `Opsgenie <https://www.opsgenie.com/>`_ of a new alert status. If alert is **active**, then a new opsgenie alert will be created. If alert is **inactive** then the alert will be closed.
 
 
-.. py:function:: notify_opsgenie(message='', teams=None, per_entity=False, priority=None, include_alert=True, **kwargs)
+.. py:function:: notify_opsgenie(message='', teams=None, per_entity=False, priority=None, include_alert=True, description='', **kwargs)
 
     ::
 
@@ -24,6 +24,9 @@ Notify `Opsgenie <https://www.opsgenie.com/>`_ of a new alert status. If alert i
 
     :param include_alert: Include alert data in alert body ``details``. Default is ``True``.
     :type include_alert: bool
+
+    :param description: An optional description. If present, this is inserted into the opsgenie alert description field.
+    :type description: str
 
 
     Example:
