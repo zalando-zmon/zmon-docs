@@ -22,6 +22,15 @@ Configure your zmon cli by running ``configure``-
 
   zmon configure
 
+Authentication
+^^^^^^^^^^^^^^
+
+ZMON CLI tool must authenticate against ZMON. Internally it uses zign to obtain access token, but you can override that behaviour by exporting a variable ZMON_TOKEN.
+
+.. code-block:: bash
+
+  export ZMON_TOKEN=myfancytoken
+
 If you are using github for authentication, have an unprivileged personal access token ready.
 
 Entities
