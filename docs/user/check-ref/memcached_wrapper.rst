@@ -1,10 +1,10 @@
-Redis
------
+Memcached
+---------
 
 Read-only access to memcached servers is provided by the :py:func:`memcached` function.
 
 
-.. py:function:: redis([port=6379], [db=0])
+.. py:function:: memcached([host=some.host], [port=11211])
 
     Returns a connection to the Memcached server at :samp:`{<host>}:{<port>}`, where :samp:`{<host>}` is the value
     of the current entity's ``host`` attribute, and :samp:`{<port>}` is the given port (default ``11211``). See
@@ -12,7 +12,7 @@ Read-only access to memcached servers is provided by the :py:func:`memcached` fu
 
 
 Methods of the Memcached Connection
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The object returned by the :py:func:`memcached` function provides the following methods:
 
