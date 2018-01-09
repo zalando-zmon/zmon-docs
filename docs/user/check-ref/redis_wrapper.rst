@@ -66,7 +66,7 @@ The object returned by the :py:func:`redis` function provides the following meth
 
 .. py:method:: keys(pattern)
 
-    Returns list of keys from Redis matchin pattern.
+    Returns list of keys from Redis matching pattern.
 
     ::
 

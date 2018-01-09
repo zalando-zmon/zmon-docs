@@ -22,6 +22,7 @@ categories.
 .. include:: check-ref/kairosdb_wrapper.rst
 .. include:: check-ref/kubernetes_wrapper.rst
 .. include:: check-ref/ldap_wrapper.rst
+.. include:: check-ref/memcached_wrapper.rst
 .. include:: check-ref/mongodb_wrapper.rst
 .. include:: check-ref/nagios_wrapper.rst
 .. include:: check-ref/ping_wrapper.rst
