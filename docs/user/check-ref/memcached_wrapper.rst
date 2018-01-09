@@ -46,7 +46,7 @@ The object returned by the :py:func:`memcached` function provides the following 
 
     Example result:
 
-    .. code-block:: json
+.. code-block:: json
 
     {
         "incr_hits_per_sec": 0,
@@ -80,4 +80,4 @@ The object returned by the :py:func:`memcached` function provides the following 
 
 
 .. _Memcached documentation: https://lzone.de/cheat-sheet/memcached
-.. _Memcached INFO command: https://lzone.de/cheat-sheet/memcached#stats
+.. _Memcached STATS command: https://lzone.de/cheat-sheet/memcached#stats
