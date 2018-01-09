@@ -329,7 +329,22 @@ second half-hour the rest of the week, use the period
 
         wd {1 3 5 7} min {0-29}, wd {2 4 6} min {30-59}
 
-For more examples and syntax reference, please refer to this `documentation <http://search.cpan.org/~pryan/Period-1.20/Period.pm#PERIOD_EXAMPLES>`_
+For more examples and syntax reference, please refer to this `documentation <http://search.cpan.org/~pryan/Period-1.20/Period.pm#PERIOD_EXAMPLES>`_,
+note that suffixes like `am` or `pm` for hours are **not** supported, only
+integers between 0 and 23. In doubt, try calling with python with your period definition
+like
+
+    from timeperiod import in_period
+    in_period('hr { 0 - 23 }')
+
+This should not throw an exception. The
+timeperiod module in use is `timeperiod2 <https://pypi.python.org/pypi/timeperiod2>`_.
+The `in_period` function accepts a second parameter which is a
+`datetime <https://docs.python.org/2/library/datetime.html#datetime-objects>`_ like
+
+    from datetime import datetime
+    from timeperiod import in_period
+    in_period('hr { 7 - 23 }', datetime(2018, 1, 8, 2, 15)) # check 2018-01-08 02:15:00
 
 
 .. include:: alert-definition-inheritance.rst
