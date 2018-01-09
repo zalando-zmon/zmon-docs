@@ -334,6 +334,8 @@ note that suffixes like `am` or `pm` for hours are **not** supported, only
 integers between 0 and 23. In doubt, try calling with python with your period definition
 like
 
+.. code-block:: python
+
     from timeperiod import in_period
     in_period('hr { 0 - 23 }')
 
@@ -341,6 +343,8 @@ This should not throw an exception. The
 timeperiod module in use is `timeperiod2 <https://pypi.python.org/pypi/timeperiod2>`_.
 The `in_period` function accepts a second parameter which is a
 `datetime <https://docs.python.org/2/library/datetime.html#datetime-objects>`_ like
+
+.. code-block:: python
 
     from datetime import datetime
     from timeperiod import in_period
