@@ -1,8 +1,8 @@
 .. _comments:
 
 
-Comments
---------
+Alert Comments
+--------------
 
 Comments are useful in providing additional information to other members of your team (or other teams) about your alerts. Those with ADMIN, LEAD and USER roles can add comments to an alert, but VIEWERS can not. ADMINs can delete either their own or other people's comments. USERs can delete only their own comments.
 

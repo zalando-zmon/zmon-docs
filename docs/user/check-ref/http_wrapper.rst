@@ -48,7 +48,7 @@ The object returned by the :py:func:`http` function provides methods: :py:meth:`
 
     Since we’re using a relative url, this check has to be defined for
     specific entities (e.g. type=zomcat will run it on all zomcat
-    instances). The strip function removes all leading and trailing
+    instances). The strip function removes all leading and trailing
     whitespace.
 
 .. py:method:: headers(raise_error=True)

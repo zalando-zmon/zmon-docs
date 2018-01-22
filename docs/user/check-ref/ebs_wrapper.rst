@@ -33,7 +33,7 @@ Methods of EBS
                    "id": "snap-12345",
                    "description": "Snapshot description...",
                    "size": 123,
-                   "start_time": datetime.datetime(2017, 7, 16, 1, 1, 21, tzinfo=tzutc()),
+                   "start_time": "2017-07-16T01:01:21Z",
                    "state": "completed"
                }
 

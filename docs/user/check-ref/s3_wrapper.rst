@@ -23,13 +23,13 @@ Methods of S3
     :return: an ``S3ObjectMetadata`` object
 
     .. py:class:: S3ObjectMetadata
-	
+
         .. py:method:: exists()
-             
+
             Will return True if the object exists.
 
         .. py:method:: size()
-             
+
             Returns the size in bytes for the object. Will return -1 for objects that do not exist.
 
     Example usage:
@@ -37,8 +37,6 @@ Methods of S3
     .. code-block:: python
 
         s3().get_object_metadata('my bucket', 'mykeypart1/mykeypart2').exists()
-
-         
         s3().get_object_metadata('my bucket', 'mykeypart1/mykeypart2').size()
 
 
@@ -54,23 +52,23 @@ Methods of S3
     :return: an ``S3Object`` object
 
     .. py:class:: S3Object
-	
+
         .. py:method:: text()
 
             Get the S3 Object data
 
         .. py:method:: json()
-            
+
             If the object exists, parse the object as JSON.
 
             :return: a dict containing the parsed JSON or None if the object does not exist.
 
         .. py:method:: exists()
-             
+
             Will return True if the object exists.
 
         .. py:method:: size()
-             
+
             Returns the size in bytes for the object. Will return -1 for objects that do not exist.
 
     Example usage:
@@ -105,7 +103,7 @@ Methods of S3
                {
                    "file_name": "foo",
                    "size": 12345,
-                   "last_modified": datetime.datetime(2017, 7, 16, 1, 1, 21, tzinfo=tzutc())
+                   "last_modified": "2017-07-17T01:01:21Z"
                }
 
     Example usage:
