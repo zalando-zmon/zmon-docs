@@ -11,8 +11,9 @@ ZMON gives you two options for automation in/integration with your platform: sto
 At Zalando we use both, connecting ZMON to tools like our CMDB but also pushing entities via REST API.
 
 ZMON's entity service describes entities with a single JSON document.
-* Any entity must contain an ID that is unique within your ZMON deployment. We often use a pattern like ``<hostname>(:<port>)`` to create uniqueness at the host and application levels, but this is up to you.
-* Any entity must contain a type which describes the kind of entity, like an object class.
+
+- Any entity must contain an ID that is unique within your ZMON deployment. We often use a pattern like ``<hostname>(:<port>)`` to create uniqueness at the host and application levels, but this is up to you.
+- Any entity must contain a type which describes the kind of entity, like an object class.
 
 At the check execution we bind entity properties as default values to the functions executed, e.g. the IP gets used for relative ``http()`` requests.
 
