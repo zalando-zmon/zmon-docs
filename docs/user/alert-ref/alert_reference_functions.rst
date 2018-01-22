@@ -11,6 +11,31 @@ Therefore, a value of ``5m`` would indicate that all values gathered in the last
 .. note::
     Trial Run doesn't provide any previous values. Please check how functions depending on check values behave in case values were not available.
 
+
+Timeseries functions
+^^^^^^^^^^^^^^^^^^^^
+
+All of the ``timeseries_*`` functions below additionally accept a named parameter ``key=func`` which can be used to extract the wanted value
+from a dict or an array. To get the value of the key ``my-key`` from a dict, you can use e.g.
+
+.. code-block:: python
+
+    res = timeseries_sum('5m', key=lambda x: x.get('my-key', 0))
+
+.. note::
+    The values for the ``timeseries_*``  functions are retrieved from the local redis instance. By default the last 20 check results are kept in this
+    instance. Time ranges which exceed 20 times the check interval will lead to unexpected results.
+
+Previous Check results
+^^^^^^^^^^^^^^^^^^^^^^
+
+The data source for the ``alert_series`` and ``value_series`` is the same as for the ``timeseries_*`` functions. Both functions return **up to** the
+requested number of results - as much as data is available. By default the maximum is 20 (see the above note for the timeseries functions).
+
+
+Alert condition functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
 The following functions are available in the alert condition expression:
 
 
