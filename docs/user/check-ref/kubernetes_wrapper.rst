@@ -6,8 +6,6 @@ Provides a wrapper for querying Kubernetes cluster resources.
 
 .. py:function:: kubernetes(namespace='default')
 
-    ::
-
     If ``namespace`` is ``None`` then **all** namespaces will be queried. This however will increase the number of calls to Kubernetes API server.
 
 .. note::
@@ -47,8 +45,6 @@ Methods of Kubernetes
 
 .. py:function:: pods(name=None, phase=None, ready=None, **kwargs)
 
-        ::
-
         Return list of `Pods <https://kubernetes.io/docs/user-guide/pods/>`_.
 
         :param name: Pod name.
@@ -68,8 +64,6 @@ Methods of Kubernetes
 
 .. py:function:: nodes(name=None, **kwargs)
 
-        ::
-
         Return list of `Nodes <https://kubernetes.io/docs/admin/node/>`_. Namespace does not apply.
 
         :param name: Node name.
@@ -82,8 +76,6 @@ Methods of Kubernetes
         :rtype: list
 
 .. py:function:: services(name=None, **kwargs)
-
-        ::
 
         Return list of `Services <https://kubernetes.io/docs/user-guide/services/>`_.
 
@@ -98,8 +90,6 @@ Methods of Kubernetes
 
 .. py:function:: endpoints(name=None, **kwargs)
 
-        ::
-
         Return list of Endpoints.
 
         :param name: Endpoint name.
@@ -113,8 +103,6 @@ Methods of Kubernetes
 
 .. py:function:: ingresses(name=None, **kwargs)
 
-        ::
-
         Return list of `Ingresses <https://kubernetes.io/docs/user-guide/ingress/>`_.
 
         :param name: Ingress name.
@@ -127,8 +115,6 @@ Methods of Kubernetes
         :rtype: list
 
 .. py:function:: statefulsets(name=None, replicas=None, **kwargs)
-
-        ::
 
         Return list of `Statefulsets <https://kubernetes.io/docs/user-guide/petset/>`_.
 
@@ -146,8 +132,6 @@ Methods of Kubernetes
 
 .. py:function:: daemonsets(name=None, **kwargs)
 
-        ::
-
         Return list of `Daemonsets <https://kubernetes.io/docs/admin/daemons/>`_.
 
         :param name: Daemonset name.
@@ -160,8 +144,6 @@ Methods of Kubernetes
         :rtype: list
 
 .. py:function:: replicasets(name=None, replicas=None, **kwargs)
-
-        ::
 
         Return list of `ReplicaSets <https://kubernetes.io/docs/user-guide/replicasets/>`_.
 
@@ -178,8 +160,6 @@ Methods of Kubernetes
         :rtype: list
 
 .. py:function:: deployments(name=None, replicas=None, ready=None, **kwargs)
-
-        ::
 
         Return list of `Deployments <https://kubernetes.io/docs/user-guide/deployments/>`_.
 
@@ -200,8 +180,6 @@ Methods of Kubernetes
 
 .. py:function:: configmaps(name=None, **kwargs)
 
-        ::
-
         Return list of `ConfigMaps <https://kubernetes.io/docs/user-guide/configmap/>`_.
 
         :param name: ConfigMap name.
@@ -214,8 +192,6 @@ Methods of Kubernetes
         :rtype: list
 
 .. py:function:: persistentvolumeclaims(name=None, phase=None, **kwargs)
-
-        ::
 
         Return list of `PersistentVolumeClaims <https://kubernetes.io/docs/user-guide/persistent-volumes/>`_.
 
@@ -233,8 +209,6 @@ Methods of Kubernetes
 
 .. py:function:: persistentvolumes(name=None, phase=None, **kwargs)
 
-        ::
-
         Return list of `PersistentVolumes <https://kubernetes.io/docs/user-guide/persistent-volumes/>`_.
 
         :param name: PersistentVolume name.
@@ -250,8 +224,6 @@ Methods of Kubernetes
         :rtype: list
 
 .. py:function:: metrics()
-
-        ::
 
         Return API server metrics in prometheus format.
 

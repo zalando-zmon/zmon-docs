@@ -5,8 +5,6 @@ Send email notifications.
 
 .. py:function:: send_mail(subject=None, cc=None, html=False, hide_recipients=True, include_value=True, include_definition=True, include_captures=True, include_entity=True, per_entity=True)
 
-    ::
-
     Send email notification.
 
     :param subject: Email subject.

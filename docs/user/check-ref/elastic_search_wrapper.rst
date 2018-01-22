@@ -15,8 +15,6 @@ Methods of Elasticsearch
 
 .. py:function:: search(indices=None, q='', body=None, source=True, size=DEFAULT_SIZE)
 
-    ::
-
     Search ES cluster using URI or Request body search. If ``body`` is None then GET request will be used.
 
     :param indices: List of indices to search. Limited to only 10 indices. ['_all'] will search all available
@@ -61,8 +59,6 @@ Methods of Elasticsearch
 
 .. py:function:: count(indices=None, q='', body=None)
 
-    ::
-
     Return ES count of matching query.
 
     :param indices: List of indices to search. Limited to only 10 indices. ['_all'] will search all available
@@ -94,8 +90,6 @@ Methods of Elasticsearch
         }
 
 .. py:method:: health()
-
-    ::
 
     Return ES cluster health.
 

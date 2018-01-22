@@ -6,8 +6,6 @@ Provides notification by invoking HTTP call to certain endpoint. HTTP notificati
 
 .. py:function:: notify_http(url=None, body=None, params=None, headers=None, timeout=5, oauth2=False, include_alert=True)
 
-    ::
-
     Send HTTP notification to specified endpoint.
 
     :param url: HTTP endpoint URL. If not passed, then default URL will be used in worker configuration.

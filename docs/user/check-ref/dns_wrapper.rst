@@ -11,8 +11,6 @@ Methods of DNS
 
 .. py:method:: resolve(host=None)
 
-    ::
-
     Return IP address of host. If host is ``None``, then will resolve host used in initialization. If both are ``None`` then exception will be raised.
 
     :return: IP address

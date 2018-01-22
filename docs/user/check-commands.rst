@@ -592,8 +592,6 @@ The following general-purpose functions are available in check commands:
 
 .. py:function:: re
 
-    ::
-
     Python regex ``re`` module for all regex operations.
 
     .. code-block:: python
@@ -605,8 +603,6 @@ The following general-purpose functions are available in check commands:
         True
 
 .. py:function:: math
-
-    ::
 
     Python ``math`` module for all math operations.
 

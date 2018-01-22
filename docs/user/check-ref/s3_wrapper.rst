@@ -12,8 +12,6 @@ Methods of S3
 
 .. py:function:: get_object_metadata(bucket_name, key)
 
-    ::
-
     Get the metadata associated with the given ``bucket_name`` and ``key``. The metadata allows you to check for the 
     existance of the key within the bucket and to check how large the object is without reading the whole object into
     memory.
@@ -41,8 +39,6 @@ Methods of S3
 
 
 .. py:function:: get_object(bucket_name, key)
-
-    ::
 
     Get the S3 Object associated with the given ``bucket_name`` and ``key``. This method will cause the object to be
     read into memory.
@@ -81,8 +77,6 @@ Methods of S3
 
 
 .. py:function:: list_bucket(bucket_name, prefix, max_items)
-
-    ::
 
     List the S3 Object associated with the given ``bucket_name``, matching ``prefix``.
     By default, listing is possible for up to 1000 keys, so we use pagination internally to overcome this.

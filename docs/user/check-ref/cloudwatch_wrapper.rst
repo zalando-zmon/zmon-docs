@@ -7,8 +7,6 @@ If running on AWS you can use ``cloudwatch()`` to access AWS metrics easily.
 
 .. py:function:: cloudwatch(region=None, assume_role_arn=None)
 
-    ::
-
     Initialize CloudWatch wrapper.
 
     :param region: AWS region for CloudWatch queries. Will be auto-detected if not supplied.
@@ -22,8 +20,6 @@ Methods of Cloudwatch
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. py:method:: query_one(dimensions, metric_name, statistics, namespace, period=60, minutes=5, start=None, end=None, extended_statistics=None)
-
-    ::
 
     Query a single AWS CloudWatch metric and return a single scalar value (float).
     Metric will be aggregated over the last five minutes using the provided aggregation type.
@@ -92,7 +88,7 @@ Methods of Cloudwatch
 
   To query an ELB for requests per second:
 
-  ::
+  .. code-block:: python
 
         # both using special "NOT_SET" and "*" in dimensions here:
         val = cloudwatch().query({'AvailabilityZone': 'NOT_SET', 'LoadBalancerName': 'pierone-*'}, 'RequestCount', 'Sum')['RequestCount']
@@ -121,8 +117,6 @@ The desired metric can now be queried in ZMON:
 
 
 .. py:method:: alarms(alarm_names=None, alarm_name_prefix=None, state_value=STATE_ALARM, action_prefix=None, max_records=50)
-
-    ::
 
     Retrieve cloudwatch alarms filtered by state value.
 
