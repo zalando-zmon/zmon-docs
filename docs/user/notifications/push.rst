@@ -5,8 +5,6 @@ Send push notification via ZMON `notification service <https://github.com/zaland
 
 .. py:function:: send_push(url=None, key=None, message=None)
 
-    ::
-
     Send Push notification to mobile devices.
 
     :param url: Notification service base URL.

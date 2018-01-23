@@ -14,8 +14,6 @@ Methods of KairosDB
 
 .. py:function:: query(name, group_by = None, tags = None, start = -5, end = 0, time_unit='seconds', aggregators = None, start_absolute = None, end_absolute = None)
 
-    ::
-
     Query kairosdb.
 
     :param name: Metric name.

@@ -31,7 +31,7 @@ The following fields exist for alert definitions:
         Additional filter to apply the alert definition only to a subset of entities.
 
     notifications
-        List of notification commands, e.g. to send out emails.
+        List of :ref:`notification <notifications>` commands, e.g. to send out emails.
 
     time_period
         Notification time period.

@@ -5,8 +5,6 @@ Notify Slack channel with alert status. A ``webhook`` is required for notificati
 
 .. py:function:: notify_slack(webhook=None, channel='#general', message=None)
 
-    ::
-
     Send Slack notification to specified channel.
 
     :param webhook: Slack webhook. If not set, then webhook set in configuration will be used.

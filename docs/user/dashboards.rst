@@ -36,30 +36,30 @@ ZMON's customizable dashboards enable you to configure widgets and choose which 
         .. code-block:: json
 
             [
-                {
-                    "checkDefinitionId": 1,
-                    "entityId": "GLOBAL",
-                    "type": "gauge",
-                    "title": "Order Failure %",
-                    "options": {
-                        "max": 35
-                    }
-                },
-                {
-                    "checkDefinitionId": 4,
-                    "entityId": "GLOBAL",
-                    "type": "gauge",
-                    "title": "Random",
-                    "options": {
-                        "max": 100
-                    }
-                },
-                {
-                    "checkDefinitionId": 5,
-                    "entityId": "my_db_name-live",
-                    "type": "value",
-                    "title": "My database value"
-                }
+                {
+                    "checkDefinitionId": 1,
+                    "entityId": "GLOBAL",
+                    "type": "gauge",
+                    "title": "Order Failure %",
+                    "options": {
+                        "max": 35
+                    }
+                },
+                {
+                    "checkDefinitionId": 4,
+                    "entityId": "GLOBAL",
+                    "type": "gauge",
+                    "title": "Random",
+                    "options": {
+                        "max": 100
+                    }
+                },
+                {
+                    "checkDefinitionId": 5,
+                    "entityId": "my_db_name-live",
+                    "type": "value",
+                    "title": "My database value"
+                }
             ]
 
         Supported widget types are:
@@ -71,7 +71,7 @@ ZMON's customizable dashboards enable you to configure widgets and choose which 
         * iframe
 
         In order to edit a specific dashboard, go to the dashboard tab, and
-        click the edit button. To set it as active, just click on its name. 
+        click the edit button. To set it as active, just click on its name. 
 
         In order to be able to create or edit a new dashboard, user should be
         logged in. Unless you have the admin role, you will only be able to edit

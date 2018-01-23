@@ -12,8 +12,6 @@ Methods of History
 
 .. py:function:: result(time_from=ONE_WEEK_AND_5MIN, time_to=ONE_WEEK)
 
-    ::
-
     Return query result.
 
     :param time_from: Relative time from in seconds. Default is ``ONE_WEEK_AND_5MIN``.
@@ -27,8 +25,6 @@ Methods of History
 
 .. py:function:: get_one(time_from=ONE_WEEK_AND_5MIN, time_to=ONE_WEEK)
 
-    ::
-
     Return first result values.
 
     :param time_from: Relative time from in seconds. Default is ``ONE_WEEK_AND_5MIN``.
@@ -41,8 +37,6 @@ Methods of History
     :rtype: list
 
 .. py:function:: get_aggregated(key, aggregator, time_from=ONE_WEEK_AND_5MIN, time_to=ONE_WEEK)
-
-    ::
 
     Return first result values. If no ``key`` filtering matches, empty list is returned.
 
@@ -63,8 +57,6 @@ Methods of History
 
 .. py:function:: get_avg(key, time_from=ONE_WEEK_AND_5MIN, time_to=ONE_WEEK)
 
-    ::
-
     Return aggregated average.
 
     :param key: Tag key used in filtering the results.
@@ -81,8 +73,6 @@ Methods of History
 
 .. py:function:: get_std_dev(key, time_from=ONE_WEEK_AND_5MIN, time_to=ONE_WEEK)
 
-    ::
-
     Return aggregated standard deviation.
 
     :param key: Tag key used in filtering the results.
@@ -98,7 +88,5 @@ Methods of History
     :rtype: list
 
 .. py:function:: distance(self, weeks=4, snap_to_bin=True, bin_size='1h', dict_extractor_path='')
-
-    ::
 
     For detailed docs on distance function please see :ref:`History distance functionality <history-distance-label>` .

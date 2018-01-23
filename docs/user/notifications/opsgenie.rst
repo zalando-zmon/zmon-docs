@@ -6,8 +6,6 @@ Notify `Opsgenie <https://www.opsgenie.com/>`_ of a new alert status. If alert i
 
 .. py:function:: notify_opsgenie(message='', teams=None, per_entity=False, priority=None, include_alert=True, description='', **kwargs)
 
-    ::
-
     Send notifications to Opsgenie.
 
     :param message: Alert message. If empty, then a message will be generated from the alert data.
@@ -37,5 +35,5 @@ Notify `Opsgenie <https://www.opsgenie.com/>`_ of a new alert status. If alert i
 
 
 .. note::
-    
+
     If ``priority`` is not set, then ZMON will set the priority according to the alert priority.

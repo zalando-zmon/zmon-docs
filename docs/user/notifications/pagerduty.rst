@@ -10,8 +10,6 @@ Notify `Pagerduty <https://www.pagerduty.com/>`_ of a new alert status. If alert
 
 .. py:function:: notify_pagerduty(message='', per_entity=False, include_alert=True, routing_key=None, alert_class=None, alert_group=None, **kwargs)
 
-    ::
-
     Send notifications to Pagerduty.
 
     :param message: Incident message. If empty, then a message will be generated from the alert data.

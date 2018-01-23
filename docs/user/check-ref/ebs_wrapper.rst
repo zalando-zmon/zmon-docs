@@ -12,8 +12,6 @@ Methods of EBS
 
 .. py:function:: list_snapshots(account_id, max_items)
 
-    ::
-
     List the EBS Snapshots owned by the given account_id.
     By default, listing is possible for up to 1000 items, so we use pagination internally to overcome this.
 
@@ -33,7 +31,7 @@ Methods of EBS
                    "id": "snap-12345",
                    "description": "Snapshot description...",
                    "size": 123,
-                   "start_time": datetime.datetime(2017, 7, 16, 1, 1, 21, tzinfo=tzutc()),
+                   "start_time": "2017-07-16T01:01:21Z",
                    "state": "completed"
                }
 

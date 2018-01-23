@@ -5,8 +5,6 @@ Send Hubot notification.
 
 .. py:function:: notify_hubot(queue, hubot_url, message=None)
 
-    ::
-
     Send Hubot notification.
 
     :param queue: Hubot queue.

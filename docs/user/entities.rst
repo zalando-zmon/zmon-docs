@@ -7,12 +7,13 @@ Entities
 Entities describe what you want to monitor in your infrastructure.
 This can be as basic as a host, with its attributes hostname and IP; or something more complex, like a PostgreSQL sharded cluster with its identifier and set of connection strings.
 
-ZMON gives you two options for autonomation in/integration with your platform: storing entities via zmon-controller_'s entity service, or discovering them via the adapters in zmon-scheduler_.
+ZMON gives you two options for automation in/integration with your platform: storing entities via zmon-controller_'s entity service, or discovering them via the adapters in zmon-scheduler_.
 At Zalando we use both, connecting ZMON to tools like our CMDB but also pushing entities via REST API.
 
 ZMON's entity service describes entities with a single JSON document.
-Any entity must contain an ID that is unique within your ZMON deployment.
-We often use a pattern like <hostname>(:<port>) to create uniqueness at the host and application levels, but this is up to you.
+
+- Any entity must contain an ID that is unique within your ZMON deployment. We often use a pattern like ``<hostname>(:<port>)`` to create uniqueness at the host and application levels, but this is up to you.
+- Any entity must contain a type which describes the kind of entity, like an object class.
 
 At the check execution we bind entity properties as default values to the functions executed, e.g. the IP gets used for relative ``http()`` requests.
 
@@ -29,7 +30,7 @@ Generally, ZMON entity is a set of properties that can be represented as a multi
         "oneMoreProperty":"foo",
         "nestedProperty": {
             "subProperty1": "foo",
-            "subProperty2": "bar",            
+            "subProperty2": "bar",
         }
     }
 2 notes here to keep in mind:
