@@ -97,9 +97,9 @@ The object returned by the :py:func:`http` function provides methods: :py:meth:`
 
         http("/metrics", timeout=5).prometheus()
 
-.. _http-jolokaia:
+.. _http-jolokia:
 
-.. py:method:: jolokaia(read_requests, raise_error=False)
+.. py:method:: jolokia(read_requests, raise_error=False)
 
     Does a POST request to the endpoint given in the wrapper, with validating the endpoint and setting
     the request to be read-only.
