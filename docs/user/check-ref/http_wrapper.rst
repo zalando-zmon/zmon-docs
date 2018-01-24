@@ -96,3 +96,25 @@ The object returned by the :py:func:`http` function provides methods: :py:meth:`
     Parse the resulting text result according to the Prometheus specs using their prometheus_client.
 
         http("/metrics", timeout=5).prometheus()
+
+.. _http-jolokia:
+
+.. py:method:: jolokia(read_requests, raise_error=False)
+
+    Does a POST request to the endpoint given in the wrapper, with validating the endpoint and setting
+    the request to be read-only.
+
+    :param read_requests: see https://jolokia.org/reference/html/protocol.html#post-request
+    :type read_requests: list
+    :param raise_error: bool
+    :return: Jolokia response
+
+    Example:
+
+        .. code-block:: python
+
+            requests = [
+                {'mbean': 'org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=Latency'},
+                {'mbean': 'org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Latency'},
+            ]
+            results = http('http://{}:8778/jolokia/'.format(entity['ip']), timeout=15).jolokia(requests)
