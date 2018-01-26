@@ -56,8 +56,8 @@ Methods of Kubernetes
         :param ready: Pod readiness status. If ``None`` then all pods are returned.
         :type ready: bool
 
-        :param **kwargs: Pod :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: Pod :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of pods. Typical pod has "metadata", "status" and "spec" fields.
         :rtype: list
@@ -69,8 +69,8 @@ Methods of Kubernetes
         :param name: Node name.
         :type name: str
 
-        :param **kwargs: Node :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: Node :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of nodes. Typical pod has "metadata", "status" and "spec" fields.
         :rtype: list
@@ -82,8 +82,8 @@ Methods of Kubernetes
         :param name: Service name.
         :type name: str
 
-        :param **kwargs: Service :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: Service :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of services. Typical service has "metadata", "status" and "spec" fields.
         :rtype: list
@@ -95,8 +95,8 @@ Methods of Kubernetes
         :param name: Endpoint name.
         :type name: str
 
-        :param **kwargs: Endpoint :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: Endpoint :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of Endpoints. Typical Endpoint has "metadata", and "subsets" fields.
         :rtype: list
@@ -108,8 +108,8 @@ Methods of Kubernetes
         :param name: Ingress name.
         :type name: str
 
-        :param **kwargs: Ingress :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: Ingress :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of Ingresses. Typical Ingress has "metadata", "spec" and "status" fields.
         :rtype: list
@@ -124,8 +124,8 @@ Methods of Kubernetes
         :param replicas: Statefulset replicas.
         :type replicas: int
 
-        :param **kwargs: Statefulset :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: Statefulset :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of Statefulsets. Typical Statefulset has "metadata", "status" and "spec" fields.
         :rtype: list
@@ -137,8 +137,8 @@ Methods of Kubernetes
         :param name: Daemonset name.
         :type name: str
 
-        :param **kwargs: Daemonset :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: Daemonset :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of Daemonsets. Typical Daemonset has "metadata", "status" and "spec" fields.
         :rtype: list
@@ -153,8 +153,8 @@ Methods of Kubernetes
         :param replicas: ReplicaSet replicas.
         :type replicas: int
 
-        :param **kwargs: ReplicaSet :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: ReplicaSet :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of ReplicaSets. Typical ReplicaSet has "metadata", "status" and "spec" fields.
         :rtype: list
@@ -172,8 +172,8 @@ Methods of Kubernetes
         :param ready: Deployment readiness status.
         :type ready: bool
 
-        :param **kwargs: Deployment :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: Deployment :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of Deployments. Typical Deployment has "metadata", "status" and "spec" fields.
         :rtype: list
@@ -185,8 +185,8 @@ Methods of Kubernetes
         :param name: ConfigMap name.
         :type name: str
 
-        :param **kwargs: ConfigMap :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: ConfigMap :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of ConfigMaps. Typical ConfigMap has "metadata" and "data".
         :rtype: list
@@ -201,8 +201,8 @@ Methods of Kubernetes
         :param phase: Volume phase.
         :type phase: str
 
-        :param **kwargs: PersistentVolumeClaim :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: PersistentVolumeClaim :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of PersistentVolumeClaims. Typical PersistentVolumeClaim has "metadata", "status" and "spec" fields.
         :rtype: list
@@ -217,8 +217,8 @@ Methods of Kubernetes
         :param phase: Volume phase.
         :type phase: str
 
-        :param **kwargs: PersistentVolume :ref:`labelSelectors` filters.
-        :type **kwargs: dict
+        :param kwargs: PersistentVolume :ref:`labelSelectors` filters.
+        :type kwargs: dict
 
         :return: List of PersistentVolumes. Typical PersistentVolume has "metadata", "status" and "spec" fields.
         :rtype: list
