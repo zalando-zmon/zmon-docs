@@ -39,7 +39,7 @@ Methods of KairosDB
     :type end: int
 
     :param time_unit: Time unit ('seconds', 'minutes', 'hours'). Default is 'minutes'.
-    :type time_unit: str.
+    :type time_unit: str
 
     :param aggregators: List of aggregators. Aggregator is an object that looks like
 
@@ -104,7 +104,7 @@ Methods of KairosDB
     :type end: int
 
     :param time_unit: Time unit ('seconds', 'minutes', 'hours'). Default is 'minutes'.
-    :type time_unit: str.
+    :type time_unit: str
 
     :param start_absolute: Absolute start time in milliseconds, overrides the start parameter which is relative
     :type start_absolute: long
