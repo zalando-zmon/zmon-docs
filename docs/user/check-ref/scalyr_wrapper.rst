@@ -27,13 +27,13 @@ The ``scalyr()`` wrapper enables querying Scalyr from your AWS worker if the cre
     This method is used to retrieve the most common values for a field.
 
 
-.. py:method:: messages(query, max_count=100, minutes=5, continuation_token=None)
+.. py:method:: logs(query, max_count=100, minutes=5, continuation_token=None)
 
-    Runs a query against Scalyr and returns messages that match the query. At most ``max_count`` messages will be returned
-    but more can be fetched with the same query by passing back the continuation_token from the last response back into the 
-    messages method.
+    Runs a query against Scalyr and returns logs that match the query. At most ``max_count`` log liness will be returned.
+    More can be fetched with the same query by passing back the continuation_token from the last response into the 
+    logs method.
     
-    An example messages result as JSON:
+    An example logs result as JSON:
 
     .. code-block:: json
 
