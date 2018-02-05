@@ -121,6 +121,15 @@ The object returned by the :py:func:`redis` function provides the following meth
         redis().ttl('lock')
 
 
+.. py:method:: zcard(key)
+
+    Return the number of elements in the sorted set ``key``
+
+    ::
+
+        redis().zcard("example_sorted_set_key")
+
+
 .. py:method:: statistics()
 
     Returns a ``dict`` with general Redis statistics such as memory usage and operations/s.
