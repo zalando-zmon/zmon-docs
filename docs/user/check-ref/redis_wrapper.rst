@@ -120,6 +120,23 @@ The object returned by the :py:func:`redis` function provides the following meth
 
         redis().ttl('lock')
 
+.. py:method:: scard(key)
+
+    Return the number of elements in set ``key``
+
+    ::
+
+        redis().scard("example_hash_key")
+
+
+.. py:method:: zcard(key)
+
+    Return the number of elements in the sorted set ``key``
+
+    ::
+
+        redis().zcard("example_sorted_set_key")
+
 
 .. py:method:: statistics()
 
