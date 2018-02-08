@@ -19,12 +19,32 @@ The ``scalyr()`` wrapper enables querying Scalyr from your AWS worker if the cre
 
 .. py:method:: timeseries(query, minutes=30)
 
-    Runs a timeseries query agains Scalyr with more generous rate limits. (New time series are created on the fly by Scalyr)
+    Runs a timeseries query against Scalyr with more generous rate limits. (New time series are created on the fly by Scalyr)
 
 
 .. py:method:: facets(filter, field, max_count=5, minutes=30, prio='low')
 
     This method is used to retrieve the most common values for a field.
+
+
+.. py:method:: logs(query, max_count=100, minutes=5, continuation_token=None)
+
+    Runs a query against Scalyr and returns logs that match the query. At most ``max_count`` log liness will be returned.
+    More can be fetched with the same query by passing back the continuation_token from the last response into the 
+    logs method.
+    
+    An example logs result as JSON:
+
+    .. code-block:: json
+
+        {
+            "messages": [
+               "message line 1",
+               "message line 2"
+            ],
+            "continuation_token": "a token"
+        }
+
 
 Custom Scalyr Region
 ^^^^^^^^^^^^^^^^^^^^
