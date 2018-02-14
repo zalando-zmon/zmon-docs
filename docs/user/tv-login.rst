@@ -16,7 +16,7 @@ How does it work
 First time a valid one time token is used to login we associate a random UUID with it and the device IP.
 Both are registered within ZMON to create a persisted session, thus this will continue to work after the frontend gets deployed.
 
-Tokens can't be reused. Once used, it can no longer be used and you need to create a new one. You'll need a different token per additional 
+Tokens can't be reused. Once used, it can no longer be used and you need to create a new one. You'll need a different token per additional
 device or location. One time token sessions will last up to 365 days.
 
 
@@ -25,11 +25,18 @@ Using the menu option
 
 First you need to login using your own personal credentials or Single Sign-On mechanism. After logging in you can use the top right
 drop-down menu with your username to reveal the "Switch to TV mode" option.
- 
+
 .. image:: /images/switch-tv-mode.png
- 
-Clicking this option will replace your login session with a new session using a newly created one time token. You'll be able to 
-confirm by checking the username in the drop-down menu where your username used to be present. There will be a new username with 
+
+Clicking this option will replace your login session with a new session using a newly created one time token, but your personal session
+will still be valid!. You must log out before leaving the device unattended.
+
+A pop-up dialog will ask you to take action. If you decide to Logout, a new Tab will open to log you out. You can safely
+close this Tab after successful logout and return to ZMON, which will now be on TV Mode.
+
+.. image:: /images/tv-mode-logout-dialog.png
+
+You'll be able to confirm by checking the username in the drop-down menu where your username used to be present. There will be a new username with
 the pattern "ZMON_TV_123abc".
 
 .. image:: /images/tv-mode.png
