@@ -105,6 +105,17 @@ Make everyone admin for now:
 
     -e ZMON_AUTHORITIES_SIMPLE_ADMINS=* \
 
+
+Logout URL
+^^^^^^^^^^
+
+When switching to TV Mode, you can use this to enable the Pop-up dialog described in
+:doc:`/user/tv-login` which opens the Logout URL in a new Tab to terminate the user's session.
+
+.. code-block:: bash
+
+    -e ZMON_LOGOUT_URL="https://example.com/logout"
+
 Dependencies
 ^^^^^^^^^^^^
 
