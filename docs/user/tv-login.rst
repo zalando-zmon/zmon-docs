@@ -34,6 +34,8 @@ will still be valid!. You must log out before leaving the device unattended.
 A pop-up dialog will ask you to take action. If you decide to Logout, a new Tab will open to log you out. You can safely
 close this Tab after successful logout and return to ZMON, which will now be on TV Mode.
 
+For more information on the Logout URL, please check :doc:`/installation/configuration`.
+
 .. image:: /images/tv-mode-logout-dialog.png
 
 You'll be able to confirm by checking the username in the drop-down menu where your username used to be present. There will be a new username with
