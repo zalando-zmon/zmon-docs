@@ -246,7 +246,7 @@ Methods of Kubernetes
         :param **kwargs: CronJob labelSelector filters.
         :type **kwargs: dict
 
-        :return: List of CornJobs. Typical CronJob has "metadata", "status" and "spec".
+        :return: List of CronJobs. Typical CronJob has "metadata", "status" and "spec".
         :rtype: list
 
 .. py:function:: metrics()
