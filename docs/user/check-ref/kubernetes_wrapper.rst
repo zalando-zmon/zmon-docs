@@ -223,6 +223,32 @@ Methods of Kubernetes
         :return: List of PersistentVolumes. Typical PersistentVolume has "metadata", "status" and "spec" fields.
         :rtype: list
 
+.. py:function:: jobs(name=None, **kwargs)
+
+        Return list of `Jobs <https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/>`_.
+
+        :param name: Job name.
+        :type name: str
+
+        :param **kwargs: Job labelSelector filters.
+        :type **kwargs: dict
+
+        :return: List of Jobs. Typical Job has "metadata", "status" and "spec".
+        :rtype: list
+
+.. py:function:: cronjobs(name=None, **kwargs)
+
+        Return list of `CronJobs <https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/>`_.
+
+        :param name: CronJob name.
+        :type name: str
+
+        :param **kwargs: CronJob labelSelector filters.
+        :type **kwargs: dict
+
+        :return: List of CronJobs. Typical CronJob has "metadata", "status" and "spec".
+        :rtype: list
+
 .. py:function:: metrics()
 
         Return API server metrics in prometheus format.
