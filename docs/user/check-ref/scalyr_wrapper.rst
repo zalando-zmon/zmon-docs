@@ -29,7 +29,7 @@ The ``scalyr()`` wrapper enables querying Scalyr from your AWS worker if the cre
 
 .. py:method:: logs(query, max_count=100, minutes=5, continuation_token=None)
 
-    Runs a query against Scalyr and returns logs that match the query. At most ``max_count`` log liness will be returned.
+    Runs a query against Scalyr and returns logs that match the query. At most ``max_count`` log lines will be returned.
     More can be fetched with the same query by passing back the continuation_token from the last response into the 
     logs method.
     
