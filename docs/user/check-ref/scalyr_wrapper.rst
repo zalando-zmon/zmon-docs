@@ -5,7 +5,7 @@ Wrapper
 ^^^^^^^
 
 The ``scalyr()`` wrapper enables querying Scalyr from your AWS worker if the credentials have been specified for the worker instance(s).
-
+For more description of each type of query, please refer to https://www.scalyr.com/help/api .
 
 .. py:method:: count(query, minutes=5)
 
@@ -27,12 +27,15 @@ The ``scalyr()`` wrapper enables querying Scalyr from your AWS worker if the cre
     This method is used to retrieve the most common values for a field.
 
 
-.. py:method:: logs(query, max_count=100, minutes=5, continuation_token=None)
+.. py:method:: logs(query, max_count=100, minutes=5, continuation_token=None, columns=None)
 
     Runs a query against Scalyr and returns logs that match the query. At most ``max_count`` log lines will be returned.
-    More can be fetched with the same query by passing back the continuation_token from the last response into the 
+    More can be fetched with the same query by passing back the continuation_token from the last response into the
     logs method.
-    
+
+    Specific columns can be returned (as defined in scalyr parser) using the columns array e.g. ``columns=['severity','threadName','timestamp']``.
+    If this is unspecified, only the message column will be returned.
+
     An example logs result as JSON:
 
     .. code-block:: json
@@ -49,7 +52,7 @@ The ``scalyr()`` wrapper enables querying Scalyr from your AWS worker if the cre
 Custom Scalyr Region
 ^^^^^^^^^^^^^^^^^^^^
 
-By default the Scalyr wrapper uses https://www.scalyr.com/ as the default region. Overriding is possible using ``scalyr(scalyr_region='eu')`` if you want to use their Europe environment https://eu.scalyr.com/. 
+By default the Scalyr wrapper uses https://www.scalyr.com/ as the default region. Overriding is possible using ``scalyr(scalyr_region='eu')`` if you want to use their Europe environment https://eu.scalyr.com/.
 
 
     ::
