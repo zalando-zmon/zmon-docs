@@ -3,7 +3,7 @@ Hipchat
 
 Notify Hipchat room with alert status.
 
-.. py:function:: send_hipchat(room=None, message=None, token=None, notify=False, color='red', link=False, link_text='go to alert')
+.. py:function:: send_hipchat(room=None, message=None, token=None, message_format='html', notify=False, color='red', link=False, link_text='go to alert')
 
     Send Hipchat notification to specified room.
 
@@ -15,6 +15,9 @@ Notify Hipchat room with alert status.
 
     :param token: Hipchat API token.
     :type token: str
+    
+    :param message_format: message format - ``html`` (default) or ``text`` (which correctly treats @mentions).
+    :type token: str    
 
     :param notify: Hipchat notify flag. Default is False.
     :type notify: bool
@@ -32,12 +35,24 @@ Notify Hipchat room with alert status.
 
     Message color will be determined based on alert status. If alert has ended, then ``color`` will be ``green``, otherwise ``color`` argument will be used.
 
-    Example message:
+    Example message - using html format (default):
 
     .. code-block:: python
 
         {
             "message": "NEW ALERT: Requests failing with status 500 on host-production-1-entity",
             "color": "red",
-            "notify": true,
+            "notify": true
         }
+        
+    Example message - using text format with @mention:
+
+    .. code-block:: python
+
+        {
+            "message": "@here NEW ALERT: Requests failing with status 500 on host-production-1-entity",
+            "color": "red",
+            "notify": true,
+            "message_format": "text"
+        }
+        
