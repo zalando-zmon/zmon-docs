@@ -17,7 +17,7 @@ Notify Hipchat room with alert status.
     :type token: str
     
     :param message_format: message format - ``html`` (default) or ``text`` (which correctly treats @mentions).
-    :type token: str    
+    :type message_format: str    
 
     :param notify: Hipchat notify flag. Default is False.
     :type notify: bool
