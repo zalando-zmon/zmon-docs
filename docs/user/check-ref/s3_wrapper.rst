@@ -76,7 +76,7 @@ Methods of S3
         s3().get_object('my bucket', 'mykeypart1/my_json_doc.json').json()
 
 
-.. py:function:: list_bucket(bucket_name, prefix, max_items)
+.. py:function:: list_bucket(bucket_name, prefix, max_items=100, recursive=True)
 
     List the S3 Object associated with the given ``bucket_name``, matching ``prefix``.
     By default, listing is possible for up to 1000 keys, so we use pagination internally to overcome this.
@@ -84,6 +84,7 @@ Methods of S3
     :param bucket_name: the name of the S3 Bucket
     :param prefix: the prefix to search under
     :param max_items: the maximum number of objects to list.  Defaults to 100.
+    :param recursive: if the listing should contain deeply nested keys. Defaults to True.
     :return: an ``S3FileList`` object
 
     .. py:class:: S3FileList
