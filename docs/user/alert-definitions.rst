@@ -275,7 +275,7 @@ Example SMS:
 Time periods
 ------------
 
-ZMON 2.0 allows specifying time periods in alert definitions.
+ZMON 2.0 allows specifying time periods (in UTC) in alert definitions.
 When specified, user will be notified about the alert only when it occurs during given period.
 Examples below cover most common use cases of time periods’ definitions.
 
