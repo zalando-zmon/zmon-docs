@@ -44,7 +44,7 @@ Pushing entities with the zmon cli is as easy as:
 .. code-block:: bash
 
   zmon entities push \
-    '{"id":"localhost:3421","name":"zmon-scheduler-ng","host":"localhost","ports":{"3421":3421}}'
+    '{"id":"localhost:3421","type":"instance","name":"zmon-scheduler-ng","host":"localhost","ports":{"3421":3421}}'
 
 Existing entities with the same ID will be updated.
 
@@ -54,6 +54,9 @@ The client however also supports loading data from .json and .yaml files, both m
 
   zmon entities push your-entities.yaml
 
+
+.. Note::
+    Creating entity of type GLOBAL is not allowed. GLOBAL as an entity type is reserved for ZMON's internal use.
 
 .. Tip::
 
