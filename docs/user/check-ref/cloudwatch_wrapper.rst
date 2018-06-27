@@ -61,11 +61,12 @@ Methods of Cloudwatch
 
     .. code-block:: python
 
-        cloudwatch().query_one({'LoadBalancer': 'app/my-alb/1234'}, 'TargetResponseTime', 'Average', 'AWS/ApplicationELB', extended_statistics=['p95', 'p99'])
+        cloudwatch().query_one({'LoadBalancer': 'app/my-alb/1234'}, 'TargetResponseTime', 'Average', 'AWS/ApplicationELB', extended_statistics=['p95', 'p99', 'p99.45'])
         {
-            'TargetResponseTime': 0.224,
+            'Average': 0.224,
             'p95': 0.245,
-            'p99': 0.300
+            'p99': 0.300,
+            'p99.45': 0.500
         }
 
 .. note::
