@@ -27,5 +27,11 @@ Run docs locally:
 
     $ python -m SimpleHTTPServer 8888
 
+If you are using Python3:
+
+.. code-block:: bash
+
+    $ python3 -m http.server 8888
+
 Docs at:
     `http://localhost:8888/_build/html/`
