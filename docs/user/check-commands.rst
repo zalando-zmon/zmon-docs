@@ -396,6 +396,9 @@ The following general-purpose functions are available in check commands:
         >>> ord('A')
         65
 
+.. py:function:: parse_cert(pem, [decode_base64])
+
+    Returns a `Certificate object <https://cryptography.io/en/latest/x509/reference/#x-509-certificate-object>`__ for details. The first argument `pem` is the PEM encoded certificate as string and the optional argument is used to decode Base64 before parsing the string.
 
 .. py:function:: pow(x, y, [z])
 
