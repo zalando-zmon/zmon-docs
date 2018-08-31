@@ -23,6 +23,9 @@ Notify `Opsgenie <https://www.opsgenie.com/>`_ of a new alert status. If alert i
     :param include_alert: Include alert data in alert body ``details``. Default is ``True``.
     :type include_alert: bool
 
+    :param include_captures: Include captures data in alert body ``details``. Default is ``False``.
+    :type include_captures: bool
+
     :param description: An optional description. If present, this is inserted into the opsgenie alert description field.
     :type description: str
 
