@@ -7,7 +7,7 @@ Notify Google Hangouts Chat room with alert status.
 
     Send Google Hangouts Chat notification.
     
-    :param webhook_link: Webhook Link in Google Hangouts Chat Room. Create a Webhook and copy the link here.
+    :param webhook_link: Webhook Link in Google Hangouts Chat Room. [Create a Webhook](https://developers.google.com/hangouts/chat/how-tos/webhooks) and copy the link here.
     :type webhook_link: str
 
     :param message: Message to be sent. If ``None``, then a message constructed from the alert will be sent.
