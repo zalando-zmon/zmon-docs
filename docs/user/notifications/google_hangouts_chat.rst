@@ -9,6 +9,9 @@ Notify Google Hangouts Chat room with alert status.
     
     :param webhook_link: Webhook Link in Google Hangouts Chat Room. Create a `Google Hangouts Chat Webhook`_ and copy the link here.
     :type webhook_link: str
+    
+    :param multiline: Should the Text in the notification span multiple lines or not? Default is ``True``.
+    :type multiline: bool
 
     :param message: Message to be sent. If ``None``, then a message constructed from the alert will be sent.
     :type message: str
