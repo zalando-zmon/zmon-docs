@@ -8,7 +8,10 @@ Send email notifications.
     Send email notification.
 
     :param subject: Email subject.
-    :type subject: str
+                    You must use a unicode string (e.g. `u'äöüß'`) if you have non-ASCII
+                    characters in there.
+                    If None, the alert name will be used.
+    :type subject: str or unicode or None
 
     :param cc: List of CC recipients.
     :type cc: list
