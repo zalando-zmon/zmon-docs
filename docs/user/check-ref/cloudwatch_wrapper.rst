@@ -30,7 +30,7 @@ Methods of Cloudwatch
     :type dimensions: dict
 
     :param metric_name: Cloudwatch metric. Example ``'Latency'``.
-    :type metric_name: list
+    :type metric_name: str
 
     :param statistics: Cloudwatch metric statistics. Example ``'Sum'``
     :type statistics: list
