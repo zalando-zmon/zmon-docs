@@ -56,7 +56,7 @@ The client however also supports loading data from .json and .yaml files, both m
 
 
 .. Note::
-    Creating entity of type GLOBAL is not allowed. GLOBAL as an entity type is reserved for ZMON's internal use.
+    Creating an entity of type GLOBAL is not allowed. GLOBAL as an entity type is reserved for ZMON's internal use.
 
 
 .. Tip::
