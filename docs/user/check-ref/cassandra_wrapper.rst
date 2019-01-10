@@ -5,6 +5,7 @@ Provides access to a Cassandra cluster via ``cassandra()`` wrapper object.
 
 .. py:function:: cassandra(node, keyspace, username=None, password=None, port=9042, connect_timeout=1, protocol_version=3)
 
+
     Initialize cassandra wrapper.
 
     :param node: Cassandra host.
