@@ -13,12 +13,13 @@ Read-only access to Redis servers is provided by the :py:func:`redis` function.
     :param host: Redis host.
     :type host: str
 
-    :param password:  If set - enables authentication to the destination server with the password provided.
+    :param password:  If set - enables authentication to the destination redis server with the password provided. Default is None.
     :type password: str
 
 .. note::
 
-    You can also use ``plugin.redis.password`` plugin confirguration for zmon appliance to enable password auth for this plugin.
+    If ``password`` param is not supplied, then plugin configuration values will be used.
+    You can use ``plugin.redis.password`` to configure password redis authentication for zmon-worker.
 
 Please also have a look at the `Redis documentation`_.
 
