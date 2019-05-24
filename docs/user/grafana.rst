@@ -59,15 +59,7 @@ ZMON stores all data to a single check in a time series named: "zmon.check.<chec
 
 Single data points are then tagged as follows to describe their contents:
 
- * entity: containing the entity id (some character replace rules are applied)
+ * entity: entity instance id (some character replace rules are applied)
  * key: containing the dict key after serialization of check value (see above)
  * metric: contains the last segment of "key" split by "." (making selection easier in tooling)
- * hg: host group(hg) will contain a substring of the entity id, to try to group e.g. cassandra01 and cassandra02 into hg=cassandra
-
-For a certrain set of metrics additional tags may be deployed(REST metrics/actuator)
-
- * sc: HTTP status code
- * sg: first digit of HTTP status code
-
-Some of the tagging may seem strange, but as KairosDB does not allow real operations on tags they are basically precreated to allow easier filtering in the tools/charts.
-This is also fine from a storage/performance point of view during writes, as KairosDB's Cassandra implementation creates a new row for each unique tuple (time series name, set of tags) thus this is only stored once.
+ * application: the application label attribute of the entity
