@@ -97,6 +97,15 @@ The object returned by the :py:func:`http` function provides methods: :py:meth:`
 
         http("/metrics", timeout=5).prometheus()
 
+.. _http-prometheus_flat:
+
+.. py:method:: prometheus_flat()
+
+    Parse the resulting text result according to the Prometheus specs using their prometheus_client 
+    and flattens the outcome.
+
+        http("/metrics", timeout=5).prometheus_flat()
+
 .. _http-jolokia:
 
 .. py:method:: jolokia(read_requests, raise_error=False)
