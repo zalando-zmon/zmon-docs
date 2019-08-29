@@ -24,16 +24,17 @@ Workers will send all their data to KairosDB. Depending on the KairosDB setting,
 Serialization
 -------------
 
-For checks retrieving only numeric values data storage in KairosDB is easy.
-But the worker will also flatten more complex result types and persist them in KairosDB.
-At Zalando checks that yield only single numeric values have become quite rare.
+In the simplest case you would have a check producing a single numeric value.
+In Zalando's experience this is very rare.
 
-If the check returns dictionary the worker will try to flatten its structure and persist all entries with a numeric value.
+Zmon also supports arbitrarily nested dictionaries of numeric values.
+Anything that is not a dictionary or a number will be silently dropped.
+The value is flattened into a single-level dictionary such that the elements can be stored in KairosDB (key-value storage).
 
 .. code-block:: json
 
     {
-        "load": {"1min":1,"5min":3,"15min":2}
+        "load": {"1min":1,"5min":3,"15min":2},
         "memory_free": 16000
     }
 
@@ -48,7 +49,49 @@ Will be flattened to an equivalent of
         "memory_free": 16000
     }
 
-Always yielding a simple dictionary with (key, value) pairs.
+You might also want to output a list. The simple workaround is to generate a dictionary whose
+keys are some identifier extracted from the elements.
+
+e.g. transform this list:
+
+.. code-block:: json
+{
+  "partitions": [
+    {
+      "count": 2254839,
+      "partition": "0",
+      "stream_id": "55491eb8-3ccc-40c5-b7c6-69bf38df3e16"
+    },
+    {
+      "count": 2029956,
+      "partition": "1",
+      "stream_id": "aa938451-d115-4e90-a5da-1ac4b435a4e9"
+    },
+
+into the following dictionary:
+
+.. code-block:: json
+{
+  "partitions": {
+    "0": {
+      "count": 2254839,
+      "partition": "0",
+      "stream_id": "55491eb8-3ccc-40c5-b7c6-69bf38df3e16"
+    },
+    "1": {
+      "count": 2029956,
+      "partition": "1",
+      "stream_id": "aa938451-d115-4e90-a5da-1ac4b435a4e9"
+    },
+
+this will be stored the same way as the value (remember that strings are dropped):
+
+.. code-block:: json
+
+    {
+        "partitions.0.count": 2254839,
+        "partitions.1.count": 2029956
+    }
 
 Tagging
 -------
