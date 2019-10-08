@@ -52,9 +52,9 @@ For more description of each type of query, please refer to https://www.scalyr.c
 Custom Scalyr Region
 ^^^^^^^^^^^^^^^^^^^^
 
-By default the Scalyr wrapper uses https://www.scalyr.com/ as the default region. Overriding is possible using ``scalyr(scalyr_region='eu')`` if you want to use their Europe environment https://eu.scalyr.com/.
+By default the Scalyr wrapper uses https://eu.scalyr.com/ as the default region. Overriding is possible using ``scalyr(scalyr_region='us')`` if you want to use their US environment https://www.scalyr.com/.
 
 
     ::
 
-        scalyr(scalyr_region='eu').count(' ERROR ')
+        scalyr(scalyr_region='us').count(' ERROR ')
