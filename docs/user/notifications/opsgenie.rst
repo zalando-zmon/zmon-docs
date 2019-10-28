@@ -4,7 +4,7 @@ Opsgenie
 Notify `Opsgenie <https://www.opsgenie.com/>`_ of a new alert status. If alert is **active**, then a new opsgenie alert will be created. If alert is **inactive** then the alert will be closed.
 
 
-.. py:function:: notify_opsgenie(message='', teams=None, per_entity=False, priority=None, include_alert=True, description='', **kwargs)
+.. py:function:: notify_opsgenie(message='', teams=None, per_entity=False, priority=None, include_alert=True, description='', custom_fields=None, **kwargs)
 
     Send notifications to Opsgenie.
 
@@ -28,6 +28,9 @@ Notify `Opsgenie <https://www.opsgenie.com/>`_ of a new alert status. If alert i
 
     :param description: An optional description. If present, this is inserted into the opsgenie alert description field.
     :type description: str
+    
+    :param custom_fields: If present, this will added the given fields into the ops genie details field.
+    :type custom_fields: dict
 
 
     Example:
