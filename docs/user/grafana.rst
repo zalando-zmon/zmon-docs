@@ -55,6 +55,7 @@ keys are some identifier extracted from the elements.
 e.g. transform this list:
 
 .. code-block:: json
+
 {
   "partitions": [
     {
@@ -71,6 +72,7 @@ e.g. transform this list:
 into the following dictionary:
 
 .. code-block:: json
+
 {
   "partitions": {
     "0": {
