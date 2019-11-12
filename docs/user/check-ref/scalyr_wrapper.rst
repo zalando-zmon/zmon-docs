@@ -11,8 +11,7 @@ Default parameters:
 
 * ``minutes`` specifies the start time of the query. I.e. "5" will mean 5 minutes ago.
 * ``end`` specifies the end time of the query. I.e. "2" will mean until 2 minutes ago. If set to ``None``, then the end is set to 24h after ``minutes``. The default "0" means `now`.
-
-   
+For ``minutes`` and ``end`` you can also specify absolute times like "2017-10-11T10:45:00+0800".
 
 .. py:method:: count(query, minutes=5, end=0)
 
