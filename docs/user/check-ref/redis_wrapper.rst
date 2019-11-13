@@ -149,6 +149,10 @@ The object returned by the :py:func:`redis` function provides the following meth
         redis().zcard("example_sorted_set_key")
 
 
+.. py:method:: info([section])
+
+    Returns a ``dict`` containing all information exposed by the `Redis INFO command`_.
+
 .. py:method:: statistics()
 
     Returns a ``dict`` with general Redis statistics such as memory usage and operations/s.
