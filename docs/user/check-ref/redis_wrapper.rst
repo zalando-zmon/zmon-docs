@@ -104,6 +104,15 @@ The object returned by the :py:func:`redis` function provides the following meth
         redis().hgetall("example_hash_key")
 
 
+.. py:method:: hlen(key)
+
+    Returns number of keys in hash ``key``.
+
+    ::
+
+        redis().hlen("example_hash_key")
+        
+
 .. py:method:: scan(cursor, [match=None], [count=None])
 
     Returns a ``set`` with the next cursor and the results from this scan.
