@@ -3,7 +3,7 @@ Google Hangouts Chat
 
 Notify Google Hangouts Chat room with alert status.
 
-.. py:function:: send_google_hangouts_chat(webhook_link=None, message=None, color='red')
+.. py:function:: send_google_hangouts_chat(webhook_link=None, message=None, color='red', threading='alert')
 
     Send Google Hangouts Chat notification.
     
@@ -18,6 +18,9 @@ Notify Google Hangouts Chat room with alert status.
 
     :param color: Message color. Default is ``red`` if alert is raised.
     :type color: str
+
+    :param threading: Message threading behaviour. Allowed values are ``alert`` (thread per alert entity), ``date`` (thread per day), ``alert-date`` (thread per alert entity per day) or ``none`` (unique thread per notification). Default is ``alert``.
+    :type threading: str
 
 .. note::
 
