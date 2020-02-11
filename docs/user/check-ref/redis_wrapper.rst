@@ -4,7 +4,8 @@ Redis
 Read-only access to Redis servers is provided by the :py:func:`redis` function.
 
 
-.. py:function:: redis([port=6379], [db=0])
+.. py:function:: redis([port=6379], [db=0], [socket_connect_timeout=1], [socket_timeout=5], [ssl=False],
+                 [ssl_cert_reqs='required'])
 
     Returns a connection to the Redis server at :samp:`{<host>}:{<port>}`, where :samp:`{<host>}` is the value
     of the current entity's ``host`` attribute, and :samp:`{<port>}` is the given port (default ``6379``). See
