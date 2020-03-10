@@ -33,6 +33,11 @@ For ``minutes`` and ``end`` you can also specify absolute times like "2017-10-11
     This method is used to retrieve the most common values for a field.
 
 
+.. py:method:: function(function, query, minutes=5, end=0)
+
+    This method is used to apply the given `function` on the results of `query`. For available functions see graphFunctions:https://app.scalyr.com/help/query-language#graphFunctions. Internally this method uses timeseriesQuery:https://app.scalyr.com/help/api#timeseriesQuery
+
+
 .. py:method:: logs(query, max_count=100, minutes=5, continuation_token=None, columns=None, end=0)
 
     Runs a query against Scalyr and returns logs that match the query. At most ``max_count`` log lines will be returned.
